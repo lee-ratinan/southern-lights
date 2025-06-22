@@ -36,22 +36,20 @@
     </script>
 </head>
 <body class="index-page">
-    Language: <?= $locale ?><br>
-    URL: <?= current_url() ?><br>
-    Menu:<br>
-    <ul>
-        <li><a href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a></li>
-        <li><a href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a></li>
-        <li><a href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a></li>
-        <li><a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a></li>
-    </ul>
-    Languages:<br>
-    <ul>
-        <li><a href="<?= base_url('en/' . $uri) ?>">English</a></li>
-        <li><a href="<?= base_url('th/' . $uri) ?>">ภาษาไทย</a></li>
-        <li><a href="<?= base_url('zh/' . $uri) ?>">中文</a></li>
-        <li><a href="<?= base_url('es/' . $uri) ?>">español</a></li>
-    </ul>
+    <nav>
+        <b><?= lang('Theme.website-name') ?></b>
+        <a href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a> |
+        <a href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a> |
+        <a href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a> |
+        <a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a> -
+        <a href="<?= base_url('en/' . $uri) ?>">EN</a> |
+        <a href="<?= base_url('th/' . $uri) ?>">ท</a> |
+        <a href="<?= base_url('zh/' . $uri) ?>">中</a> |
+        <a href="<?= base_url('es/' . $uri) ?>">ES</a>
+    </nav>
+    <hr />
     <?= $this->renderSection('content') ?>
+    <hr />
+    <p>&copy; <?= date('Y') ?> | All Rights Reserved | Southern Lights Ltd.</p>
 </body>
 </html>
