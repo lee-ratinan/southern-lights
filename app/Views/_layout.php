@@ -41,6 +41,7 @@
     <link href="<?= base_url('/vendor/aos/aos.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/glightbox/css/glightbox.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('/vendor/flag-icon/flags.min.css') ?>" rel="stylesheet" />
     <!-- Main CSS File -->
     <link href="<?= base_url('/strategy-theme/css/main.css') ?>" rel="stylesheet">
     <!-- =======================================================
@@ -67,11 +68,18 @@
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <?php if ('en' == $locale) : ?>
-        <a class="btn-getstarted" href="<?= base_url('th/' . $uri) ?>">ภาษาไทย</a>
-        <?php else: ?>
-        <a class="btn-getstarted" href="<?= base_url('en/' . $uri) ?>">English</a>
-        <?php endif; ?>
+        <?php
+        $lang_uri = $uri;
+        if ('blog-view' == $slug) {
+            $lang_uri = 'blog';
+        }
+        ?>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Change language buttons">
+            <a class="btn btn-outline-secondary" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
+            <a class="btn btn-outline-secondary" href="<?= base_url('th/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-th"></i></a>
+            <a class="btn btn-outline-secondary" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
+            <a class="btn btn-outline-secondary" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
+        </div>
     </div>
 </header>
 <main class="main">

@@ -108,10 +108,7 @@ class Home extends BaseController
             $mode         = 'tag';
             $term         = $tag;
         }
-        $category_id = getenv('WORDPRESS_LOCALE_TH');
-        if ('en' == $locale) {
-            $category_id = getenv('WORDPRESS_LOCALE_EN');
-        }
+        $category_id = getenv('WORDPRESS_LOCALE_' . strtoupper($locale));
         $posts  = retrieveWordPressPosts("posts?page={$page}&per_page={$limit}&categories={$category_id}{$query_string}");
         $data   = [
             'slug'   => 'blog',
