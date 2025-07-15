@@ -150,7 +150,7 @@ function retrieveWordPressPosts($url_part): array
  * @param string $slug
  * @return array
  */
-function generateWordPressPage(string $slug): array
+function generateWordPressPost(string $slug): array
 {
     $slug      = strtolower($slug);
     $url       = getenv('WORDPRESS_URL') . 'posts/?slug=' . $slug;
@@ -181,6 +181,26 @@ function generateWordPressPage(string $slug): array
         'media'             => $media,
         'tags'             => $tags,
         'author'           => $author,
+    ];
+}
+
+/**
+ * @param string $slug
+ * @return array
+ */
+function generateWordPressPage(string $slug): array
+{
+    $slug      = strtolower($slug);
+    $url       = getenv('WORDPRESS_URL') . 'pages/?slug=' . $slug;
+    $response  = callWordPressCurl($url);
+    $page_data = $response['body'][0] ?? null;
+    if (!$page_data) {
+        throw new PageNotFoundException('Cannot find the post with code ' . $slug);
+    }
+    return [
+        'title'   => $page_data['title']['rendered'],
+        'content' => $page_data['content']['rendered'],
+        'updated' => $page_data['modified_gmt'],
     ];
 }
 

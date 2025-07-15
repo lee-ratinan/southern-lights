@@ -44,11 +44,15 @@ class Home extends BaseController
      */
     public function services(): string
     {
-        $locale = service('request')->getLocale();
-        $data   = [
-            'slug'   => 'services',
-            'locale' => $locale,
-            'uri'    => 'services'
+        helper('wordpress');
+        $locale  = service('request')->getLocale();
+        $slug    = 'services-' . strtolower($locale);
+        $content = generateWordPressPage($slug);
+        $data    = [
+            'slug'    => 'services',
+            'locale'  => $locale,
+            'uri'     => 'services',
+            'content' => $content
         ];
         return view('services', $data);
     }
@@ -59,11 +63,15 @@ class Home extends BaseController
      */
     public function promotions(): string
     {
-        $locale = service('request')->getLocale();
-        $data   = [
+        helper('wordpress');
+        $locale  = service('request')->getLocale();
+        $slug    = 'promotions-' . strtolower($locale);
+        $content = generateWordPressPage($slug);
+        $data    = [
             'slug'   => 'promotions',
             'locale' => $locale,
-            'uri'    => 'promotions'
+            'uri'    => 'promotions',
+            'content' => $content
         ];
         return view('promotions', $data);
     }
@@ -161,7 +169,7 @@ class Home extends BaseController
         helper('wordpress');
         $blog_slug = $this->request->getVar('s');
         $locale    = service('request')->getLocale();
-        $post      = generateWordPressPage($blog_slug);
+        $post      = generateWordPressPost($blog_slug);
         $data      = [
             'slug'   => 'blog-view',
             'locale' => $locale,
