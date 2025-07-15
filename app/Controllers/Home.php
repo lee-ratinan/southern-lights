@@ -39,6 +39,36 @@ class Home extends BaseController
     }
 
     /**
+     * This is the services page
+     * @return string
+     */
+    public function services(): string
+    {
+        $locale = service('request')->getLocale();
+        $data   = [
+            'slug'   => 'services',
+            'locale' => $locale,
+            'uri'    => 'services'
+        ];
+        return view('services', $data);
+    }
+
+    /**
+     * This is the promotions page
+     * @return string
+     */
+    public function promotions(): string
+    {
+        $locale = service('request')->getLocale();
+        $data   = [
+            'slug'   => 'promotions',
+            'locale' => $locale,
+            'uri'    => 'promotions'
+        ];
+        return view('promotions', $data);
+    }
+
+    /**
      * This is the contact us page
      * @return string
      */

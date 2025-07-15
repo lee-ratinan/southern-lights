@@ -5,6 +5,8 @@ return [
     'pages'        => [
         'home'                 => 'หน้าแรก',
         'about-us'             => 'เกี่ยวกับเรา',
+        'services'             => 'บริการของเรา',
+        'promotions'           => 'โปรโมชั่น',
         'contact-us'           => 'ติดต่อเรา',
         'blog'                 => 'บล็อก',
         'terms-and-conditions' => 'ข้อกำหนด',

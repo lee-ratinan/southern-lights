@@ -63,6 +63,8 @@
             <ul>
                 <li><a href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a></li>
                 <li><a href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a></li>
+                <li><a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a></li>
+                <li><a href="<?= base_url($locale . '/promotions') ?>"><?= lang('Theme.pages.promotions') ?></a></li>
                 <li><a href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a></li>
                 <li><a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a></li>
             </ul>
@@ -75,10 +77,10 @@
         }
         ?>
         <div class="btn-group btn-group-sm" role="group" aria-label="Change language buttons">
-            <a class="btn btn-outline-secondary" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
-            <a class="btn btn-outline-secondary" href="<?= base_url('th/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-th"></i></a>
-            <a class="btn btn-outline-secondary" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
-            <a class="btn btn-outline-secondary" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
+            <a class="btn btn-<?= ('en' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
+            <a class="btn btn-<?= ('th' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('th/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-th"></i></a>
+            <a class="btn btn-<?= ('es' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
+            <a class="btn btn-<?= ('zh' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
         </div>
     </div>
 </header>

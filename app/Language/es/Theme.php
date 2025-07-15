@@ -5,6 +5,8 @@ return [
     'pages'        => [
         'home'                 => 'Home',
         'about-us'             => 'About Us',
+        'services'             => 'Services',
+        'promotions'           => 'Promotions',
         'contact-us'           => 'Contact Us',
         'blog'                 => 'Blog',
         'terms-and-conditions' => 'Terms & Conditions',
