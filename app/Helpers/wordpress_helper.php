@@ -71,7 +71,7 @@ function retrieveWordPressPosts($url_part): array
                 'title'          => $post['title']['rendered'],
                 'slug'           => $post['slug'],
                 'author'         => $post['author'],
-                'date'           => $post['date'],
+                'date'           => $post['date_gmt'],
                 'excerpt'        => fixExcerpt($post['excerpt']['rendered']),
                 'tag_ids'        => $post['tags'],
                 'featured_image' => $post['featured_media'] ?? null,
@@ -205,25 +205,82 @@ function generateWordPressPage(string $slug): array
 }
 
 /**
+ * @param DateTime $date
+ * @return string
+ */
+function formatDateTimeThai(DateTime $date): string
+{
+    $time  = $date->format('H:i') . 'น.';
+    $year  = intval($date->format('Y')) + 543;
+    $month = intval($date->format('m')) - 1;
+    $date  = intval($date->format('d'));
+    $months = [
+        'ม.ค.',
+        'ก.พ.',
+        'มี.ค.',
+        'เม.ย.',
+        'พ.ค.',
+        'มิ.ย.',
+        'ก.ค.',
+        'ส.ค.',
+        'ก.ย.',
+        'ต.ค.',
+        'พ.ย.',
+        'ธ.ค.',
+    ];
+    $month = $months[$month];
+    return "$date $month $year $time";
+}
+
+/**
+ * @param DateTime $date
+ * @return string
+ */
+function formatDateTimeSpanish(DateTime $date): string
+{
+    $time  = $date->format('h:i a');
+    $year  = intval($date->format('Y'));
+    $month = intval($date->format('m')) - 1;
+    $date  = intval($date->format('d'));
+    $months = [
+        'Ene.',
+        'Feb.',
+        'Mar.',
+        'Abr.',
+        'May.',
+        'Jun.',
+        'Jul.',
+        'Ago.',
+        'Set.',
+        'Oct.',
+        'Nov.',
+        'Dic.'
+    ];
+    $month = $months[$month];
+    return "$date $month $year $time";
+}
+
+/**
  * @param string $date
  * @param string $locale
  * @return string
+ * @throws Exception
  */
 function format_post_date(string $date, string $locale): string
 {
-    $date = substr($date, 0, 10);
-    if ('en' == $locale) {
-        return date('F j, Y', strtotime($date));
+    try {
+        $date = new DateTime($date, new DateTimeZone('UTC'));
+        $date->setTimezone(new DateTimeZone('Pacific/Auckland'));
+        if ('th' == $locale) {
+            return formatDateTimeThai($date);
+        } else if ('es' == $locale) {
+            return formatDateTimeSpanish($date);
+        } else if ('zh' == $locale) {
+            return $date->format('Y年m月d日 H:i');
+        }
+        return $date->format('d M Y h:i a');
+    } catch (Exception $e) {
+        log_message('error', $e->getMessage());
+        return $date->format('d M Y h:i a');
     }
-    $yy = substr($date, 0, 4);
-    $mm = substr($date, 5, 2);
-    $dd = substr($date, 8, 2);
-    if ('th' == $locale) {
-        $months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-        $yy += 543;
-        $mm = $months[$mm-1];
-        $dd = intval($dd);
-        return "$dd $mm $yy";
-    }
-    return $date;
 }
