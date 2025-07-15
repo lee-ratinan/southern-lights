@@ -14,13 +14,17 @@
 # ENVIRONMENT
 #--------------------------------------------------------------------
 
-# CI_ENVIRONMENT = production
+CI_ENVIRONMENT=development
 
 #--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
+app.baseURL='http://127.0.0.1:8888/primer-corporate/public/'
+WORDPRESS_URL='http://127.0.0.1:8888/test-blog/wp-json/wp/v2/'
+WORDPRESS_PAGE_LIMIT=10
+WORDPRESS_LOCALE_EN=1
+WORDPRESS_LOCALE_TH=2
 # If you have trouble with `.`, you could also use `_`.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
@@ -66,4 +70,8 @@
 # LOGGER
 #--------------------------------------------------------------------
 
-# logger.threshold = 4
+logger.threshold=4
+
+
+CONTACT_FORM_EMAIL=
+CONTACT_FORM_FROM=no-reply@ratinan.com

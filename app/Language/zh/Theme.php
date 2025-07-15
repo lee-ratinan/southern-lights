@@ -1,11 +1,15 @@
 <?php
 return [
-    'website-name' => 'Sky Thai Massage and Spa',
-    'author'       => 'Sky Thai Massage and Spa',
+    'company-name' => '[Company Co., Ltd.]',
+    'website-name' => '[Company Website]',
     'pages'        => [
-        'home'       => '首頁',
-        'about-us'   => '關於我們',
-        'contact-us' => '聯絡我們',
-        'blog'       => '部落格',
-    ]
+        'home'                 => 'Home',
+        'about-us'             => 'About Us',
+        'contact-us'           => 'Contact Us',
+        'blog'                 => 'Blog',
+        'terms-and-conditions' => 'Terms & Conditions',
+        'privacy-policy'       => 'Privacy Policy',
+    ],
+    'footer-paragraph' => '[Footer Paragraph]',
+    'footer-links'     => '[Useful Links]',
 ];

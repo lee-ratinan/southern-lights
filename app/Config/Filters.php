@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\DevelopmentFilter;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
@@ -33,7 +34,7 @@ class Filters extends BaseFilters
         'cors'          => Cors::class,
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
-        'performance'   => PerformanceMetrics::class,
+        'performance'   => PerformanceMetrics::class
     ];
 
     /**
