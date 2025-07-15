@@ -127,18 +127,18 @@ class Home extends BaseController
 
     /**
      * This is the blog view page
-     * @param string $blog_slug
      * @return string
      */
-    public function blogView(string $blog_slug): string
+    public function blogView(): string
     {
         helper('wordpress');
-        $locale = service('request')->getLocale();
-        $post   = generateWordPressPage($blog_slug);
-        $data   = [
+        $blog_slug = $this->request->getVar('s');
+        $locale    = service('request')->getLocale();
+        $post      = generateWordPressPage($blog_slug);
+        $data      = [
             'slug'   => 'blog-view',
             'locale' => $locale,
-            'uri'    => 'blog/view/' . $blog_slug,
+            'uri'    => 'blog/view/?s=' . utf8_encode($blog_slug),
             'post'   => $post,
             'title'  => $post['title']
         ];

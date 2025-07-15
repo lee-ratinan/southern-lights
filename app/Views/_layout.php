@@ -23,9 +23,13 @@
     <link href="<?= $favicon_file ?>" rel="icon">
     <link href="<?= $favicon_file ?>" rel="apple-touch-icon">
     <!-- Link Languages -->
-    <link rel="alternate" hreflang="en" href="<?= base_url('en/' . $uri) ?>">
-    <link rel="alternate" hreflang="th" href="<?= base_url('th/' . $uri) ?>">
-    <link rel="alternate" hreflang="x-default" href="<?= base_url($uri) ?>">
+    <?php if ('blog-view' != $slug) : ?>
+        <link rel="alternate" hreflang="en" href="<?= base_url('en/' . $uri) ?>">
+        <link rel="alternate" hreflang="th" href="<?= base_url('th/' . $uri) ?>">
+        <link rel="alternate" hreflang="es" href="<?= base_url('es/' . $uri) ?>">
+        <link rel="alternate" hreflang="zh" href="<?= base_url('zh/' . $uri) ?>">
+        <link rel="alternate" hreflang="x-default" href="<?= base_url($uri) ?>">
+    <?php endif; ?>
     <link rel="canonical" href="<?= current_url() ?>">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">

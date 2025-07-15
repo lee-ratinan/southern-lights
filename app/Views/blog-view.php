@@ -21,7 +21,7 @@ $this->section('content');
                         <?php if (!empty($post['post_data']['tags'])) : ?>
                             | <?= lang('Blog.tags') ?>
                             <?php foreach ($post['tags'] as $tag_data) : ?>
-                                <a href="<?= base_url($locale . '/blog?tag=' . $tag_data['id']) ?>" class="badge bg-warning"><?= $tag_data['name'] ?></a>
+                                <a href="<?= base_url($locale . '/blog?tag=' . $tag_data['id']) ?>" class="badge bg-warning"><?= urldecode($tag_data['name']) ?></a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </p>
