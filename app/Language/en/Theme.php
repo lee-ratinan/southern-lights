@@ -1,7 +1,7 @@
 <?php
 return [
-    'company-name' => '[Company Co., Ltd.]',
-    'website-name' => '[Company Website]',
+    'company-name' => 'Southern Lights',
+    'website-name' => 'Sky Thai Massage & Spa',
     'pages'        => [
         'home'                 => 'Home',
         'about-us'             => 'About Us',
