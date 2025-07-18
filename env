@@ -24,7 +24,7 @@ app.baseURL='http://127.0.0.1:8888/primer-corporate/public/'
 WORDPRESS_URL='http://127.0.0.1:8888/test-blog/wp-json/wp/v2/'
 WORDPRESS_PAGE_LIMIT=10
 WORDPRESS_LOCALE_EN=3
-WORDPRESS_LOCALE_TH=2
+WORDPRESS_LOCALE_JA=2
 WORDPRESS_LOCALE_ES=34
 WORDPRESS_LOCALE_ZH=35
 # If you have trouble with `.`, you could also use `_`.

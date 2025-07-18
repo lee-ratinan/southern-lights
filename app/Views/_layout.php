@@ -25,8 +25,8 @@
     <!-- Link Languages -->
     <?php if ('blog-view' != $slug) : ?>
         <link rel="alternate" hreflang="en" href="<?= base_url('en/' . $uri) ?>">
-        <link rel="alternate" hreflang="th" href="<?= base_url('th/' . $uri) ?>">
         <link rel="alternate" hreflang="es" href="<?= base_url('es/' . $uri) ?>">
+        <link rel="alternate" hreflang="ja" href="<?= base_url('ja/' . $uri) ?>">
         <link rel="alternate" hreflang="zh" href="<?= base_url('zh/' . $uri) ?>">
         <link rel="alternate" hreflang="x-default" href="<?= base_url($uri) ?>">
     <?php endif; ?>
@@ -78,8 +78,8 @@
         ?>
         <div class="btn-group btn-group-sm" role="group" aria-label="Change language buttons">
             <a class="btn btn-<?= ('en' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
-            <a class="btn btn-<?= ('th' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('th/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-th"></i></a>
             <a class="btn btn-<?= ('es' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
+            <a class="btn btn-<?= ('ja' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('ja/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-jp"></i></a>
             <a class="btn btn-<?= ('zh' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
         </div>
     </div>
