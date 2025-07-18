@@ -1,17 +1,17 @@
 <?php
 return [
-    'company-name' => '[Company Co., Ltd.]',
-    'website-name' => '[Company Website]',
+    'company-name' => 'Southern Lights',
+    'website-name' => 'Sky Thai Massage & Spa',
     'pages'        => [
-        'home'                 => 'Home',
-        'about-us'             => 'About Us',
-        'services'             => 'Services',
-        'promotions'           => 'Promotions',
-        'contact-us'           => 'Contact Us',
-        'blog'                 => 'Blog',
-        'terms-and-conditions' => 'Terms & Conditions',
-        'privacy-policy'       => 'Privacy Policy',
+        'home'                 => 'ホーム',
+        'about-us'             => '会社概要',
+        'services'             => 'サービス',
+        'promotions'           => 'プロモーション',
+        'contact-us'           => 'お問い合わせ',
+        'blog'                 => 'ブログ',
+        'terms-and-conditions' => '利用規約',
+        'privacy-policy'       => 'プライバシーポリシー',
     ],
     'footer-paragraph' => '[Footer Paragraph]',
-    'footer-links'     => '[Useful Links]',
+    'footer-links'     => '便利なリンク',
 ];

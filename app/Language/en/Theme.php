@@ -13,5 +13,5 @@ return [
         'privacy-policy'       => 'Privacy Policy',
     ],
     'footer-paragraph' => '[Footer Paragraph]',
-    'footer-links'     => '[Useful Links]',
+    'footer-links'     => 'Useful Links',
 ];
