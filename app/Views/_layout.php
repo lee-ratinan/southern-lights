@@ -3,8 +3,8 @@
 <head>
     <?php
     $meta_title   = ('blog-view' == $slug ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
-    $company_logo = 'company-logo.png';
-    $favicon_file = 'favicon.png';
+    $company_logo = base_url('skythai-logo.jpg');
+    $favicon_file = base_url('favicon.png');
     $meta_image   = ($post['media']['media_details']['sizes']['full']['source_url'] ?? $company_logo);
     ?>
     <meta charset="utf-8">
@@ -56,7 +56,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center me-auto me-xl-0">
-            <!-- <img src="<?= base_url('/img/logo.webp') ?>" alt="<?= lang('Theme.website-name') ?>"> -->
+             <img src="<?= $company_logo ?>" alt="<?= lang('Theme.website-name') ?>">
             <h1 class="sitename"><?= lang('Theme.website-name') ?></h1>
         </a>
         <nav id="navmenu" class="navmenu">
@@ -76,11 +76,11 @@
             $lang_uri = 'blog';
         }
         ?>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Change language buttons">
-            <a class="btn btn-<?= ('en' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
-            <a class="btn btn-<?= ('es' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
-            <a class="btn btn-<?= ('ja' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('ja/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-jp"></i></a>
-            <a class="btn btn-<?= ('zh' == $locale ? '' : 'outline-') ?>secondary" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
+        <div class="btn-group btn-group-sm d-none d-xl-inline-flex" role="group" aria-label="Change language buttons">
+            <a class="btn btn-<?= ('en' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
+            <a class="btn btn-<?= ('es' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
+            <a class="btn btn-<?= ('ja' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('ja/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-jp"></i></a>
+            <a class="btn btn-<?= ('zh' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
         </div>
     </div>
 </header>
@@ -137,5 +137,14 @@
 <script src="<?= base_url('/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
 <!-- Main JS File -->
 <script src="<?= base_url('/strategy-theme/js/main.js') ?>"></script>
+<script>
+    function fixWpClasses() {
+        const rows = document.querySelectorAll('.wp-block-columns'); rows.forEach(col => col.classList.add('row'));
+        const columns = document.querySelectorAll('.wp-block-column'); columns.forEach(col => col.classList.add('col'));
+        const center = document.querySelectorAll('.has-text-align-center'); center.forEach(col => col.classList.add('text-center'));
+        const end = document.querySelectorAll('.has-text-align-right'); end.forEach(col => col.classList.add('text-end'));
+    }
+    fixWpClasses();
+</script>
 </body>
 </html>

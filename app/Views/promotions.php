@@ -11,10 +11,11 @@ $this->section('content');
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
                     <article>
                         <?= $content['content'] ?>
                     </article>
+                    <hr />
+                    <p class="small text-secondary"><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
                 </div>
             </div>
         </div>
