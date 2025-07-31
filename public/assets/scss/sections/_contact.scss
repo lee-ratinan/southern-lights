@@ -1,0 +1,212 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  .contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+
+    .info-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 24px;
+        color: var(--accent-color);
+      }
+    }
+
+    .info-content {
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 5px;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        line-height: 1.7;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .contact-form-card {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+      padding: 15px 20px;
+      height: calc(3.5rem + 2px);
+      background-color: var(--surface-color);
+      color: var(--default-color);
+      margin-bottom: 20px;
+
+      &:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+      }
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .btn-submit {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .map-container {
+    position: relative;
+    margin-top: 50px;
+    padding: 0;
+
+    .map-overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--background-color), transparent);
+      z-index: 10;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 500px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .contact-form-card {
+      padding: 30px;
+    }
+
+    .map-container {
+      margin-top: 40px;
+
+      .map-overlay {
+        top: -25px;
+        height: 50px;
+      }
+
+      iframe {
+        height: 450px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-info-wrapper {
+      gap: 25px;
+    }
+
+    .contact-info-item {
+      gap: 15px;
+
+      .info-icon {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .contact-form-card {
+      padding: 25px;
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    .map-container {
+      margin-top: 30px;
+
+      .map-overlay {
+        top: -20px;
+        height: 40px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .contact-form-card {
+      padding: 20px;
+    }
+
+    .map-container {
+      margin-top: 25px;
+
+      .map-overlay {
+        top: -15px;
+        height: 30px;
+      }
+
+      iframe {
+        height: 350px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
