@@ -131,15 +131,13 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                 <div class="col-lg-7">
                     <div class="footer-nav-wrapper">
                         <div class="row">
-                            <div class="col-6 col-lg-3">
+                            <div class="col-6 pt-lg-5">
                                 <div class="nav-column">
-                                    <h6>Studio</h6>
+                                    <h6><?= lang('Theme.website-name') ?></h6>
                                     <nav class="footer-nav">
-                                        <a href="#">Our Story</a>
-                                        <a href="#">Design Process</a>
-                                        <a href="#">Portfolio</a>
-                                        <a href="#">Case Studies</a>
-                                        <a href="#">Awards</a>
+                                        <?php foreach ($nav as $item) : ?>
+                                            <a href="<?= $item[1] ?>"><?= $item[2] ?></a>
+                                        <?php endforeach; ?>
                                     </nav>
                                 </div>
                             </div>
@@ -155,65 +153,23 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="copyright">
-                            <p>© <span class="sitename">Clinic</span>. All rights reserved.</p>
+                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.company-name') ?></span>. All rights reserved.</p>
                         </div>
                     </div>
-
                     <div class="col-lg-6">
                         <div class="legal-links">
                             <a href="#">Privacy Policy</a>
                             <a href="#">Terms of Service</a>
-                            <a href="#">Cookie Policy</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 </footer>
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
 <!-- old footer -->
-<footer id="footer" class="footer d-none">
-    <div class="container footer-top">
-        <div class="row gy-4">
-            <div class="col-lg-5 col-md-12 footer-about">
-                <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center">
-                    <span class="sitename"><?= lang('Theme.website-name') ?></span>
-                </a>
-                <p><?= lang('Theme.footer-paragraph') ?></p>
-                <div class="social-links d-flex mt-4">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-6 footer-links">
-                <h4><?= lang('Theme.footer-links') ?></h4>
-                <ul>
-                    <li><a href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/promotions') ?>"><?= lang('Theme.pages.promotions') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-6 footer-links"></div>
-            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"></div>
-        </div>
-    </div>
-    <div class="container copyright text-center mt-4">
-        <p>
-            &copy; <?= date('Y') ?> | All Rights Reserved | <?= lang('Theme.company-name') ?> |
-            <a href="<?= base_url($locale . '/terms-and-conditions') ?>"><?= lang('Theme.pages.terms-and-conditions') ?></a> |
-            <a href="<?= base_url($locale . '/privacy-policy') ?>"><?= lang('Theme.pages.privacy-policy') ?></a>
-        </p>
-    </div>
-</footer>
 <!-- Vendor JS Files -->
 <script src="<?= base_url('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/php-email-form/validate.js') ?>"></script>
