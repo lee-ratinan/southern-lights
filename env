@@ -14,17 +14,17 @@
 # ENVIRONMENT
 #--------------------------------------------------------------------
 
-CI_ENVIRONMENT=development
+CI_ENVIRONMENT=production
 
 #--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
-app.baseURL='http://127.0.0.1:8888/primer-corporate/public/'
+app_baseURL='http://127.0.0.1:8888/southern-lights/public/'
 WORDPRESS_URL='http://127.0.0.1:8888/test-blog/wp-json/wp/v2/'
 WORDPRESS_PAGE_LIMIT=10
 WORDPRESS_LOCALE_EN=3
-WORDPRESS_LOCALE_JA=2
+WORDPRESS_LOCALE_JA=36
 WORDPRESS_LOCALE_ES=34
 WORDPRESS_LOCALE_ZH=35
 # If you have trouble with `.`, you could also use `_`.
@@ -74,6 +74,10 @@ WORDPRESS_LOCALE_ZH=35
 
 logger.threshold=4
 
-
-CONTACT_FORM_EMAIL=
+CONTACT_FORM_EMAIL=lee@ratinan.com
 CONTACT_FORM_FROM=no-reply@ratinan.com
+
+WEB_STORE_ADDRESS='123 Test Street, Auckland, NZ, H0H 0H0'
+WEB_EMAIL_ADDRESS=lee@ratinan.com
+WEB_TELEPHONE_NUMBER='+64 4 098 7654'
+WEB_TELEPHONE_LINK='+6440987654'

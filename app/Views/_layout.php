@@ -42,91 +42,133 @@
     <link href="<?= base_url('/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/glightbox/css/glightbox.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/flag-icon/flags.min.css') ?>" rel="stylesheet" />
+    <link href="<?= base_url('/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet">
     <!-- Main CSS File -->
-    <link href="<?= base_url('/strategy-theme/css/main.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('/assets/css/main.css') ?>" rel="stylesheet">
     <!-- =======================================================
-    * Template Name: Strategy
-    * Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
-    * Updated: Jun 06 2025 with Bootstrap v5.3.6
+    * Template Name: Clinic
+    * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 </head>
 <body>
-<header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-        <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center me-auto me-xl-0">
-             <img src="<?= $company_logo ?>" alt="<?= lang('Theme.website-name') ?>">
-            <h1 class="sitename"><?= lang('Theme.website-name') ?></h1>
-        </a>
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a <?= ('home' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a></li>
-                <li><a <?= ('about-us' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a></li>
-                <li><a <?= ('services' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a></li>
-                <li><a <?= ('promotions' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale . '/promotions') ?>"><?= lang('Theme.pages.promotions') ?></a></li>
-                <li><a <?= ('contact-us' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a></li>
-                <li><a <?= ('blog' == $slug ? 'class="active"' : '') ?> href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-        <?php
-        $lang_uri = $uri;
-        if ('blog-view' == $slug) {
-            $lang_uri = 'blog';
-        }
-        ?>
-        <div class="btn-group btn-group-sm d-none d-xl-inline-flex" role="group" aria-label="Change language buttons">
-            <a class="btn btn-<?= ('en' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('en/' . $lang_uri) ?>" title="English"><i class="fi fi-nz"></i></a>
-            <a class="btn btn-<?= ('es' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('es/' . $lang_uri) ?>" title="español"><i class="fi fi-es"></i></a>
-            <a class="btn btn-<?= ('ja' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('ja/' . $lang_uri) ?>" title="ภาษาไทย"><i class="fi fi-jp"></i></a>
-            <a class="btn btn-<?= ('zh' == $locale ? '' : 'outline-') ?>info" href="<?= base_url('zh/' . $lang_uri) ?>" title="中文"><i class="fi fi-cn"></i></a>
+<?php
+$nav = [
+    ['home', base_url($locale), lang('Theme.pages.home')],
+    ['about-us', base_url($locale . '/about-us'), lang('Theme.pages.about-us')],
+    ['services', base_url($locale . '/services'), lang('Theme.pages.services')],
+    ['promotions', base_url($locale . '/promotions'), lang('Theme.pages.promotions')],
+    ['contact-us', base_url($locale . '/contact-us'), lang('Theme.pages.contact-us')],
+    ['blog', base_url($locale . '/blog'), lang('Theme.pages.blog')],
+];
+$locales = ['en', 'es', 'ja', 'zh'];
+$flag    = ['nz', 'es', 'jp', 'cn'];
+$lang_uri = $uri;
+if ('blog-view' == $slug) {$lang_uri = 'blog';}
+?>
+<header id="header" class="header fixed-top">
+    <div class="topbar d-flex align-items-center dark-background">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a></i>
+            </div>
+            <div class="social-links d-none d-md-flex align-items-center">
+                <?php foreach ($locales as $i => $item) : ?>
+                    <a href="<?= base_url($item . '/' . $lang_uri) ?>"><i class="fi fi-<?= $flag[$i] ?>"></i></a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div><!-- End Top Bar -->
+    <div class="branding d-flex align-items-cente">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+            <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center">
+                <img src="<?= $company_logo ?>" alt="<?= lang('Theme.website-name') ?>">
+                <h1 class="sitename"><?= lang('Theme.website-name') ?></h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <?php foreach ($nav as $item) : ?>
+                        <li><a href="<?= $item[1] ?>" <?= ($slug == $item[0] ? 'class="active"' : '') ?>><?= $item[2] ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
         </div>
     </div>
 </header>
-<main class="main">
+<main class="main my-5 pt-5">
     <?= $this->renderSection('content') ?>
 </main>
-<footer id="footer" class="footer">
-    <div class="container footer-top">
-        <div class="row gy-4">
-            <div class="col-lg-5 col-md-12 footer-about">
-                <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center">
-                    <span class="sitename"><?= lang('Theme.website-name') ?></span>
-                </a>
-                <p><?= lang('Theme.footer-paragraph') ?></p>
-                <div class="social-links d-flex mt-4">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+<footer id="footer" class="footer-16 footer position-relative">
+    <div class="container">
+        <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+            <div class="row align-items-start">
+                <div class="col-lg-5">
+                    <div class="brand-section">
+                        <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center mb-4">
+                            <span class="sitename"><?= lang('Theme.website-name') ?></span>
+                        </a>
+                        <p class="brand-description"><?= lang('Theme.footer-paragraph') ?></p>
+                        <div class="contact-info mt-5">
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <span><?= getenv('WEB_STORE_ADDRESS') ?></span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-envelope"></i>
+                                <a href="<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="footer-nav-wrapper">
+                        <div class="row">
+                            <div class="col-6 pt-lg-5">
+                                <div class="nav-column">
+                                    <h6><?= lang('Theme.website-name') ?></h6>
+                                    <nav class="footer-nav">
+                                        <?php foreach ($nav as $item) : ?>
+                                            <a href="<?= $item[1] ?>"><?= $item[2] ?></a>
+                                        <?php endforeach; ?>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-6 footer-links">
-                <h4><?= lang('Theme.footer-links') ?></h4>
-                <ul>
-                    <li><a href="<?= base_url($locale) ?>"><?= lang('Theme.pages.home') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/about-us') ?>"><?= lang('Theme.pages.about-us') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/promotions') ?>"><?= lang('Theme.pages.promotions') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/contact-us') ?>"><?= lang('Theme.pages.contact-us') ?></a></li>
-                    <li><a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-6 footer-links"></div>
-            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"></div>
         </div>
     </div>
-    <div class="container copyright text-center mt-4">
-        <p>
-            &copy; <?= date('Y') ?> | All Rights Reserved | <?= lang('Theme.company-name') ?> |
-            <a href="<?= base_url($locale . '/terms-and-conditions') ?>"><?= lang('Theme.pages.terms-and-conditions') ?></a> |
-            <a href="<?= base_url($locale . '/privacy-policy') ?>"><?= lang('Theme.pages.privacy-policy') ?></a>
-        </p>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="copyright">
+                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.company-name') ?></span>. All rights reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="legal-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
+<!-- old footer -->
 <!-- Vendor JS Files -->
 <script src="<?= base_url('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/php-email-form/validate.js') ?>"></script>
@@ -135,8 +177,9 @@
 <script src="<?= base_url('/vendor/glightbox/js/glightbox.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/imagesloaded/imagesloaded.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
+<script src="<?= base_url('/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
 <!-- Main JS File -->
-<script src="<?= base_url('/strategy-theme/js/main.js') ?>"></script>
+<script src="<?= base_url('/assets/js/main.js') ?>"></script>
 <script>
     function fixWpClasses() {
         const rows = document.querySelectorAll('.wp-block-columns'); rows.forEach(col => col.classList.add('row'));

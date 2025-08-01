@@ -1,0 +1,144 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Departments Section
+--------------------------------------------------------------*/
+.departments {
+  .department-card {
+    position: relative;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+      .department-image img {
+        transform: scale(1.05);
+      }
+
+      .department-icon {
+        transform: scale(1.1);
+        color: var(--contrast-color);
+        background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+      }
+
+      .learn-more {
+        color: var(--accent-color);
+
+        i {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  .department-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    font-size: 24px;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+
+  .department-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  .department-content {
+    padding: 30px 25px 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 300;
+      margin-bottom: 15px;
+      color: var(--heading-color);
+      font-family: var(--heading-font);
+      line-height: 1.3;
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--heading-color);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin-top: auto;
+
+      span {
+        font-family: var(--heading-font);
+      }
+
+      i {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .department-card {
+      margin-bottom: 20px;
+    }
+
+    .department-image {
+      height: 200px;
+    }
+
+    .department-content {
+      padding: 25px 20px 20px;
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .department-icon {
+      width: 50px;
+      height: 50px;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+    }
+  }
+}
