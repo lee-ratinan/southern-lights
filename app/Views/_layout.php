@@ -168,7 +168,6 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 </footer>
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
-<!-- old footer -->
 <!-- Vendor JS Files -->
 <script src="<?= base_url('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/php-email-form/validate.js') ?>"></script>
