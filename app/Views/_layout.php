@@ -46,9 +46,8 @@
     <!-- Main CSS File -->
     <link href="<?= base_url('/assets/css/main.css') ?>" rel="stylesheet">
     <!-- =======================================================
-    * Template Name: Strategy
-    * Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
-    * Updated: Jun 06 2025 with Bootstrap v5.3.6
+    * Template Name: Clinic
+    * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
