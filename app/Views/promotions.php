@@ -2,15 +2,21 @@
 $this->extend('_layout.php');
 $this->section('content');
 ?>
-    <section id="about" class="about section" style="margin-top:100px !important;">
-        <!-- Section Title -->
-        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <h1><?= lang('Theme.website-name') ?></h1>
-            <h2><?= lang('Theme.pages.' . $slug) ?></h2>
-        </div><!-- End Section Title -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
+    <div class="page-title">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="heading-title"><?= lang('Theme.pages.promotions') ?></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="promotions" class="promotions section">
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row align-items-center">
+                <div class="col col-md-10 col-lg-8">
                     <article>
                         <?= $content['content'] ?>
                     </article>

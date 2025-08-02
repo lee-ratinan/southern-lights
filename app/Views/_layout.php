@@ -209,10 +209,11 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 <script src="<?= base_url('/assets/js/main.js') ?>"></script>
 <script>
     function fixWpClasses() {
-        const rows = document.querySelectorAll('.wp-block-columns'); rows.forEach(col => col.classList.add('row'));
-        const columns = document.querySelectorAll('.wp-block-column'); columns.forEach(col => col.classList.add('col'));
-        const center = document.querySelectorAll('.has-text-align-center'); center.forEach(col => col.classList.add('text-center'));
-        const end = document.querySelectorAll('.has-text-align-right'); end.forEach(col => col.classList.add('text-end'));
+        const rows = document.querySelectorAll('.wp-block-columns'); rows.forEach(el => el.classList.add('row'));
+        const columns = document.querySelectorAll('.wp-block-column'); columns.forEach(el => el.classList.add('col'));
+        const center = document.querySelectorAll('.has-text-align-center'); center.forEach(el => el.classList.add('text-center'));
+        const end = document.querySelectorAll('.has-text-align-right'); end.forEach(el => el.classList.add('text-end'));
+        const wp_images = document.querySelectorAll('.wp-block-image img'); wp_images.forEach(img => { img.removeAttribute('height'); img.removeAttribute('width'); img.removeAttribute('sizes'); img.classList.add('w-100'); });
     }
     fixWpClasses();
 </script>
