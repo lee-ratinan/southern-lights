@@ -55,9 +55,13 @@ $this->section('content');
                                 <div class="card-icon">
                                     <i class="bi bi-calendar-check"></i>
                                 </div>
-                                <div class="card-content">
-                                    <h6>Now Open</h6>
+                                <div class="card-content" id="home-page-opening-hours-opened" style="display: none;">
+                                    <h6>We are open now.</h6>
                                     <small>Book your session now!</small>
+                                </div>
+                                <div class="card-content" id="home-page-opening-hours-closed" style="display: none;">
+                                    <h6>Currently closed.</h6>
+                                    <small id="home-page-opening-hours-next-label">Next opening: <span id="home-page-opening-hours-next"></span></small>
                                 </div>
                             </div>
                             <div class="floating-card rating-card d-none">
@@ -110,7 +114,7 @@ $this->section('content');
                             </a>
                         </div>
                         <div class="specialty-visual">
-                            <img src="assets/img/health/cardiology-1.webp" alt="Cardiovascular Medicine" class="img-fluid">
+                            <img src="#" alt="Cardiovascular Medicine" class="img-fluid">
                             <div class="visual-overlay">
                                 <i class="bi bi-heart-pulse"></i>
                             </div>
@@ -134,7 +138,7 @@ $this->section('content');
                             </a>
                         </div>
                         <div class="specialty-visual">
-                            <img src="assets/img/health/neurology-4.webp" alt="Neurological Sciences" class="img-fluid">
+                            <img src="#" alt="Neurological Sciences" class="img-fluid">
                             <div class="visual-overlay">
                                 <i class="bi bi-cpu"></i>
                             </div>
@@ -158,7 +162,7 @@ $this->section('content');
                             </a>
                         </div>
                         <div class="specialty-visual">
-                            <img src="assets/img/health/neurology-4.webp" alt="Neurological Sciences" class="img-fluid">
+                            <img src="#" alt="Neurological Sciences" class="img-fluid">
                             <div class="visual-overlay">
                                 <i class="bi bi-cpu"></i>
                             </div>
@@ -185,5 +189,6 @@ $this->section('content');
         </div>
     </section>
 <?php
+include "_contact-us-form.php";
 $this->endSection();
 ?>

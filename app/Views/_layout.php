@@ -147,6 +147,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                                     <h6><?= lang('Theme.website-name') ?></h6>
                                     <nav class="footer-nav">
                                         <?php foreach ($nav as $item) : ?>
+                                            <?php if ('locales' == $item[0]) { continue;} ?>
                                             <a href="<?= $item[1] ?>"><?= $item[2] ?></a>
                                         <?php endforeach; ?>
                                     </nav>
@@ -180,6 +181,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 </footer>
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
+<script>let this_page_slug = '<?= $slug ?>'; </script>
 <!-- Vendor JS Files -->
 <script src="<?= base_url('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/php-email-form/validate.js') ?>"></script>
@@ -189,6 +191,10 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 <script src="<?= base_url('/vendor/imagesloaded/imagesloaded.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
+<?php if ('home' == $slug) : ?>
+    <script src="<?= base_url('/vendor/luxon/luxon.min.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/opening-hours.js') ?>"></script>
+<?php endif; ?>
 <!-- Main JS File -->
 <script src="<?= base_url('/assets/js/main.js') ?>"></script>
 <script>
