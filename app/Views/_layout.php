@@ -153,6 +153,16 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                                     </nav>
                                 </div>
                             </div>
+                            <div class="col-6 pt-lg-5">
+                                <div class="nav-column">
+                                    <h6><?= lang('Theme.locales.label') ?></h6>
+                                    <nav class="footer-nav">
+                                        <?php foreach ($locales as $i => $item) : ?>
+                                            <a href="<?= base_url($item . '/' . $lang_uri) ?>"><i class="fi fi-<?= $flag[$i] ?>"></i>&nbsp;<?= lang('Theme.locales.' . $item) ?></a>
+                                        <?php endforeach; ?>
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
