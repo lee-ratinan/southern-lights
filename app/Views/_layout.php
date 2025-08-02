@@ -3,7 +3,7 @@
 <head>
     <?php
     $meta_title   = ('blog-view' == $slug ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
-    $company_logo = base_url('skythai-logo.jpg');
+    $company_logo = base_url('sky-thai-logo.png');
     $favicon_file = base_url('favicon.png');
     $meta_image   = ($post['media']['media_details']['sizes']['full']['source_url'] ?? $company_logo);
     ?>
@@ -80,7 +80,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                 <?php endforeach; ?>
             </div>
         </div>
-    </div><!-- End Top Bar -->
+    </div>
     <div class="branding d-flex align-items-cente">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center">
@@ -112,14 +112,14 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 <main class="main">
     <?= $this->renderSection('content') ?>
 </main>
-<footer id="footer" class="footer-16 footer position-relative">
+<footer id="footer" class="footer-16 footer position-relative bg-white">
     <div class="container">
         <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-start">
                 <div class="col-lg-5">
                     <div class="brand-section">
                         <a href="<?= base_url($locale) ?>" class="logo d-flex align-items-center mb-4">
-                            <span class="sitename"><?= lang('Theme.website-name') ?></span>
+                            <img class="w-50" src="<?= base_url('footer-logo.png') ?>" alt="<?= lang('Theme.website-name') ?>">
                         </a>
                         <p class="brand-description"><?= lang('Theme.footer-paragraph') ?></p>
                         <div class="contact-info mt-5">
