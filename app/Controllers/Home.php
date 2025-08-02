@@ -301,6 +301,7 @@ class Home extends BaseController
         $name    = $this->request->getPost('name');
         $from    = $this->request->getPost('email');
         $phone   = $this->request->getPost('phone');
+        $subject   = $this->request->getPost('subject');
         $message = $this->request->getPost('message');
         $to      = getenv('CONTACT_FORM_EMAIL');
         $fr      = getenv('CONTACT_FORM_FROM');
@@ -308,8 +309,8 @@ class Home extends BaseController
         $email   = Services::email();
         $email->setTo($to);
         $email->setFrom($fr);
-        $email->setSubject('Contact Form Submission');
-        $email->setMessage("Contact Form Submission\n\nName: $name\nEmail: $from\nPhone: $phone\nMessage: $message");
+        $email->setSubject('[WEBSITE] Contact Form Submission' . ($subject ? ' - ' . $subject : ''));
+        $email->setMessage("Contact Form Submission\n\nSubject: $subject\nName: $name\nEmail: $from\nPhone: $phone\nMessage: $message");
         if (!$email->send()) {
             return 'OK';
         }
