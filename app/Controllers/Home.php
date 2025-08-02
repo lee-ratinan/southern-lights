@@ -48,26 +48,31 @@ class Home extends BaseController
     }
 
     /**
-     * This is the services page
+     * This is the service page
      * @return string
      */
     public function services(): string
     {
         helper('wordpress');
-        $locale  = service('request')->getLocale();
-        $slug    = 'services-' . strtolower($locale);
-        $content = generateWordPressPage($slug);
-        $data    = [
-            'slug'    => 'services',
-            'locale'  => $locale,
-            'uri'     => 'services',
-            'content' => $content
+        $locale      = service('request')->getLocale();
+        $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
+        $services    = retrieveWordPressPosts("posts?per_page=50&categories={$category_id}&orderby=title&order=asc");
+        $data        = [
+            'slug'     => 'services',
+            'locale'   => $locale,
+            'uri'      => 'services',
+            'services' => $services
         ];
         return view('services', $data);
     }
 
+    public function serviceView(): string
+    {
+        return view('service-view');
+    }
+
     /**
-     * This is the promotions page
+     * This is the promotion page
      * @return string
      */
     public function promotions(): string

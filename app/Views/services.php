@@ -2,21 +2,39 @@
 $this->extend('_layout.php');
 $this->section('content');
 ?>
-    <section id="about" class="about section" style="margin-top:100px !important;">
-        <!-- Section Title -->
-        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <h1><?= lang('Theme.website-name') ?></h1>
-            <h2><?= lang('Theme.pages.' . $slug) ?></h2>
-        </div><!-- End Section Title -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <article>
-                        <?= $content['content'] ?>
-                    </article>
-                    <hr />
-                    <p class="small text-secondary"><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
+    <div class="page-title">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="heading-title"><?= lang('Theme.pages.services') ?></h1>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <section id="featured-departments" class="featured-departments section">
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row align-items-center g-5">
+                <?php foreach ($services['posts'] as $service) : ?>
+                    <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="specialty-card">
+                            <div class="specialty-content">
+                                <div class="specialty-meta">
+                                    <span class="specialty-label">Our Service</span>
+                                </div>
+                                <h3><?= $service['title'] ?></h3>
+                                <p><?= $service['excerpt'] ?></p>
+                                <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>" class="specialty-link">
+                                    Read more <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="specialty-visual">
+                                <img src="<?= $services['media'][$service['featured_image']] ?>" alt="Cardiovascular Medicine" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

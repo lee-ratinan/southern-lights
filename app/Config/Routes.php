@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('about-us', 'Home::aboutUs');
 $routes->get('services', 'Home::services');
+$routes->get('services/view', 'Home::serviceView');
 $routes->get('promotions', 'Home::promotions');
 $routes->get('contact-us', 'Home::contactUs');
 $routes->get('terms-and-conditions', 'Home::termsAndConditions');
@@ -19,6 +20,7 @@ $routes->get('sitemap.xml', 'Home::sitemap');
 // with locale
 $routes->get('{locale}/about-us', 'Home::aboutUs');
 $routes->get('{locale}/services', 'Home::services');
+$routes->get('{locale}/services/view', 'Home::serviceView');
 $routes->get('{locale}/promotions', 'Home::promotions');
 $routes->get('{locale}/contact-us', 'Home::contactUs');
 $routes->get('{locale}/terms-and-conditions', 'Home::termsAndConditions');

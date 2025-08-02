@@ -106,7 +106,7 @@ $this->section('content');
                                 </div>
                                 <h3><?= $service['title'] ?></h3>
                                 <p><?= $service['excerpt'] ?></p>
-                                <a href="<?= base_url($locale . '/services/' . $service['slug']) ?>" class="specialty-link">
+                                <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>" class="specialty-link">
                                     Read more <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
