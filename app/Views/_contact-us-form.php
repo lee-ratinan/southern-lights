@@ -1,6 +1,12 @@
 <section id="contact" class="contact section">
     <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
+            <div class="col text-center py-5">
+                <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-lg btn-primary rounded-pill px-5"><i class="bi bi-telephone-fill"></i> BOOK NOW</a>
+                <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-lg btn-outline-primary rounded-pill ms-4 px-5"><i class="bi bi-ticket-detailed"></i> BUY VOUCHER</a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <div class="contact-form-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                     <h2><?= lang('Contact.form.title') ?></h2>

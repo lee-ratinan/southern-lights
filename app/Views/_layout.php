@@ -42,7 +42,6 @@
     <link href="<?= base_url('/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/glightbox/css/glightbox.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/flag-icon/flags.min.css') ?>" rel="stylesheet" />
-    <link href="<?= base_url('/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet">
     <!-- Main CSS File -->
     <link href="<?= base_url('/assets/css/main.css') ?>" rel="stylesheet">
     <!-- =======================================================
