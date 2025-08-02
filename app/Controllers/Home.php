@@ -14,11 +14,16 @@ class Home extends BaseController
      */
     public function index(): string
     {
-        $locale = service('request')->getLocale();
-        $data   = [
-            'slug'   => 'home',
-            'locale' => $locale,
-            'uri'    => ''
+        helper('wordpress');
+        $locale      = service('request')->getLocale();
+        $limit       = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
+        $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
+        $services    = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
+        $data        = [
+            'slug'     => 'home',
+            'locale'   => $locale,
+            'uri'      => '',
+            'services' => $services
         ];
         return view('home', $data);
     }
