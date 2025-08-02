@@ -39,9 +39,9 @@ $this->section('content');
                 </div>
                 <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="200">
                     <div class="image-wrapper">
-                        <img src="<?= base_url('assets/img/about/about.jpg') ?>" class="img-fluid main-image" alt="Healthcare facility">
+                        <img src="<?= base_url('assets/img/about/about.jpg') ?>" class="img-fluid main-image" alt="xxxxxxxx">
                         <div class="floating-image aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
-                            <img src="<?= base_url('assets/img/about/person.webp') ?>" class="img-fluid" alt="Medical team">
+                            <img src="<?= base_url('assets/img/about/person.webp') ?>" class="img-fluid" alt="xxxxxxxxx">
                         </div>
                     </div>
                 </div>

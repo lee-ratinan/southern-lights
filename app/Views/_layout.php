@@ -2,7 +2,7 @@
 <html lang="<?= $locale ?>">
 <head>
     <?php
-    $meta_title   = ('blog-view' == $slug ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
+    $meta_title   = (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
     $company_logo = base_url('sky-thai-logo.png');
     $favicon_file = base_url('favicon.png');
     $meta_image   = ($post['media']['media_details']['sizes']['full']['source_url'] ?? $company_logo);
@@ -10,12 +10,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title><?= $meta_title ?></title>
-    <meta name="description" content="<?= ('blog-view' == $slug ? $title : lang('Seo.' . $slug . '.description')) ?>">
-    <meta name="keywords" content="<?= ('blog-view' == $slug ? $title : lang('Seo.' . $slug . '.keywords')) ?>">
+    <meta name="description" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
+    <meta name="keywords" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.keywords')) ?>">
     <meta name="author" content="<?= lang('Theme.website-name') ?>">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="<?= $meta_title ?>">
-    <meta property="og:description" content="<?= ('blog-view' == $slug ? $title : lang('Seo.' . $slug . '.description')) ?>">
+    <meta property="og:description" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
     <meta property="og:image" content="<?= $meta_image ?>">
     <meta property="og:url" content="<?= current_url() ?>">
     <meta property="og:type" content="<?= (in_array($slug, ['blog-view', 'blog']) ? 'article' : 'website') ?>">
@@ -62,16 +62,17 @@ $nav = [
     ['locales', '', ''],
     ['contact-us', base_url($locale . '/contact-us'), '<b><span class="bi bi-telephone"></span>&nbsp;' . lang('Theme.pages.contact-us') . '</b>'],
 ];
-$locales = ['en', 'es', 'ja', 'zh'];
-$flag    = ['nz', 'es', 'jp', 'cn'];
+$locales  = ['en', 'es', 'ja', 'zh'];
+$flag     = ['nz', 'es', 'jp', 'cn'];
 $lang_uri = $uri;
 if ('blog-view' == $slug) {$lang_uri = 'blog';}
+else if ('service-view' == $slug) {$lang_uri = 'services';}
 ?>
 <header id="header" class="header fixed-top">
     <div class="topbar d-flex align-items-center dark-background">
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-bookmark-check-fill d-flex align-items-center"><a href="<?= getenv('BOOK_NOW_LINK') ?>">BOOK NOW</a></i>
+                <i class="bi bi-bookmark-check-fill d-flex align-items-center"><a href="<?= getenv('BOOK_NOW_LINK') ?>"><?= lang('Theme.cta.book-now') ?></a></i>
                 <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
@@ -143,7 +144,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                         <div class="row">
                             <div class="col-6 pt-lg-5">
                                 <div class="nav-column">
-                                    <h6><?= lang('Theme.website-name') ?></h6>
+                                    <h6><?= lang('Theme.footer-links') ?></h6>
                                     <nav class="footer-nav">
                                         <?php foreach ($nav as $item) : ?>
                                             <?php if ('locales' == $item[0]) { continue;} ?>
@@ -174,13 +175,13 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="copyright">
-                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.company-name') ?></span>. All rights reserved.</p>
+                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.company-name') ?></span>. <?= lang('Theme.copyrights') ?></p>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="legal-links">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms of Service</a>
+                        <div class="legal-links d-none">
+                            <a href="#"><?= lang('Theme.pages.privacy-policy') ?></a>
+                            <a href="#"><?= lang('Theme.pages.terms-and-conditions') ?></a>
                         </div>
                     </div>
                 </div>

@@ -37,11 +37,11 @@ $this->section('content');
                         <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
                             <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary">
                                 <i class="bi bi-bookmark-check-fill"></i> &nbsp;
-                                Book Now
+                                <?= lang('Theme.cta.book-now') ?>
                             </a>
                             <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-outline">
                                 <i class="bi bi-arrow-right"></i> &nbsp;
-                                Buy Gift Voucher
+                                <?= lang('Theme.cta.buy-voucher') ?>
                             </a>
                         </div>
                     </div>
