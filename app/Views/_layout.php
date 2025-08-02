@@ -193,7 +193,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
 <script src="<?= base_url('/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
 <?php if ('home' == $slug) : ?>
     <script src="<?= base_url('/vendor/luxon/luxon.min.js') ?>"></script>
-    <script src="<?= base_url('/assets/js/opening-hours.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/homepage.js') ?>"></script>
 <?php endif; ?>
 <!-- Main JS File -->
 <script src="<?= base_url('/assets/js/main.js') ?>"></script>

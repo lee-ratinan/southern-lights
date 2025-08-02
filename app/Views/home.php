@@ -119,6 +119,23 @@ $this->section('content');
             </div>
         </div>
     </section>
+    <?php if ($promotion && !empty($promotion)) : ?>
+    <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content text-center">
+                <div class="modal-body p-0">
+                    <a href="<?= base_url($locale . '/promotions') ?>">
+                        <img src="<?= $promotion['featured_image'] ?>" alt="Promotion" class="img-fluid w-100" />
+                    </a>
+                    <button id="dontShowBtn" class="btn btn-sm btn-outline-secondary my-2 me-2 float-end">Don't show again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>let has_promotion_popup = true;</script>
+    <?php else: ?>
+    <script>let has_promotion_popup = false;</script>
+    <?php endif; ?>
 <?php
 include "_contact-us-form.php";
 $this->endSection();

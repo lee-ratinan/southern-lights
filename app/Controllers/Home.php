@@ -16,14 +16,18 @@ class Home extends BaseController
     {
         helper('wordpress');
         $locale      = service('request')->getLocale();
+        // SERVICES
         $limit       = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
         $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
         $services    = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
+        // PROMO POPUP
+        $promotion   = generateWordPressPage('promotion-popup', true);
         $data        = [
-            'slug'     => 'home',
-            'locale'   => $locale,
-            'uri'      => '',
-            'services' => $services
+            'slug'      => 'home',
+            'locale'    => $locale,
+            'uri'       => '',
+            'services'  => $services,
+            'promotion' => $promotion
         ];
         return view('home', $data);
     }

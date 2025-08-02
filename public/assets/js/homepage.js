@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(){
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+    }
+    function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value}; expires=${d.toUTCString()}; path=/`;
+    }
+    // OPENING HOURS
     const openingHours = {
         MON: ["08:00", "23:00"],
         TUE: ["08:00", "23:00"],
@@ -51,5 +61,15 @@ document.addEventListener("DOMContentLoaded", function(){
                 document.getElementById('home-page-opening-hours-next').innerHTML = result.nextOpening;
             }
         }
+    }
+    // POPUP
+    if (!getCookie("hidePromo") && has_promotion_popup) {
+        const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+        promoModal.show();
+
+        document.getElementById("dontShowBtn").addEventListener("click", function () {
+            setCookie("hidePromo", "1", 1); // hide for 1 day
+            promoModal.hide();
+        });
     }
 });

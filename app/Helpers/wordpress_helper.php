@@ -186,21 +186,31 @@ function generateWordPressPost(string $slug): array
 
 /**
  * @param string $slug
+ * @param bool $suppress_not_found
  * @return array
  */
-function generateWordPressPage(string $slug): array
+function generateWordPressPage(string $slug, bool $suppress_not_found = false): array
 {
     $slug      = strtolower($slug);
     $url       = getenv('WORDPRESS_URL') . 'pages/?slug=' . $slug;
     $response  = callWordPressCurl($url);
     $page_data = $response['body'][0] ?? null;
     if (!$page_data) {
+        if ($suppress_not_found) {
+            return [];
+        }
         throw new PageNotFoundException('Cannot find the post with code ' . $slug);
     }
+    $media     = [];
+    if (0 < $page_data['featured_media']) {
+        $media = callWordPressCurl(getenv('WORDPRESS_URL') . 'media/' . $page_data['featured_media']);
+        $media = $media['body'] ?? [];
+    }
     return [
-        'title'   => $page_data['title']['rendered'],
-        'content' => $page_data['content']['rendered'],
-        'updated' => $page_data['modified_gmt'],
+        'title'          => $page_data['title']['rendered'],
+        'content'        => $page_data['content']['rendered'],
+        'featured_image' => $media['media_details']['sizes']['full']['source_url'],
+        'updated'        => $page_data['modified_gmt'],
     ];
 }
 
