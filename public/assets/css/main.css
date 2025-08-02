@@ -6217,3 +6217,24 @@ section,
   padding-bottom: 60px;
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+}
+.btn-primary:hover {
+  background-color: #315e99 !important;
+  border-color: #315e99 !important;
+}
+.btn-outline-primary {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+.btn-outline-primary:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+}

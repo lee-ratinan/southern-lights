@@ -36,7 +36,7 @@ $this->section('content');
                         </div>
                         <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
                             <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary">
-                                <i class="bi bi-telephone"></i> &nbsp;
+                                <i class="bi bi-bookmark-check-fill"></i> &nbsp;
                                 Book Now
                             </a>
                             <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-outline">

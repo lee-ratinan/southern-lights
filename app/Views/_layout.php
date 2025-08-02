@@ -71,7 +71,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
     <div class="topbar d-flex align-items-center dark-background">
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a></i>
+                <i class="bi bi-bookmark-check-fill d-flex align-items-center"><a href="<?= getenv('BOOK_NOW_LINK') ?>">BOOK NOW</a></i>
                 <i class="bi bi-phone d-flex align-items-center ms-4"><a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
