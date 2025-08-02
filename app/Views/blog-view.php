@@ -19,7 +19,7 @@ $this->section('content');
                 <div class="col col-md-10 col-lg-8">
                     <p><a href="<?= base_url($locale . '/blog') ?>"><?= lang('Theme.pages.blog') ?></a> / <?= $post['title'] ?> /</p>
                     <?php if (!empty($post['media'])) : ?>
-                        <img src="<?= $post['media']['media_details']['sizes']['full']['source_url'] ?>" alt="<?= $post['title'] ?>" class="img-fluid" />
+                        <img src="<?= $post['media']['media_details']['sizes']['full']['source_url'] ?>" alt="<?= $post['title'] ?>" class="img-fluid mb-5" />
                     <?php endif; ?>
                     <p>
                         <?= lang('Blog.published', [format_post_date($post['post_data']['date'], $locale)]) ?> |

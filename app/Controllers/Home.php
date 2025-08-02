@@ -66,9 +66,24 @@ class Home extends BaseController
         return view('services', $data);
     }
 
+    /**
+     * This is the service view page
+     * @return string
+     */
     public function serviceView(): string
     {
-        return view('service-view');
+        helper('wordpress');
+        $service_slug = $this->request->getVar('q');
+        $locale       = service('request')->getLocale();
+        $post         = generateWordPressPost($service_slug);
+        $data         = [
+            'slug'   => 'service-view',
+            'locale' => $locale,
+            'uri'    => 'services/view/?q=' . utf8_encode($service_slug),
+            'post'   => $post,
+            'title'  => $post['title']
+        ];
+        return view('service-view', $data);
     }
 
     /**

@@ -39,5 +39,6 @@ $this->section('content');
         </div>
     </section>
 <?php
+include "_contact-us-form.php";
 $this->endSection();
 ?>
