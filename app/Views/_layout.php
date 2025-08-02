@@ -110,7 +110,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
         </div>
     </div>
 </header>
-<main class="main my-5">
+<main class="main">
     <?= $this->renderSection('content') ?>
 </main>
 <footer id="footer" class="footer-16 footer position-relative">

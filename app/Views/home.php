@@ -6,7 +6,7 @@ $this->section('content');
     <section id="hero" class="hero section">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-5">
                     <div class="hero-content">
                         <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
                             <div class="badge-item">
@@ -47,8 +47,8 @@ $this->section('content');
                     </div>
                 </div>
                 <!-- IMG SECTION -->
-                <div class="col-lg-6">
-                    <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+                <div class="col-lg-6 mt-5">
+                    <div class="hero-visual mt-5" data-aos="fade-left" data-aos-delay="400">
                         <div class="main-image">
                             <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
                             <div class="floating-card appointment-card">
