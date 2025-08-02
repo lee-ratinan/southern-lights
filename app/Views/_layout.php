@@ -59,8 +59,9 @@ $nav = [
     ['about-us', base_url($locale . '/about-us'), lang('Theme.pages.about-us')],
     ['services', base_url($locale . '/services'), lang('Theme.pages.services')],
     ['promotions', base_url($locale . '/promotions'), lang('Theme.pages.promotions')],
-    ['contact-us', base_url($locale . '/contact-us'), lang('Theme.pages.contact-us')],
     ['blog', base_url($locale . '/blog'), lang('Theme.pages.blog')],
+    ['locales', '', ''],
+    ['contact-us', base_url($locale . '/contact-us'), '<b><span class="bi bi-telephone"></span>&nbsp;' . lang('Theme.pages.contact-us') . '</b>'],
 ];
 $locales = ['en', 'es', 'ja', 'zh'];
 $flag    = ['nz', 'es', 'jp', 'cn'];
@@ -90,7 +91,18 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <?php foreach ($nav as $item) : ?>
-                        <li><a href="<?= $item[1] ?>" <?= ($slug == $item[0] ? 'class="active"' : '') ?>><?= $item[2] ?></a></li>
+                        <?php if ('locales' == $item[0]) : ?>
+                            <li class="dropdown">
+                                <a href="#"><span><span class="bi bi-globe"></span> <?= lang('Theme.locales.label') ?></span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <?php foreach ($locales as $i => $item) : ?>
+                                        <li><a href="<?= base_url($item . '/' . $lang_uri) ?>"><?= lang('Theme.locales.' . $item) ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
+                        <?php else: ?>
+                            <li><a href="<?= $item[1] ?>" <?= ($slug == $item[0] ? 'class="active"' : '') ?>><?= $item[2] ?></a></li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -98,7 +110,7 @@ if ('blog-view' == $slug) {$lang_uri = 'blog';}
         </div>
     </div>
 </header>
-<main class="main my-5 pt-5">
+<main class="main my-5">
     <?= $this->renderSection('content') ?>
 </main>
 <footer id="footer" class="footer-16 footer position-relative">
