@@ -209,7 +209,7 @@ function generateWordPressPage(string $slug, bool $suppress_not_found = false): 
     return [
         'title'          => $page_data['title']['rendered'],
         'content'        => $page_data['content']['rendered'],
-        'featured_image' => $media['media_details']['sizes']['full']['source_url'],
+        'featured_image' => $media['media_details']['sizes']['full']['source_url'] ?? null,
         'updated'        => $page_data['modified_gmt'],
     ];
 }
