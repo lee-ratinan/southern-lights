@@ -12,26 +12,26 @@
                     <h2><?= lang('Contact.form.title') ?></h2>
                     <p class="mb-4"><?= lang('Contact.form.subtitle') ?></p>
                     <form action="<?= base_url('contact-us') ?>" method="post" class="php-email-form">
-                        <div class="row g-3">
-                            <div class="col-12">
+                        <div class="row g-1">
+                            <div class="col-6">
                                 <label class="w-100" for="name">
                                     <span class="d-none"><?= lang('Contact.form.name') ?></span>
                                     <input type="text" class="form-control w-100" name="name" id="name" placeholder="<?= lang('Contact.form.name') ?>" required="required" autocomplete="true">
                                 </label>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label class="w-100" for="email">
                                     <span class="d-none"><?= lang('Contact.form.email') ?></span>
                                     <input type="email" class="form-control" name="email" id="email" placeholder="<?= lang('Contact.form.email') ?>" autocomplete="true">
                                 </label>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label class="w-100" for="phone">
                                     <span class="d-none"><?= lang('Contact.form.phone') ?></span>
                                     <input type="text" class="form-control" name="phone" id="phone" placeholder="<?= lang('Contact.form.phone') ?>" required="required" autocomplete="true">
                                 </label>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label class="w-100" for="subject">
                                     <span class="d-none"><?= lang('Contact.form.subject') ?></span>
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="<?= lang('Contact.form.subject') ?>" autocomplete="false">
