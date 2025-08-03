@@ -66,7 +66,7 @@ class Home extends BaseController
         helper('wordpress');
         $locale      = service('request')->getLocale();
         $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
-        $services    = retrieveWordPressPosts("posts?per_page=50&categories={$category_id}&orderby=title&order=asc");
+        $services    = retrieveWordPressPosts("posts?per_page=20&categories={$category_id}&orderby=title&order=asc");
         $data        = [
             'slug'     => 'services',
             'locale'   => $locale,
