@@ -12,7 +12,7 @@
                 </a>
             </div>
             <div class="specialty-visual">
-                <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>"><img src="<?= $services['media'][$service['featured_image']] ?>" alt="Cardiovascular Medicine" class="img-fluid"></a>
+                <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>"><img src="<?= $services['media'][$service['featured_image']] ?>" alt="<?= $service['title'] ?>" class="img-fluid"></a>
             </div>
         </div>
     </div>

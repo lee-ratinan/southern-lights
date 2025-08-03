@@ -20,7 +20,7 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
             </div>
         </div>
     </div>
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section featured-departments">
         <div class="container-fluid map-container aos-init aos-animate mt-0 mb-5" data-aos="fade-up" data-aos-delay="200">
             <div class="map-overlay"></div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73245.21957032372!2d174.65942832813198!3d-36.855731272278206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d471233b27243%3A0x56925ebc833ee8ee!2sAuckland%20Zoo!5e0!3m2!1sen!2ssg!4v1754141828168!5m2!1sen!2ssg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -32,8 +32,8 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
                         <h2><?= lang('Theme.website-name') ?></h2>
                         <div class="row g-3">
                             <div class="col-12 col-md-6 d-flex">
-                                <div class="card w-100">
-                                    <div class="card-body">
+                                <div class="specialty-card w-100">
+                                    <div class="specialty-content">
                                         <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                             <div class="info-icon">
                                                 <i class="bi bi-geo-alt"></i>
@@ -67,8 +67,8 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 d-flex">
-                                <div class="card w-100">
-                                    <div class="card-body">
+                                <div class="specialty-card w-100">
+                                    <div class="specialty-content">
                                         <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
                                             <div class="info-icon">
                                                 <i class="bi bi-clock"></i>

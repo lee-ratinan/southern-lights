@@ -13,7 +13,7 @@ $this->section('content');
             </div>
         </div>
     </div>
-    <section id="blog" class="blog section">
+    <section id="blog" class="blog featured-departments section">
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-center">
                 <div class="d-none d-md-block col-md-6 col-lg-8">&nbsp;</div>
@@ -38,44 +38,31 @@ $this->section('content');
                 </div>
             </div>
             <div class="row">
-                <div class="col col-md-10 col-lg-8">
-                    <?php if (empty($posts['posts'])) : ?>
-                        <div class="alert alert-warning" role="alert">
-                            <?= lang('Blog.no-result') ?>
-                        </div>
-                    <?php else : ?>
-                        <?php foreach ($posts['posts'] as $post) : ?>
-                            <div class="mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h2 class="mb-3"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= $post['title'] ?></a></h2>
-                                        <p>
-                                            <?= lang('Blog.published', [format_post_date($post['date'], $locale)]) ?> |
-                                            <?= lang('Blog.by', [$posts['authors'][$post['author']]]) ?>
-                                            <?php if (!empty($post['tag_ids'])) : ?>
-                                                | <?= lang('Blog.tags') ?>
-                                                <?php foreach ($post['tag_ids'] as $tag_id) : ?>
-                                                    <?php if (isset($posts['tags'][$tag_id])) : ?>
-                                                        <a href="<?= base_url($locale . '/blog?tag=' . $tag_id) ?>" class="badge bg-warning"><?= urldecode($posts['tags'][$tag_id]) ?></a>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </p>
-                                        <?php if (0 < $post['featured_image'] && isset($posts['media'][$post['featured_image']])) : ?>
-                                            <div class="float-end ms-3 mb-3" style="max-width:30%">
-                                                <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid img-thumbnail img-blog-thumbnail" /></a>
-                                            </div>
-                                        <?php endif; ?>
-                                        <div class="blog-excerpt my-2"><?= $post['excerpt'] ?></div>
-                                        <div class="my-2"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= lang('Blog.read-more') ?></a></div>
+                <?php if (empty($posts['posts'])) : ?>
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="alert alert-warning" role="alert"><?= lang('Blog.no-result') ?></div>
+                    </div>
+                <?php else : ?>
+                    <?php foreach ($posts['posts'] as $post) : ?>
+                        <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="specialty-card">
+                                <div class="specialty-visual">
+                                    <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid"></a>
+                                </div>
+                                <div class="specialty-content">
+                                    <div class="specialty-meta">
+                                        <span class="specialty-label"><?= lang('Theme.pages.blog') ?></span>
                                     </div>
+                                    <h3><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= $post['title'] ?></a></h3>
+                                    <p><?= $post['excerpt'] ?></p>
+                                    <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>" class="specialty-link"><?= lang('Blog.read-more') ?> <i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col text-center">
                     <!-- PREV -->
                     <?php

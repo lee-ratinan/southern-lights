@@ -6241,7 +6241,3 @@ section,
   background-color: var(--accent-color) !important;
   color: var(--contrast-color) !important;
 }
-
-.card-body {
-  background-color: color-mix(in srgb, var(--fourth-color), transparent 40%);
-}

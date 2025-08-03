@@ -27,7 +27,7 @@ class Home extends BaseController
         $locale      = service('request')->getLocale();
         // SERVICES
         $limit       = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
-        $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
+        $category_id = getenv('WORDPRESS_FEATURE_SERVICE_' . strtoupper($locale));
         $services    = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
         // PROMO POPUP
         $promotion   = generateWordPressPage('promotion-popup-' . $locale, true);
