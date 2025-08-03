@@ -19,8 +19,8 @@ return [
         'ja'    => '日本語 (Japanese)',
         'zh'    => '中文 (Mandarin)'
     ],
-    'cta' => [
-        'book-now' => 'Book Now',
+    'cta'              => [
+        'book-now'    => 'Book Now',
         'buy-voucher' => 'Buy Gift Voucher',
     ],
     'footer-paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique malesuada pretium.',

@@ -1,14 +1,12 @@
 <?php
 return [
     'info' => [
-        'address' => 'Our Address',
-        'email'   => 'Email Address',
-        'phone'   => 'Phone Number',
-        'hours'   => 'Hours of Operation',
-        'hours_detail' => [
-            'Mon-Fri: 9 AM - 6 PM',
-            'Sat-Sun: 9 AM - 8 PM',
-        ]
+        'address'      => 'Our Address',
+        'email'        => 'Email Address',
+        'phone'        => 'Phone Number',
+        'hours'        => 'Hours of Operation',
+        'closed'       => 'Closed',
+        'differ-on-ph' => 'Hours might differ on public holidays.'
     ],
     'form' => [
         'title'     => 'Send us a Message',

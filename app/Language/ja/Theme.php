@@ -1,8 +1,8 @@
 <?php
 return [
-    'company-name' => 'Southern Lights',
-    'website-name' => 'スカイタイ マッサージとスパ',
-    'pages'        => [
+    'company-name'     => 'Southern Lights',
+    'website-name'     => 'スカイタイ マッサージとスパ',
+    'pages'            => [
         'home'                 => 'ホーム',
         'about-us'             => '会社概要',
         'services'             => 'サービス',

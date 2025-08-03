@@ -1,8 +1,8 @@
 <?php
 return [
-    'company-name' => 'Southern Lights',
-    'website-name' => 'Sky Thai Massage & Spa',
-    'pages'        => [
+    'company-name'     => 'Southern Lights',
+    'website-name'     => 'Sky Thai Massage & Spa',
+    'pages'            => [
         'home'                 => 'Inicio',
         'about-us'             => 'Sobre nosotros',
         'services'             => 'Servicios',

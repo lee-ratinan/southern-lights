@@ -1,8 +1,8 @@
 <?php
 return [
-    'company-name' => 'Southern Lights',
-    'website-name' => '天空泰水疗按摩',
-    'pages'        => [
+    'company-name'     => 'Southern Lights',
+    'website-name'     => '天空泰水疗按摩',
+    'pages'            => [
         'home'                 => '首页',
         'about-us'             => '关于我们',
         'services'             => '服务',

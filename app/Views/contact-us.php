@@ -1,6 +1,13 @@
 <?php
 $this->extend('_layout.php');
 $this->section('content');
+$format_locales = [
+    'en' => 'en-NZ',
+    'es' => 'es-ES',
+    'ja' => 'ja-JP',
+    'zh' => 'zh-CN',
+];
+$js_locale = $format_locales[$locale] ?? 'en-NZ';
 ?>
     <div class="page-title">
         <div class="heading">
@@ -24,49 +31,54 @@ $this->section('content');
                     <div class="contact-info-wrapper">
                         <h2><?= lang('Theme.website-name') ?></h2>
                         <div class="row g-3">
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                                <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="info-icon">
-                                        <i class="bi bi-geo-alt"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <h3><?= lang('Contact.info.address') ?></h3>
-                                        <p><?= getenv('WEB_STORE_ADDRESS') ?></p>
+                            <div class="col-12 col-md-6 d-flex">
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <div class="info-icon">
+                                                <i class="bi bi-geo-alt"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h3><?= lang('Contact.info.address') ?></h3>
+                                                <p><?= getenv('WEB_STORE_ADDRESS') ?></p>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                                            <div class="info-icon">
+                                                <i class="bi bi-envelope"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h3><?= lang('Contact.info.email') ?></h3>
+                                                <p><a href="mailto:<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a></p>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                            <div class="info-icon">
+                                                <i class="bi bi-phone"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h3><?= lang('Contact.info.phone') ?></h3>
+                                                <p><a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                                <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="info-icon">
-                                        <i class="bi bi-envelope"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <h3><?= lang('Contact.info.email') ?></h3>
-                                        <p><a href="mailto:<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                                <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="info-icon">
-                                        <i class="bi bi-phone"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <h3><?= lang('Contact.info.phone') ?></h3>
-                                        <p><a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                                <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="info-icon">
-                                        <i class="bi bi-headset"></i>
-                                    </div>
-                                    <div class="info-content">
-                                        <h3><?= lang('Contact.info.hours') ?></h3>
-                                        <?php foreach (lang('Contact.info.hours_detail') as $line) : ?>
-                                            <p><?= $line ?></p>
-                                        <?php endforeach; ?>
+                            <div class="col-12 col-md-6 d-flex">
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <div class="contact-info-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                                            <div class="info-icon">
+                                                <i class="bi bi-clock"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h3><?= lang('Contact.info.hours') ?></h3>
+                                                <div id="opening-hours"></div>
+                                                <p class="small text-secondary"><?= lang('Contact.info.differ-on-ph') ?></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -76,6 +88,41 @@ $this->section('content');
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function formatTime(timeStr, locale) {
+                const [hour, minute] = timeStr.split(":").map(Number);
+                const date = new Date();
+                date.setHours(hour, minute);
+                return new Intl.DateTimeFormat(locale, {hour: "numeric", minute: "numeric"}).format(date);
+            }
+            const opening_hours = <?= json_encode($opening_hours) ?>;
+            const dayMap = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+            const todayIndex = new Date().getDay();
+            const orderedDays = [...dayMap.slice(todayIndex), ...dayMap.slice(0, todayIndex)];
+            const container = document.getElementById("opening-hours");
+            let isFirstDay = true;
+            orderedDays.forEach(day => {
+                const hours = opening_hours[day];
+                const line = document.createElement("div");
+                const userLocale = '<?= $js_locale ?>';
+                let lineText = '';
+                if (hours) {
+                    const open = formatTime(hours[0], userLocale);
+                    const close = formatTime(hours[1], userLocale);
+                    lineText = `${day}: ${open} - ${close}`;
+                } else {
+                    lineText = `${day}: <?= lang('Contact.info.closed') ?>`;
+                }
+                if (isFirstDay) {
+                    lineText = '<b>' + lineText + '</b>';
+                    isFirstDay = false;
+                }
+                line.innerHTML = lineText;
+                container.appendChild(line);
+            });
+        });
+    </script>
 <?php
 include "_contact-us-form.php";
 $this->endSection();
