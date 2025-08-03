@@ -37,7 +37,6 @@
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="<?= lang('Contact.form.subject') ?>" autocomplete="false">
                                 </label>
                             </div>
-
                             <div class="col-12">
                                 <label class="w-100" for="message">
                                     <span class="d-none"><?= lang('Contact.form.message') ?></span>

@@ -2,7 +2,6 @@
 $this->extend('_layout.php');
 $this->section('content');
 ?>
-    <!-- Hero Section -->
     <section id="hero" class="hero section">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-center">
@@ -87,14 +86,12 @@ $this->section('content');
                 </div>
             </div>
         </div>
-    </section><!-- /Hero Section -->
-    <!-- Featured Program -->
+    </section>
     <section id="featured-departments" class="featured-departments section">
-        <!-- Section Title -->
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <h2><?= lang('Home.services.heading') ?></h2>
             <p><?= lang('Home.services.para') ?></p>
-        </div><!-- End Section Title -->
+        </div>
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row g-5">
                 <?php foreach ($services['posts'] as $service) : ?>
