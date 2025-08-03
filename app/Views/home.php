@@ -11,18 +11,18 @@ $this->section('content');
                         <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
                             <div class="badge-item">
                                 <i class="bi bi-check-circle-fill"></i>
-                                <span>Authentic Thai</span>
+                                <span><?= lang('Home.hero.badge.badge1') ?></span>
                             </div>
                             <div class="badge-item">
                                 <i class="bi bi-hand-thumbs-up-fill"></i>
-                                <span>Excellence Service</span>
+                                <span><?= lang('Home.hero.badge.badge2') ?></span>
                             </div>
                         </div>
                         <h1 data-aos="fade-right" data-aos-delay="300">
-                            Excellence in <span class="highlight">Hospitality</span> With Compassionate Care
+                            <?= lang('Home.hero.badge.message1') ?>
                         </h1>
                         <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
-                            Experience authentic Thai healing in the heart of Auckland—where every touch soothes, and every visit restores balance.
+                            <?= lang('Home.hero.badge.message2') ?>
                         </p>
                         <div class="hero-stats mb-4 d-none" data-aos="fade-right" data-aos-delay="500">
                             <div class="stat-item">
@@ -56,12 +56,12 @@ $this->section('content');
                                     <i class="bi bi-calendar-check"></i>
                                 </div>
                                 <div class="card-content" id="home-page-opening-hours-opened" style="display: none;">
-                                    <h6>We are open now.</h6>
-                                    <small>Book your session now!</small>
+                                    <h6><?= lang('Home.opening-hours-app.open-now') ?></h6>
+                                    <small><?= lang('Home.opening-hours-app.open-msg') ?></small>
                                 </div>
                                 <div class="card-content" id="home-page-opening-hours-closed" style="display: none;">
-                                    <h6>Currently closed.</h6>
-                                    <small id="home-page-opening-hours-next-label">Next opening: <span id="home-page-opening-hours-next"></span></small>
+                                    <h6><?= lang('Home.opening-hours-app.close-now') ?></h6>
+                                    <small id="home-page-opening-hours-next-label"><?= lang('Home.opening-hours-app.close-msg') ?> <span id="home-page-opening-hours-next"></span></small>
                                 </div>
                             </div>
                             <div class="floating-card rating-card d-none">
@@ -92,8 +92,8 @@ $this->section('content');
     <section id="featured-departments" class="featured-departments section">
         <!-- Section Title -->
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Featured Services</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <h2><?= lang('Home.services.heading') ?></h2>
+            <p><?= lang('Home.services.para') ?></p>
         </div><!-- End Section Title -->
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row g-5">
@@ -102,12 +102,12 @@ $this->section('content');
                         <div class="specialty-card">
                             <div class="specialty-content">
                                 <div class="specialty-meta">
-                                    <span class="specialty-label">Our Service</span>
+                                    <span class="specialty-label"><?= lang('Home.services.our-service') ?></span>
                                 </div>
                                 <h3><?= $service['title'] ?></h3>
                                 <p><?= $service['excerpt'] ?></p>
                                 <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>" class="specialty-link">
-                                    Read more <i class="bi bi-arrow-right"></i>
+                                    <?= lang('Home.services.read-more') ?> <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
                             <div class="specialty-visual">
@@ -127,7 +127,7 @@ $this->section('content');
                     <a href="<?= base_url($locale . '/promotions') ?>">
                         <img src="<?= $promotion['featured_image'] ?>" alt="Promotion" class="img-fluid w-100" />
                     </a>
-                    <button id="dontShowBtn" class="btn btn-sm btn-outline-secondary my-2 me-2 float-end">Don't show again</button>
+                    <button id="dontShowBtn" class="btn btn-sm btn-outline-secondary my-2 me-2 float-end"><?= lang('Home.popup-btn') ?></button>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
         THU: ["08:00", "23:00"],
         FRI: ["08:00", "23:00"],
         SAT: ["08:00", "23:00"],
-        SUN: ["08:00", "23:00"],
+        SUN: null,
     };
     function isOpenNow(openingHours) {
         const { DateTime } = luxon;
