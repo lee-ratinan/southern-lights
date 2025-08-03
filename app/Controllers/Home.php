@@ -8,6 +8,15 @@ use Config\Services;
 class Home extends BaseController
 {
 
+    private $opening_hours = [
+        'MON' => ['08:00', '22:00'],
+        'TUE' => ['08:00', '22:00'],
+        'WED' => ['08:00', '22:00'],
+        'THU' => ['08:00', '22:00'],
+        'FRI' => ['08:00', '22:00'],
+        'SAT' => ['08:00', '22:00'],
+        'SUN' => ['08:00', '22:00']
+    ];
     /**
      * This is the homepage
      * @return string
@@ -23,11 +32,12 @@ class Home extends BaseController
         // PROMO POPUP
         $promotion   = generateWordPressPage('promotion-popup', true);
         $data        = [
-            'slug'      => 'home',
-            'locale'    => $locale,
-            'uri'       => '',
-            'services'  => $services,
-            'promotion' => $promotion
+            'slug'          => 'home',
+            'locale'        => $locale,
+            'uri'           => '',
+            'services'      => $services,
+            'promotion'     => $promotion,
+            'opening_hours' => $this->opening_hours,
         ];
         return view('home', $data);
     }
@@ -113,9 +123,10 @@ class Home extends BaseController
     {
         $locale = service('request')->getLocale();
         $data   = [
-            'slug'   => 'contact-us',
-            'locale' => $locale,
-            'uri'    => 'contact-us'
+            'slug'          => 'contact-us',
+            'locale'        => $locale,
+            'uri'           => 'contact-us',
+            'opening_hours' => $this->opening_hours,
         ];
         return view('contact-us', $data);
     }

@@ -59,8 +59,8 @@ $nav = [
     ['services', base_url($locale . '/services'), lang('Theme.pages.services')],
     ['promotions', base_url($locale . '/promotions'), lang('Theme.pages.promotions')],
     ['blog', base_url($locale . '/blog'), lang('Theme.pages.blog')],
-    ['locales', '', ''],
     ['contact-us', base_url($locale . '/contact-us'), '<b><span class="bi bi-telephone"></span>&nbsp;' . lang('Theme.pages.contact-us') . '</b>'],
+    ['locales', '', ''],
 ];
 $locales  = ['en', 'es', 'ja', 'zh'];
 $flag     = ['nz', 'es', 'jp', 'cn'];
@@ -92,7 +92,7 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
                 <ul>
                     <?php foreach ($nav as $item) : ?>
                         <?php if ('locales' == $item[0]) : ?>
-                            <li class="dropdown">
+                            <li class="dropdown d-block d-xl-none">
                                 <a href="#"><span><span class="bi bi-globe"></span> <?= lang('Theme.locales.label') ?></span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
                                     <?php foreach ($locales as $i => $item) : ?>
@@ -202,6 +202,9 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
 <script src="<?= base_url('/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
 <?php if ('home' == $slug) : ?>
+    <script>
+        const openingHours = <?= json_encode($opening_hours) ?>;
+    </script>
     <script src="<?= base_url('/vendor/luxon/luxon.min.js') ?>"></script>
     <script src="<?= base_url('/assets/js/homepage.js') ?>"></script>
 <?php endif; ?>

@@ -9,15 +9,6 @@ document.addEventListener("DOMContentLoaded", function(){
         document.cookie = `${name}=${value}; expires=${d.toUTCString()}; path=/`;
     }
     // OPENING HOURS
-    const openingHours = {
-        MON: ["08:00", "23:00"],
-        TUE: ["08:00", "23:00"],
-        WED: ["08:00", "23:00"],
-        THU: ["08:00", "23:00"],
-        FRI: ["08:00", "23:00"],
-        SAT: ["08:00", "23:00"],
-        SUN: null,
-    };
     function isOpenNow(openingHours) {
         const { DateTime } = luxon;
         const now = DateTime.now().setZone("Pacific/Auckland");
@@ -30,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function(){
             const endTime = DateTime.fromFormat(end, "HH:mm", { zone: "Pacific/Auckland" }).set({year: now.year, month: now.month, day: now.day});
             if (now >= startTime && now <= endTime) {
                 return { isOpen: true, nextOpening: null };
+            } else if (now <= startTime) {
+                return { isOpen: false, nextOpening: startTime.toFormat('h:mm a') };
             }
         }
         // If closed, find the next open day

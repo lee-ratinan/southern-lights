@@ -10,7 +10,7 @@ return [
         'open-now'  => 'We are open now.',
         'open-msg'  => 'Book your session now!',
         'close-now' => 'Currently closed.',
-        'close-msg' => 'Next opening:'
+        'close-msg' => 'Opens:'
     ],
     'services' => [
         'heading' => 'Featured Services',
