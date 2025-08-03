@@ -46,27 +46,30 @@ $this->section('content');
                     <?php else : ?>
                         <?php foreach ($posts['posts'] as $post) : ?>
                             <div class="mb-3">
-                                <h2 class="mb-3"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= $post['title'] ?></a></h2>
-                                <p>
-                                    <?= lang('Blog.published', [format_post_date($post['date'], $locale)]) ?> |
-                                    <?= lang('Blog.by', [$posts['authors'][$post['author']]]) ?>
-                                    <?php if (!empty($post['tag_ids'])) : ?>
-                                        | <?= lang('Blog.tags') ?>
-                                        <?php foreach ($post['tag_ids'] as $tag_id) : ?>
-                                            <?php if (isset($posts['tags'][$tag_id])) : ?>
-                                                <a href="<?= base_url($locale . '/blog?tag=' . $tag_id) ?>" class="badge bg-warning"><?= urldecode($posts['tags'][$tag_id]) ?></a>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 class="mb-3"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= $post['title'] ?></a></h2>
+                                        <p>
+                                            <?= lang('Blog.published', [format_post_date($post['date'], $locale)]) ?> |
+                                            <?= lang('Blog.by', [$posts['authors'][$post['author']]]) ?>
+                                            <?php if (!empty($post['tag_ids'])) : ?>
+                                                | <?= lang('Blog.tags') ?>
+                                                <?php foreach ($post['tag_ids'] as $tag_id) : ?>
+                                                    <?php if (isset($posts['tags'][$tag_id])) : ?>
+                                                        <a href="<?= base_url($locale . '/blog?tag=' . $tag_id) ?>" class="badge bg-warning"><?= urldecode($posts['tags'][$tag_id]) ?></a>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
                                             <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </p>
-                                <?php if (0 < $post['featured_image'] && isset($posts['media'][$post['featured_image']])) : ?>
-                                    <div class="float-end ms-3 mb-3" style="max-width:30%">
-                                        <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid img-thumbnail img-blog-thumbnail" /></a>
+                                        </p>
+                                        <?php if (0 < $post['featured_image'] && isset($posts['media'][$post['featured_image']])) : ?>
+                                            <div class="float-end ms-3 mb-3" style="max-width:30%">
+                                                <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid img-thumbnail img-blog-thumbnail" /></a>
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="blog-excerpt my-2"><?= $post['excerpt'] ?></div>
+                                        <div class="my-2"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= lang('Blog.read-more') ?></a></div>
                                     </div>
-                                <?php endif; ?>
-                                <div class="blog-excerpt my-2"><?= $post['excerpt'] ?></div>
-                                <div class="my-2"><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= lang('Blog.read-more') ?></a></div>
-                                <hr class="my-5" style="clear: both" />
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>

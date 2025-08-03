@@ -21,7 +21,7 @@ $this->section('content');
                         <h2><?= lang('About.header') ?></h2>
                         <p class="lead"><?= lang('About.para1') ?></p>
                         <p><?= lang('About.para2') ?></p>
-                        <div class="stats-grid">
+                        <div class="stats-grid d-none">
                             <div class="stat-item">
                                 <span class="stat-number" data-purecounter-start="0" data-purecounter-end="2025" data-purecounter-duration="2">2025</span>
                                 <span class="stat-label"><?= lang('About.counter1') ?></span>

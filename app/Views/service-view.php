@@ -17,7 +17,7 @@ $this->section('content');
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row">
                 <div class="col col-md-10 col-lg-8">
-                    <p><a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a> / <?= $post['title'] ?> /</p>
+                    <p><i class="bi bi-caret-right"></i> <a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a> <i class="bi bi-caret-right"></i> <?= $post['title'] ?> <i class="bi bi-caret-right"></i></p>
                     <?php if (!empty($post['media'])) : ?>
                         <img src="<?= $post['media']['media_details']['sizes']['full']['source_url'] ?>" alt="<?= $post['title'] ?>" class="img-fluid mb-5" />
                     <?php endif; ?>
