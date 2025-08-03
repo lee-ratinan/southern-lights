@@ -19,4 +19,7 @@ return [
     'by'        => 'By {0}',
     'tags'      => 'Tags: ',
     'read-more' => 'Read more',
+    'others'    => [
+        'no-promo' => 'Sorry, there are no promotions at the moment.'
+    ]
 ];

@@ -17,11 +17,15 @@ $this->section('content');
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-center">
                 <div class="col col-md-10 col-lg-8">
-                    <article>
-                        <?= $content['content'] ?>
-                    </article>
-                    <hr />
-                    <p class="small text-secondary"><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
+                    <?php if (!empty($content)) : ?>
+                        <article><?= $content['content'] ?></article>
+                        <hr />
+                        <p class="small text-secondary"><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
+                    <?php else: ?>
+                        <div class="alert alert-warning" role="alert">
+                            <?= lang('Blog.others.no-promo') ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

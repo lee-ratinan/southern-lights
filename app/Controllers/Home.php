@@ -30,7 +30,10 @@ class Home extends BaseController
         $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
         $services    = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
         // PROMO POPUP
-        $promotion   = generateWordPressPage('promotion-popup', true);
+        $promotion   = generateWordPressPage('promotion-popup-' . $locale, true);
+        if ('en' != $locale && empty($promotion)) {
+            $promotion   = generateWordPressPage('promotion-popup-en', true);
+        }
         $data        = [
             'slug'          => 'home',
             'locale'        => $locale,
@@ -105,7 +108,11 @@ class Home extends BaseController
         helper('wordpress');
         $locale  = service('request')->getLocale();
         $slug    = 'promotions-' . strtolower($locale);
-        $content = generateWordPressPage($slug);
+        $content = generateWordPressPage($slug, true);
+        if ('en' != $locale && empty($content)) {
+            $slug    = 'promotions-en';
+            $content = generateWordPressPage($slug, true);
+        }
         $data    = [
             'slug'   => 'promotions',
             'locale' => $locale,
