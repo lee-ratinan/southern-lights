@@ -72,13 +72,13 @@ body {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   text-decoration: none;
   transition: 0.3s;
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: color-mix(in srgb, var(--secondary-color), transparent 25%);
   text-decoration: none;
 }
 
@@ -1704,8 +1704,8 @@ section,
 
 .featured-departments .specialty-meta .specialty-label {
   display: inline-block;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
+  background: color-mix(in srgb, var(--secondary-color), transparent 90%);
+  color: var(--secondary-color);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -1754,7 +1754,7 @@ section,
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--accent-color);
+  color: var(--secondary-color);
   font-weight: 400;
   font-size: 16px;
   text-decoration: none;
@@ -1762,7 +1762,7 @@ section,
 }
 
 .featured-departments .specialty-link:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: color-mix(in srgb, var(--secondary-color), transparent 20%);
   transform: translateX(5px);
 }
 
