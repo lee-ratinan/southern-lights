@@ -17,6 +17,7 @@ return [
         'para'    => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
         'our-service' => 'Our Service',
         'read-more' => 'Read More',
+        'more-services' => 'More Services',
     ],
     'popup-btn' => 'Don’t show again'
 ];

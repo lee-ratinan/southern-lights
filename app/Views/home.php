@@ -95,6 +95,9 @@ $this->section('content');
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row g-5">
                 <?php include "_services-list.php"; ?>
+                <div class="col-12 text-center">
+                    <a class="btn btn-bg btn-outline-primary rounded-pill px-5" href="<?= base_url($locale . '/services/') ?>">+ <?= lang('Home.services.more-services') ?> +</a>
+                </div>
             </div>
         </div>
     </section>
