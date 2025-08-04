@@ -233,6 +233,7 @@ class Home extends BaseController
      */
     public function sitemap(): ResponseInterface
     {
+        log_message('debug', 'sitemap');
         // MAIN PAGES
         $main_pages = [
             ['/', '2025-01-01', 'monthly', '1.0'],
@@ -260,15 +261,15 @@ class Home extends BaseController
                 ];
             }
         }
-        $blog_url           = getenv('BLOG_URL');
+        $blog_url           = getenv('WORDPRESS_URL');
         // SERVICES PAGES
-        $category_ids       = [
+        $services_id        = [
             getenv('WORDPRESS_SERVICE_EN') => '/en/services/view?q=',
             getenv('WORDPRESS_SERVICE_ES') => '/th/services/view?q=',
             getenv('WORDPRESS_SERVICE_JA') => '/ja/services/view?q=',
             getenv('WORDPRESS_SERVICE_ZH') => '/zh/services/view?q='
         ];
-        foreach ($category_ids as $id => $path) {
+        foreach ($services_id as $id => $path) {
             $url    = $blog_url . 'posts?context=embed&per_page=10&categories=' . $id;
             try {
                 $ch = curl_init();
