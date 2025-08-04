@@ -49,6 +49,7 @@ $this->section('content');
                 <div class="col-lg-6 mt-5">
                     <div class="hero-visual mt-5" data-aos="fade-left" data-aos-delay="400">
                         <div class="main-image">
+                            (this img > seasonal promo if any, use default when no promo)
                             <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
                             <div class="floating-card appointment-card">
                                 <div class="card-icon">
@@ -98,9 +99,14 @@ $this->section('content');
                 <div class="col-12 text-center">
                     <a class="btn btn-bg btn-outline-primary rounded-pill px-5" href="<?= base_url($locale . '/services/') ?>">+ <?= lang('Home.services.more-services') ?> +</a>
                 </div>
+                (book + buy voucher)
             </div>
         </div>
     </section>
+    (permanent promo - couple / early-bird)<br>
+    (new staff - capturing horny customers)<br>
+    (shower and parking space)<br>
+    (background: white, maybe bright sky)<br>
     <?php if ($promotion && !empty($promotion)) : ?>
     <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
