@@ -46,9 +46,11 @@ $this->section('content');
                     <?php foreach ($posts['posts'] as $post) : ?>
                         <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                             <div class="specialty-card">
-                                <div class="specialty-visual">
-                                    <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid"></a>
-                                </div>
+                                <?php if (!empty($posts['media'][$post['featured_image']])) : ?>
+                                    <div class="specialty-visual">
+                                        <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid"></a>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="specialty-content">
                                     <div class="specialty-meta">
                                         <span class="specialty-label"><?= lang('Theme.pages.blog') ?></span>
