@@ -238,14 +238,16 @@ class Home extends BaseController
             ['/', '2025-01-01', 'monthly', '1.0'],
             ['/about-us', '2025-01-01', 'monthly', '0.8'],
             ['/contact-us', '2025-01-01', 'monthly', '0.8'],
-            ['/blog', '2025-01-01', 'weekly', '0.6'],
-            ['/terms-and-conditions', '2025-01-01', 'monthly', '0.5'],
-            ['/privacy-policy', '2025-01-01', 'monthly', '0.5']
+            ['/services', '2025-01-01', 'weekly', '0.8'], // need WP
+            ['/promotions', '2025-01-01', 'weekly', '0.8'],
+            ['/blog', '2025-01-01', 'weekly', '0.6'], // need WP
         ];
         $languages  = [
             '',
             '/en',
-            '/th'
+            '/es',
+            '/ja',
+            '/zh'
         ];
         $xml        = [];
         foreach ($main_pages as $page) {
@@ -258,14 +260,50 @@ class Home extends BaseController
                 ];
             }
         }
-        // BLOG PAGES
         $blog_url           = getenv('BLOG_URL');
+        // SERVICES PAGES
         $category_ids       = [
-            getenv('WORDPRESS_LOCALE_EN') => '/en/blog/view/',
-            getenv('WORDPRESS_LOCALE_TH') => '/th/blog/view/'
+            getenv('WORDPRESS_SERVICE_EN') => '/en/services/view?q=',
+            getenv('WORDPRESS_SERVICE_ES') => '/th/services/view?q=',
+            getenv('WORDPRESS_SERVICE_JA') => '/ja/services/view?q=',
+            getenv('WORDPRESS_SERVICE_ZH') => '/zh/services/view?q='
         ];
         foreach ($category_ids as $id => $path) {
-            $url    = $blog_url . 'posts?context=embed&per_page=50&categories=' . $id;
+            $url    = $blog_url . 'posts?context=embed&per_page=10&categories=' . $id;
+            try {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_HEADER, true);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                $response   = curl_exec($ch);
+                $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $body       = substr($response, $headerSize);
+                $posts      = json_decode($body, true);
+                foreach ($posts as $post) {
+                    $published = strtotime(substr(@$post['date'], 0, 10));
+                    $xml[]     = [
+                        'loc'        => base_url($path . $post['slug']),
+                        'lastmod'    => date('Y-m-d', $published),
+                        'changefreq' => 'monthly',
+                        'priority'   => '0.7',
+                    ];
+                }
+                curl_close($ch);
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
+        // BLOG PAGES
+        $category_ids       = [
+            getenv('WORDPRESS_LOCALE_EN') => '/en/blog/view/?s=',
+            getenv('WORDPRESS_LOCALE_ES') => '/th/blog/view/?s=',
+            getenv('WORDPRESS_LOCALE_JA') => '/ja/blog/view/?s=',
+            getenv('WORDPRESS_LOCALE_ZH') => '/zh/blog/view/?s='
+        ];
+        foreach ($category_ids as $id => $path) {
+            $url    = $blog_url . 'posts?context=embed&per_page=10&categories=' . $id;
             try {
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
@@ -287,7 +325,7 @@ class Home extends BaseController
                         $priority = 0.6;
                     }
                     $xml[]     = [
-                        'loc'        => base_url($path . $post['id']),
+                        'loc'        => base_url($path . $post['slug']),
                         'lastmod'    => date('Y-m-d', $published),
                         'changefreq' => 'monthly',
                         'priority'   => $priority,
