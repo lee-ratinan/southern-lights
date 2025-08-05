@@ -107,8 +107,59 @@ $this->section('content');
     </section>
     (permanent promo - couple / early-bird)<br>
     (new staff - capturing horny customers)<br>
-    (shower and parking space)<br>
-    (background: white, maybe bright sky)<br>
+    <!-- SHOWER -->
+    <section id="shower" class="home-about section">
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                    <div class="about-content">
+                        <h2 class="section-heading">Come with Our Equipped Shower</h2>
+                        <p class="lead-text">Go back to something later? No worry, we have shower facilities ready for you!</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                    <div class="about-visual">
+                        <div class="main-image">
+                            <img src="assets/img/health/facilities-9.webp" alt="Modern medical facility" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PARKING -->
+    <section id="featured-services" class="featured-services section">
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-0">
+                <div class="col-lg-8 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                    <div class="featured-service-main">
+                        <div class="service-image-wrapper">
+                            <img src="assets/img/health/consultation-4.webp" alt="Premier Healthcare Services" class="img-fluid" loading="lazy">
+                            <div class="service-overlay">
+                                <div class="service-badge">
+                                    <i class="bi bi-car-front"></i>
+                                    <span>Parking Spaces</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                    <div class="services-sidebar">
+                        <div class="service-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                            <div class="service-info">
+                                <h2 class="section-heading">We Have Our Own Parking Spaces</h2>
+                                <p>The location is ...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TESTIMONIALS -->
+    <?php include "_testomonials.php"; ?>
+    <!-- PROMOTION POPUP! -->
     <?php if ($promotion && !empty($promotion)) : ?>
     <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
