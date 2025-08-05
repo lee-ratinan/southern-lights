@@ -21,7 +21,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: transparent; /* Background color for the entire website, including individual sections */
   --default-color: #3c4049; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #214e89; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #214e89; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -67,10 +67,16 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #fff;
   font-family: var(--default-font);
 }
 
+.main {
+  background-image: url('../img/bg-sky.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -503,7 +509,7 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer-16 {
-  background: var(--background-color);
+  background: #fff;
   color: var(--default-color);
   font-size: 15px;
   padding: 100px 0 0;
@@ -806,7 +812,7 @@ h6 {
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  background-color: var(--background-color);
+  background-color: #fff;
   transition: all 0.6s ease-out;
   width: 100%;
   height: 100vh;
@@ -5442,7 +5448,7 @@ section,
   left: 0;
   right: 0;
   height: 60px;
-  background: linear-gradient(to bottom, var(--background-color), transparent);
+  background: linear-gradient(to bottom, #fff, transparent);
   z-index: 10;
 }
 
