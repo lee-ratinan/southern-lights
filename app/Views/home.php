@@ -98,8 +98,10 @@ $this->section('content');
                 <?php include "_services-list.php"; ?>
                 <div class="col-12 text-center">
                     <a class="btn btn-bg btn-outline-primary rounded-pill px-5" href="<?= base_url($locale . '/services/') ?>">+ <?= lang('Home.services.more-services') ?> +</a>
+                    <div class="pt-3">
+                        <?php include "_book_and_buy.php"; ?>
+                    </div>
                 </div>
-                (book + buy voucher)
             </div>
         </div>
     </section>

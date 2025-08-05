@@ -1,0 +1,2 @@
+<a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-lg btn-primary rounded-pill px-5"><i class="bi bi-bookmark-check-fill"></i> <?= lang('Theme.cta.book-now') ?></a>
+<a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-lg btn-outline-primary rounded-pill ms-4 px-5"><i class="bi bi-ticket-detailed"></i> <?= lang('Theme.cta.buy-voucher') ?></a>
