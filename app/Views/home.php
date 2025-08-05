@@ -120,7 +120,7 @@ $this->section('content');
                 <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
                     <div class="about-visual">
                         <div class="main-image">
-                            <img src="assets/img/health/facilities-9.webp" alt="Modern medical facility" class="img-fluid">
+                            <img src="assets/img/home/shower.jpg" alt="Modern medical facility" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ $this->section('content');
                 <div class="col-lg-8 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
                     <div class="featured-service-main">
                         <div class="service-image-wrapper">
-                            <img src="assets/img/health/consultation-4.webp" alt="Premier Healthcare Services" class="img-fluid" loading="lazy">
+                            <img src="assets/img/home/parking.webp" alt="Premier Healthcare Services" class="img-fluid" loading="lazy">
                             <div class="service-overlay">
                                 <div class="service-badge">
                                     <i class="bi bi-car-front"></i>
