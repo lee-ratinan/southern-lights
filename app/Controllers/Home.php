@@ -377,13 +377,17 @@ class Home extends BaseController
         return lang('Contact.form.responses.error');
     }
 
-    public function verifyWP(): void
+    public function verifyWP(): string
     {
         // call WordPress
         helper('wordpress');
-        $url = getenv('WORDPRESS_URL');
+        $url  = getenv('WORDPRESS_URL');
+        $data = [];
+        $data['locale'] = service('request')->getLocale();
+        $data['slug']   = 'verify-wp';
+        $data['uri']    = 'verify-wp';
         // PAGES
-        $pages = generateWordPressPages([
+        $data['pages'] = generateWordPressPages([
             'promotion-popup-en',
             'promotion-popup-es',
             'promotion-popup-ja',
@@ -393,12 +397,11 @@ class Home extends BaseController
             'promotional-hero-ja',
             'promotional-hero-zh',
         ]);
-        echo '<pre>';
-        print_r($pages);
-        echo '</pre>';
-        $categories = callWordPressCurl($url . 'categories');
-        echo '<pre>';
-        print_r($categories['body']);
-        echo '</pre>';
+        $categories = callWordPressCurl($url . 'categories?orderby=name&order=asc&per_page=100');
+        $category_structure = $categories['body'];
+        foreach ($category_structure as $category) {
+            $data['categories'][$category['id']] = $category;
+        }
+        return view('verify-wp', $data);
     }
 }

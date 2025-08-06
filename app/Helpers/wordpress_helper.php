@@ -236,7 +236,7 @@ function generateWordPressPages(array $slugs): array
     }
     if (!empty($media_ids)) {
         $media_string = implode(',', $media_ids);
-        $media        = callWordPressCurl(getenv('WORDPRESS_URL') . 'media?include=' . $media_string);
+        $media        = callWordPressCurl(getenv('WORDPRESS_URL') . 'media?include=' . $media_string . '&per_page=' . count($media_ids));
         $media        = $media['body'] ?? [];
         foreach ($media as $item) {
             foreach ($item['media_details']['sizes'] as $size => $details) {
@@ -245,7 +245,7 @@ function generateWordPressPages(array $slugs): array
         }
     }
     foreach ($result_pages as $slug => $page_data) {
-        if (0 < $page_data['featured_media'] && $result_media[$page_data['featured_media']]) {
+        if (0 < $page_data['featured_media'] && isset($result_media[$page_data['featured_media']])) {
             $result_pages[$slug]['featured_media_files'] = $result_media[$page_data['featured_media']];
         }
     }
