@@ -23,10 +23,10 @@ CI_ENVIRONMENT=production
 app_baseURL='http://127.0.0.1:8888/southern-lights/public/'
 WORDPRESS_URL='http://127.0.0.1:8888/test-blog/wp-json/wp/v2/'
 WORDPRESS_PAGE_LIMIT=10
-WORDPRESS_LOCALE_EN=3
-WORDPRESS_LOCALE_JA=36
-WORDPRESS_LOCALE_ES=34
-WORDPRESS_LOCALE_ZH=35
+WORDPRESS_BLOG_EN=3
+WORDPRESS_BLOG_JA=36
+WORDPRESS_BLOG_ES=34
+WORDPRESS_BLOG_ZH=35
 # If you have trouble with `.`, you could also use `_`.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false

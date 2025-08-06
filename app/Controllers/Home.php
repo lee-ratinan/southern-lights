@@ -17,6 +17,7 @@ class Home extends BaseController
         'SAT' => ['08:00', '22:00'],
         'SUN' => ['08:00', '22:00']
     ];
+
     /**
      * This is the homepage
      * @return string
@@ -24,23 +25,25 @@ class Home extends BaseController
     public function index(): string
     {
         helper('wordpress');
-        $locale      = service('request')->getLocale();
-        // SERVICES
-        $limit       = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
-        $category_id = getenv('WORDPRESS_FEATURE_SERVICE_' . strtoupper($locale));
-        $services    = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
-        // PROMO POPUP
-        $promotion   = generateWordPressPage('promotion-popup-' . $locale, true);
-        if ('en' != $locale && empty($promotion)) {
-            $promotion   = generateWordPressPage('promotion-popup-en', true);
-        }
-        $data        = [
-            'slug'          => 'home',
-            'locale'        => $locale,
-            'uri'           => '',
-            'services'      => $services,
-            'promotion'     => $promotion,
-            'opening_hours' => $this->opening_hours,
+        $locale          = service('request')->getLocale();
+        // BLOG ITEMS - FEATURES SERVICES (3x)
+        $limit           = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
+        $category_id     = getenv('WORDPRESS_FEATURE_SERVICE_' . strtoupper($locale));
+        $services        = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
+        // PAGE ITEMS - PROMOTIONS
+        $slugs           = ['promotion-popup-' . $locale, 'promotion-popup-en', 'promotional-hero-' . $locale, 'promotional-hero-en'];
+        $slugs_dedupe    = array_unique($slugs);
+        $wp_pages        = generateWordPressPages($slugs_dedupe);
+        $promotion_popup = $wp_pages['promotion-popup-' . $locale] ?? $wp_pages['promotion-popup-en'] ?? null;
+        $promotion_hero  = $wp_pages['promotional-hero-' . $locale] ?? $wp_pages['promotional-hero-en'] ?? null;
+        $data            = [
+            'slug'            => 'home',
+            'locale'          => $locale,
+            'uri'             => '',
+            'services'        => $services,
+            'promotion_popup' => $promotion_popup,
+            'promotion_hero'  => $promotion_hero,
+            'opening_hours'   => $this->opening_hours,
         ];
         return view('home', $data);
     }
@@ -193,7 +196,7 @@ class Home extends BaseController
             $mode         = 'tag';
             $term         = $tag;
         }
-        $category_id = getenv('WORDPRESS_LOCALE_' . strtoupper($locale));
+        $category_id = getenv('WORDPRESS_BLOG_' . strtoupper($locale));
         $posts  = retrieveWordPressPosts("posts?page={$page}&per_page={$limit}&categories={$category_id}{$query_string}");
         $data   = [
             'slug'   => 'blog',
@@ -298,10 +301,10 @@ class Home extends BaseController
         }
         // BLOG PAGES
         $category_ids       = [
-            getenv('WORDPRESS_LOCALE_EN') => '/en/blog/view/?s=',
-            getenv('WORDPRESS_LOCALE_ES') => '/th/blog/view/?s=',
-            getenv('WORDPRESS_LOCALE_JA') => '/ja/blog/view/?s=',
-            getenv('WORDPRESS_LOCALE_ZH') => '/zh/blog/view/?s='
+            getenv('WORDPRESS_BLOG_EN') => '/en/blog/view/?s=',
+            getenv('WORDPRESS_BLOG_ES') => '/th/blog/view/?s=',
+            getenv('WORDPRESS_BLOG_JA') => '/ja/blog/view/?s=',
+            getenv('WORDPRESS_BLOG_ZH') => '/zh/blog/view/?s='
         ];
         foreach ($category_ids as $id => $path) {
             $url    = $blog_url . 'posts?context=embed&per_page=10&categories=' . $id;

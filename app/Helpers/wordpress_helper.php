@@ -215,6 +215,44 @@ function generateWordPressPage(string $slug, bool $suppress_not_found = false): 
 }
 
 /**
+ * Get the pages
+ * @param array $slugs
+ * @return array
+ */
+function generateWordPressPages(array $slugs): array
+{
+    $slug         = implode(',', $slugs);
+    $url          = getenv('WORDPRESS_URL') . 'pages/?slug=' . $slug;
+    $response     = callWordPressCurl($url);
+    $pages_data   = $response['body'] ?? [];
+    $result_pages = [];
+    $media_ids    = [];
+    $result_media = [];
+    foreach ($pages_data as $page_data) {
+        $result_pages[$page_data['slug']] = $page_data;
+        if (0 < $page_data['featured_media']) {
+            $media_ids[] = $page_data['featured_media'];
+        }
+    }
+    if (!empty($media_ids)) {
+        $media_string = implode(',', $media_ids);
+        $media        = callWordPressCurl(getenv('WORDPRESS_URL') . 'media?include=' . $media_string);
+        $media        = $media['body'] ?? [];
+        foreach ($media as $item) {
+            foreach ($item['media_details']['sizes'] as $size => $details) {
+                $result_media[$item['id']][$size] = $details['source_url'] ?? null;
+            }
+        }
+    }
+    foreach ($result_pages as $slug => $page_data) {
+        if (0 < $page_data['featured_media'] && $result_media[$page_data['featured_media']]) {
+            $result_pages[$slug]['featured_media_files'] = $result_media[$page_data['featured_media']];
+        }
+    }
+    return $result_pages;
+}
+
+/**
  * @param DateTime $date
  * @return string
  */

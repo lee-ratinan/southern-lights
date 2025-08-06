@@ -49,8 +49,11 @@ $this->section('content');
                 <div class="col-lg-6 mt-5">
                     <div class="hero-visual mt-5" data-aos="fade-left" data-aos-delay="400">
                         <div class="main-image">
-                            (this img > seasonal promo if any, use default when no promo)
-                            <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                            <?php if (!empty($promotion_hero['featured_media_files']['full'])) : ?>
+                                <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                            <?php else: ?>
+                                <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                            <?php endif; ?>
                             <div class="floating-card appointment-card">
                                 <div class="card-icon">
                                     <i class="bi bi-calendar-check"></i>
@@ -160,13 +163,13 @@ $this->section('content');
     <!-- TESTIMONIALS -->
     <?php include "_testomonials.php"; ?>
     <!-- PROMOTION POPUP! -->
-    <?php if ($promotion && !empty($promotion)) : ?>
+    <?php if (!empty($promotion_popup['featured_media_files']['full'])) : ?>
     <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content text-center">
                 <div class="modal-body p-0">
                     <a href="<?= base_url($locale . '/promotions') ?>">
-                        <img src="<?= $promotion['featured_image'] ?>" alt="Promotion" class="img-fluid w-100" />
+                        <img src="<?= $promotion_popup['featured_media_files']['full'] ?>" alt="Promotion" class="img-fluid w-100" />
                     </a>
                     <button id="dontShowBtn" class="btn btn-sm btn-outline-secondary my-2 me-2 float-end"><?= lang('Home.popup-btn') ?></button>
                 </div>
