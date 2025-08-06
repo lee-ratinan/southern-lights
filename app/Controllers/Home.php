@@ -26,10 +26,13 @@ class Home extends BaseController
     {
         helper('wordpress');
         $locale          = service('request')->getLocale();
-        // BLOG ITEMS - FEATURES SERVICES (3x)
+        // BLOG ITEMS - FEATURED SERVICES (3x)
         $limit           = getenv('WORDPRESS_SERVICE_HOME_LIMIT');
         $category_id     = getenv('WORDPRESS_FEATURE_SERVICE_' . strtoupper($locale));
         $services        = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
+        // BLOG ITEMS - FEATURED STAFF (3x)
+        $category_id     = getenv('WORDPRESS_FEATURE_STAFF_' . strtoupper($locale));
+        $staff           = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
         // PAGE ITEMS - PROMOTIONS
         $slugs           = ['promotion-popup-' . $locale, 'promotion-popup-en', 'promotional-hero-' . $locale, 'promotional-hero-en'];
         $slugs_dedupe    = array_unique($slugs);
@@ -41,6 +44,7 @@ class Home extends BaseController
             'locale'          => $locale,
             'uri'             => '',
             'services'        => $services,
+            'staff'           => $staff,
             'promotion_popup' => $promotion_popup,
             'promotion_hero'  => $promotion_hero,
             'opening_hours'   => $this->opening_hours,

@@ -23,16 +23,6 @@ $this->section('content');
                         <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
                             <?= lang('Home.hero.badge.message2') ?>
                         </p>
-                        <div class="hero-stats mb-4 d-none" data-aos="fade-right" data-aos-delay="500">
-                            <div class="stat-item">
-                                <h3><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2" class="purecounter"></span>+</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3><span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="2" class="purecounter"></span>+</h3>
-                                <p>Patients Treated</p>
-                            </div>
-                        </div>
                         <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
                             <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary">
                                 <i class="bi bi-bookmark-check-fill"></i> &nbsp;
@@ -108,8 +98,57 @@ $this->section('content');
             </div>
         </div>
     </section>
-    (permanent promo - couple / early-bird)<br>
-    (new staff - capturing horny customers)<br>
+    <!-- PERMANENT PROMO -->
+    <section id="featured-departments" class="featured-departments section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2><?= lang('Home.permanent-promo.heading') ?></h2>
+        </div><!-- End Section Title -->
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-4">
+                <?php foreach (lang('Home.permanent-promo.promos') as $key => $details) : ?>
+                    <div class="col-lg-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="specialty-card">
+                            <div class="specialty-content p-4">
+                                <h3><?= $details['title'] ?></h3>
+                                <p><?= $details['detail'] ?></p>
+                            </div>
+                            <div class="specialty-visual">
+                                <img src="assets/img/health/<?= $key ?>.jpg" alt="<?= $details['title'] ?>" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <!-- STAFF -->
+<?php if (!empty($staff['posts'])) : ?>
+    <section id="featured-departments" class="featured-departments section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2><?= lang('Home.staff.heading') ?></h2>
+        </div>
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-5">
+                <?php foreach ($staff['posts'] as $staff_member) : ?>
+                    <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="specialty-card">
+                            <div class="specialty-visual">
+                                <img src="<?= $staff_member['media'][$staff_member['featured_image']] ?>"
+                                     alt="<?= $staff_member['title'] ?>" class="img-fluid">
+                            </div>
+                            <div class="specialty-content">
+                                <h3 class="mb-1"><?= $staff_member['title'] ?></h3>
+                                <p class="mb-1">
+                                    <?= $staff_member['excerpt'] ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
     <!-- SHOWER -->
     <section id="shower" class="home-about section">
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -161,9 +200,9 @@ $this->section('content');
         </div>
     </section>
     <!-- TESTIMONIALS -->
-    <?php include "_testomonials.php"; ?>
+<?php include "_testomonials.php"; ?>
     <!-- PROMOTION POPUP! -->
-    <?php if (!empty($promotion_popup['featured_media_files']['full'])) : ?>
+<?php if (!empty($promotion_popup['featured_media_files']['full'])) : ?>
     <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content text-center">
@@ -177,9 +216,9 @@ $this->section('content');
         </div>
     </div>
     <script>let has_promotion_popup = true;</script>
-    <?php else: ?>
+<?php else: ?>
     <script>let has_promotion_popup = false;</script>
-    <?php endif; ?>
+<?php endif; ?>
 <?php
 include "_contact-us-form.php";
 $this->endSection();
