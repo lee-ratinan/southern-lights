@@ -27,6 +27,7 @@ $routes->get('{locale}/terms-and-conditions', 'Home::termsAndConditions');
 $routes->get('{locale}/privacy-policy', 'Home::privacyPolicy');
 $routes->get('{locale}/blog', 'Home::blog'); // p=?&tag=?&q=? (page, tag, search)
 $routes->get('{locale}/blog/view', 'Home::blogView'); // s=?
+$routes->get('verify-wp', 'Home::verifyWP'); /* *** !!! TEMP !!! ****/
 $routes->get('{locale}', 'Home::index');
 // POST
 $routes->post('contact-us', 'Home::contactUsScript');

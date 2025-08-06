@@ -376,4 +376,29 @@ class Home extends BaseController
         }
         return lang('Contact.form.responses.error');
     }
+
+    public function verifyWP(): void
+    {
+        // call WordPress
+        helper('wordpress');
+        $url = getenv('WORDPRESS_URL');
+        // PAGES
+        $pages = generateWordPressPages([
+            'promotion-popup-en',
+            'promotion-popup-es',
+            'promotion-popup-ja',
+            'promotion-popup-zh',
+            'promotional-hero-en',
+            'promotional-hero-es',
+            'promotional-hero-ja',
+            'promotional-hero-zh',
+        ]);
+        echo '<pre>';
+        print_r($pages);
+        echo '</pre>';
+        $categories = callWordPressCurl($url . 'categories');
+        echo '<pre>';
+        print_r($categories['body']);
+        echo '</pre>';
+    }
 }
