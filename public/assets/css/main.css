@@ -1682,7 +1682,7 @@ section,
 # Featured Departments Section
 --------------------------------------------------------------*/
 .featured-departments .specialty-card {
-  background: var(--surface-color);
+  background: color-mix(in srgb, var(--surface-color), transparent 75%);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 40px color-mix(in srgb, var(--default-color), transparent 92%);
@@ -6233,7 +6233,7 @@ section,
 .btn-primary {
   background-color: var(--accent-color) !important;
   border-color: var(--accent-color) !important;
-  color: var(--contrast-color) !important;
+  color: #fff !important;
 }
 .btn-primary:hover {
   background-color: #315e99 !important;
