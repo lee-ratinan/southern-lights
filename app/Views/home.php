@@ -133,16 +133,13 @@ $this->section('content');
                     <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                         <div class="specialty-card">
                             <div class="specialty-visual">
-<!--                                <img src="--><?php //= $staff_member['featured_media'][$staff_member['featured_image']] ?><!--" alt="--><?php //= $staff_member['title'] ?><!--" class="img-fluid">-->
+                                <img src="<?= $staff['media'][$staff_member['featured_image']] ?>" alt="<?= $staff_member['title'] ?>" class="img-fluid">
                             </div>
                             <div class="specialty-content">
                                 <h3 class="mb-1"><?= $staff_member['title'] ?></h3>
                                 <p class="mb-1">
                                     <?= $staff_member['excerpt'] ?>
                                 </p>
-                                <pre>
-                                    <?php print_r($staff_member) ?>
-                                </pre>
                             </div>
                         </div>
                     </div>

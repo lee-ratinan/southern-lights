@@ -48,16 +48,16 @@ $this->section('content');
                             <div class="specialty-card">
                                 <?php if (!empty($posts['media'][$post['featured_image']])) : ?>
                                     <div class="specialty-visual">
-                                        <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid"></a>
+                                        <a href="<?= base_url($locale . '/blog/view/?s=' . urlencode($post['slug'])) ?>"><img src="<?= $posts['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid"></a>
                                     </div>
                                 <?php endif; ?>
                                 <div class="specialty-content">
                                     <div class="specialty-meta">
                                         <span class="specialty-label"><?= lang('Theme.pages.blog') ?></span>
                                     </div>
-                                    <h3><a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>"><?= $post['title'] ?></a></h3>
+                                    <h3><a href="<?= base_url($locale . '/blog/view/?s=' . urlencode($post['slug'])) ?>"><?= $post['title'] ?></a></h3>
                                     <p><?= $post['excerpt'] ?></p>
-                                    <a href="<?= base_url($locale . '/blog/view/?s=' . utf8_encode($post['slug'])) ?>" class="specialty-link"><?= lang('Blog.read-more') ?> <i class="bi bi-arrow-right"></i></a>
+                                    <a href="<?= base_url($locale . '/blog/view/?s=' . urlencode($post['slug'])) ?>" class="specialty-link"><?= lang('Blog.read-more') ?> <i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

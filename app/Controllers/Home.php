@@ -99,7 +99,7 @@ class Home extends BaseController
         $data         = [
             'slug'   => 'service-view',
             'locale' => $locale,
-            'uri'    => 'services/view/?q=' . utf8_encode($service_slug),
+            'uri'    => 'services/view/?q=' . urlencode($service_slug),
             'post'   => $post,
             'title'  => $post['title']
         ];
@@ -227,7 +227,7 @@ class Home extends BaseController
         $data      = [
             'slug'   => 'blog-view',
             'locale' => $locale,
-            'uri'    => 'blog/view/?s=' . utf8_encode($blog_slug),
+            'uri'    => 'blog/view/?s=' . urlencode($blog_slug),
             'post'   => $post,
             'title'  => $post['title']
         ];
