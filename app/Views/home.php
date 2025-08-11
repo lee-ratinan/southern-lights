@@ -102,18 +102,18 @@ $this->section('content');
     <section id="featured-departments" class="featured-departments section">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <h2><?= lang('Home.permanent-promo.heading') ?></h2>
+            <p><?= lang('Home.permanent-promo.para') ?></p>
         </div><!-- End Section Title -->
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row g-4">
-                <?php foreach (lang('Home.permanent-promo.promos') as $key => $details) : ?>
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($permanent_promo as $i => $details) : ?>
                     <div class="col-lg-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                         <div class="specialty-card">
                             <div class="specialty-content p-4">
-                                <h3><?= $details['title'] ?></h3>
-                                <p><?= $details['detail'] ?></p>
+                                <?= $details['content']['rendered'] ?>
                             </div>
                             <div class="specialty-visual">
-                                <img src="assets/img/health/<?= $key ?>.jpg" alt="<?= $details['title'] ?>" class="img-fluid">
+                                <img src="<?= $details['featured_media_files']['medium_large'] ?? $details['featured_media_files']['full'] ?? $details['featured_media_files']['thumbnail'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?> <?= $i+1 ?>" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ $this->section('content');
             <h2><?= lang('Home.staff.heading') ?></h2>
         </div>
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row g-5">
+            <div class="row g-5 justify-content-center">
                 <?php foreach ($staff['posts'] as $staff_member) : ?>
                     <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                         <div class="specialty-card">

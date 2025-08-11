@@ -24,16 +24,7 @@ return [
     ],
     'permanent-promo'   => [
         'heading' => 'Permanent Promotion',
-        'promos'  => [
-            'early-birds' => [
-                'title'  => 'Early Birds Promo',
-                'detail' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod'
-            ],
-            'couple'      => [
-                'title'  => 'Couple Promo',
-                'detail' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod'
-            ]
-        ]
+        'para'    => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit'
     ],
     'popup-btn'         => 'Don’t show again'
 ];

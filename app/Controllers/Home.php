@@ -34,11 +34,15 @@ class Home extends BaseController
         $category_id     = getenv('WORDPRESS_FEATURE_STAFF_' . strtoupper($locale));
         $staff           = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
         // PAGE ITEMS - PROMOTIONS
-        $slugs           = ['promotion-popup-' . $locale, 'promotion-popup-en', 'promotional-hero-' . $locale, 'promotional-hero-en'];
+        $slugs           = ['promotion-popup-' . $locale, 'promotion-popup-en', 'promotional-hero-' . $locale, 'promotional-hero-en', 'permanent-promotion-1-' . $locale, 'permanent-promotion-1-en', 'permanent-promotion-2-' . $locale, 'permanent-promotion-2-en'];
         $slugs_dedupe    = array_unique($slugs);
         $wp_pages        = generateWordPressPages($slugs_dedupe);
         $promotion_popup = $wp_pages['promotion-popup-' . $locale] ?? $wp_pages['promotion-popup-en'] ?? null;
         $promotion_hero  = $wp_pages['promotional-hero-' . $locale] ?? $wp_pages['promotional-hero-en'] ?? null;
+        $permanent_promo = [
+            $wp_pages['permanent-promotion-1-' . $locale] ?? $wp_pages['permanent-promotion-1-en'] ?? null,
+            $wp_pages['permanent-promotion-2-' . $locale] ?? $wp_pages['permanent-promotion-2-en'] ?? null
+        ];
         $data            = [
             'slug'            => 'home',
             'locale'          => $locale,
@@ -47,6 +51,7 @@ class Home extends BaseController
             'staff'           => $staff,
             'promotion_popup' => $promotion_popup,
             'promotion_hero'  => $promotion_hero,
+            'permanent_promo' => $permanent_promo,
             'opening_hours'   => $this->opening_hours,
         ];
         return view('home', $data);
