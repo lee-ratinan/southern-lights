@@ -189,7 +189,7 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
         </div>
     </div>
 </footer>
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i>FB</i></a>
 <div id="preloader"></div>
 <script>let this_page_slug = '<?= $slug ?>'; </script>
 <!-- Vendor JS Files -->

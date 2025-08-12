@@ -118,18 +118,17 @@ class Home extends BaseController
     public function promotions(): string
     {
         helper('wordpress');
-        $locale  = service('request')->getLocale();
-        $slug    = 'promotions-' . strtolower($locale);
-        $content = generateWordPressPage($slug, true);
-        if ('en' != $locale && empty($content)) {
-            $slug    = 'promotions-en';
-            $content = generateWordPressPage($slug, true);
-        }
-        $data    = [
-            'slug'   => 'promotions',
-            'locale' => $locale,
-            'uri'    => 'promotions',
-            'content' => $content
+        $locale      = service('request')->getLocale();
+        $page        = 1;
+        $limit       = getenv('WORDPRESS_PAGE_LIMIT');
+        $category_id = getenv('WORDPRESS_PROMOTION_' . strtoupper($locale));
+        $promotions  = retrieveWordPressPosts("posts?page={$page}&per_page={$limit}&categories={$category_id}");
+        $data        = [
+            'slug'       => 'promotions',
+            'locale'     => $locale,
+            'uri'        => 'promotions',
+            'promotions' => $promotions,
+            'page'       => $page
         ];
         return view('promotions', $data);
     }

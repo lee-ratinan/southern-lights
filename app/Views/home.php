@@ -40,7 +40,9 @@ $this->section('content');
                     <div class="hero-visual mt-5" data-aos="fade-left" data-aos-delay="400">
                         <div class="main-image">
                             <?php if (!empty($promotion_hero['featured_media_files']['full'])) : ?>
-                                <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                                <a href="<?= base_url($locale . '/promotions') ?>">
+                                    <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                                </a>
                             <?php else: ?>
                                 <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
                             <?php endif; ?>

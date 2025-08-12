@@ -37,7 +37,7 @@ $this->section('content');
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <?php if (empty($posts['posts'])) : ?>
                     <div class="col-12 col-md-10 col-lg-8">
                         <div class="alert alert-warning" role="alert"><?= lang('Blog.no-result') ?></div>

@@ -13,20 +13,33 @@ $this->section('content');
             </div>
         </div>
     </div>
-    <section id="promotions" class="promotions section">
+    <section id="blog" class="blog featured-departments section">
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row align-items-center">
-                <div class="col col-md-10 col-lg-8">
-                    <?php if (!empty($content)) : ?>
-                        <article><?= $content['content'] ?></article>
-                        <hr />
-                        <p class="small text-secondary"><?= lang('Blog.updated', [format_post_date($content['updated'], $locale)]) ?></p>
-                    <?php else: ?>
-                        <div class="alert alert-warning" role="alert">
-                            <?= lang('Blog.others.no-promo') ?>
+            <div class="row justify-content-center">
+                <?php if (empty($promotions['posts'])) : ?>
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="alert alert-warning" role="alert"><?= lang('Blog.others.no-promo') ?></div>
+                    </div>
+                <?php else : ?>
+                    <?php foreach ($promotions['posts'] as $post) : ?>
+                        <div class="col-md-6 col-xxl-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="specialty-card">
+                                <?php if (!empty($promotions['media'][$post['featured_image']])) : ?>
+                                    <div class="specialty-visual">
+                                        <img src="<?= $promotions['media'][$post['featured_image']] ?>" alt="<?= $post['title'] ?>" class="img-fluid">
+                                    </div>
+                                <?php endif; ?>
+                                <div class="specialty-content">
+                                    <div class="specialty-meta">
+                                        <span class="specialty-label"><?= lang('Theme.pages.blog') ?></span>
+                                    </div>
+                                    <h3><?= $post['title'] ?></h3>
+                                    <p><?= $post['excerpt'] ?></p>
+                                </div>
+                            </div>
                         </div>
-                    <?php endif; ?>
-                </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>

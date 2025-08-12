@@ -15,7 +15,7 @@ $this->section('content');
     </div>
     <section id="featured-departments" class="featured-departments section">
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row align-items-center g-5">
+            <div class="row justify-content-center g-5">
                 <?php include "_services-list.php"; ?>
             </div>
         </div>
