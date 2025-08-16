@@ -151,7 +151,7 @@ $this->section('content');
                                 <p class="mb-1">
                                     <?= $staff_member['excerpt'] ?>
                                 </p>
-                                book with <?= $staff_member['title'] ?>
+                                <?= lang('Home.staff.book-with', [$staff_member['title']]) ?>
                             </div>
                         </div>
                     </div>
@@ -160,43 +160,39 @@ $this->section('content');
         </div>
     </section>
 <?php endif; ?>
-    <!-- SHOWER/PARKING -->
-    <section id="facilities" class="home-about section">
+    <!-- SHOWER AND PARKING -->
+    <section id="featured-departments" class="featured-departments section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2><?= lang('Home.facilities.heading') ?></h2>
+        </div>
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row">
-                <div class="col-lg-6">
-                    <!-- SHOWER -->
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
-                            <div class="about-content">
-                                <h2 class="section-heading">Our Equipped Shower</h2>
-                                <p class="lead-text">Go back to something later? No worry, we have shower facilities ready for you!</p>
-                            </div>
+            <div class="row g-5 justify-content-center">
+                <!-- SHOWER -->
+                <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="specialty-card">
+                        <div class="specialty-visual">
+                            <img src="<?= base_url('assets/img/home/shower.jpg') ?>" alt="<?= lang('Home.facilities.shower.heading') ?>" class="img-fluid">
                         </div>
-                        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
-                            <div class="about-visual">
-                                <div class="main-image">
-                                    <img src="assets/img/home/shower.jpg" alt="Shower Facility" class="img-fluid">
-                                </div>
-                            </div>
+                        <div class="specialty-content">
+                            <h3 class="mb-1"><?= lang('Home.facilities.shower.heading') ?></h3>
+                            <p class="mb-1">
+                                <?= lang('Home.facilities.shower.para') ?>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <!-- PARKING -->
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
-                            <div class="about-content">
-                                <h2 class="section-heading"><i class="bi bi-car-front"></i> Parking Space</h2>
-                                <p class="lead-text">We Have Our Own Parking Spaces right at .........</p>
-                            </div>
+                <!-- PARKING -->
+                <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="specialty-card">
+                        <div class="specialty-visual">
+                            <img src="<?= base_url('assets/img/home/parking.png') ?>" alt="<?= lang('Home.facilities.parking.heading') ?>" class="img-fluid">
                         </div>
-                        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
-                            <div class="about-visual">
-                                <div class="main-image">
-                                    <img src="assets/img/home/parking.webp" alt="Map of the Parking Space" class="img-fluid">
-                                </div>
-                            </div>
+                        <div class="specialty-content">
+                            <h3 class="mb-1"><i class="bi bi-car-front-fill"></i> <?= lang('Home.facilities.parking.heading') ?></h3>
+                            <p class="mb-1">
+                                <?= lang('Home.facilities.parking.para') ?>
+                            </p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2"><i class="bi bi-sign-turn-slight-right"></i> <?= lang('Home.facilities.parking.map') ?></a>
                         </div>
                     </div>
                 </div>
