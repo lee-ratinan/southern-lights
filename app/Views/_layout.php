@@ -201,6 +201,7 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
 <script src="<?= base_url('/vendor/imagesloaded/imagesloaded.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
 <script src="<?= base_url('/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js" integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <?php if ('home' == $slug) : ?>
     <script>
         const openingHours = <?= json_encode($opening_hours) ?>;

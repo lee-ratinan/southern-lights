@@ -174,7 +174,7 @@ $this->section('content');
                             <img src="<?= base_url('assets/img/home/shower.jpg') ?>" alt="<?= lang('Home.facilities.shower.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
-                            <h3 class="mb-1"><?= lang('Home.facilities.shower.heading') ?></h3>
+                            <h3 class="mb-1"><i class="fa-solid fa-shower"></i> <?= lang('Home.facilities.shower.heading') ?></h3>
                             <p class="mb-1">
                                 <?= lang('Home.facilities.shower.para') ?>
                             </p>
@@ -188,11 +188,11 @@ $this->section('content');
                             <img src="<?= base_url('assets/img/home/parking.png') ?>" alt="<?= lang('Home.facilities.parking.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
-                            <h3 class="mb-1"><i class="bi bi-car-front-fill"></i> <?= lang('Home.facilities.parking.heading') ?></h3>
+                            <h3 class="mb-1"><i class="fa-solid fa-car-side"></i> <?= lang('Home.facilities.parking.heading') ?></h3>
                             <p class="mb-1">
                                 <?= lang('Home.facilities.parking.para') ?>
                             </p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2"><i class="bi bi-sign-turn-slight-right"></i> <?= lang('Home.facilities.parking.map') ?></a>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2"><i class="fa-solid fa-route"></i> <?= lang('Home.facilities.parking.map') ?></a>
                         </div>
                     </div>
                 </div>
