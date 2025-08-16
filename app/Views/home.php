@@ -138,10 +138,20 @@ $this->section('content');
                                 <img src="<?= $staff['media'][$staff_member['featured_image']] ?>" alt="<?= $staff_member['title'] ?>" class="img-fluid">
                             </div>
                             <div class="specialty-content">
+                                <?php if (!empty($staff_member['tag_ids'])) : ?>
+                                    <?php foreach ($staff_member['tag_ids'] as $tag_id) : ?>
+                                        <?php if ('new' == $staff['tags'][$tag_id]) : ?>
+                                            <div class="specialty-meta">
+                                                <span class="specialty-label bg-danger text-white"><?= lang('Home.staff.new') ?></span>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                                 <h3 class="mb-1"><?= $staff_member['title'] ?></h3>
                                 <p class="mb-1">
                                     <?= $staff_member['excerpt'] ?>
                                 </p>
+                                book with <?= $staff_member['title'] ?>
                             </div>
                         </div>
                     </div>
@@ -150,49 +160,42 @@ $this->section('content');
         </div>
     </section>
 <?php endif; ?>
-    <!-- SHOWER -->
-    <section id="shower" class="home-about section">
+    <!-- SHOWER/PARKING -->
+    <section id="facilities" class="home-about section">
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
-                    <div class="about-content">
-                        <h2 class="section-heading">Come with Our Equipped Shower</h2>
-                        <p class="lead-text">Go back to something later? No worry, we have shower facilities ready for you!</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
-                    <div class="about-visual">
-                        <div class="main-image">
-                            <img src="assets/img/home/shower.jpg" alt="Modern medical facility" class="img-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- SHOWER -->
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                            <div class="about-content">
+                                <h2 class="section-heading">Our Equipped Shower</h2>
+                                <p class="lead-text">Go back to something later? No worry, we have shower facilities ready for you!</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- PARKING -->
-    <section id="featured-services" class="featured-services section">
-        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row g-0">
-                <div class="col-lg-8 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
-                    <div class="featured-service-main">
-                        <div class="service-image-wrapper">
-                            <img src="assets/img/home/parking.webp" alt="Premier Healthcare Services" class="img-fluid" loading="lazy">
-                            <div class="service-overlay">
-                                <div class="service-badge">
-                                    <i class="bi bi-car-front"></i>
-                                    <span>Parking Spaces</span>
+                        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                            <div class="about-visual">
+                                <div class="main-image">
+                                    <img src="assets/img/home/shower.jpg" alt="Shower Facility" class="img-fluid">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
-                    <div class="services-sidebar">
-                        <div class="service-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-info">
-                                <h2 class="section-heading">We Have Our Own Parking Spaces</h2>
-                                <p>The location is ...</p>
+                <div class="col-lg-6">
+                    <!-- PARKING -->
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                            <div class="about-content">
+                                <h2 class="section-heading"><i class="bi bi-car-front"></i> Parking Space</h2>
+                                <p class="lead-text">We Have Our Own Parking Spaces right at .........</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                            <div class="about-visual">
+                                <div class="main-image">
+                                    <img src="assets/img/home/parking.webp" alt="Map of the Parking Space" class="img-fluid">
+                                </div>
                             </div>
                         </div>
                     </div>

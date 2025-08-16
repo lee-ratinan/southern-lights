@@ -21,9 +21,10 @@ return [
     ],
     'staff'             => [
         'heading' => 'Our New Staff',
+        'new'     => 'NEW'
     ],
     'permanent-promo'   => [
-        'heading' => 'Permanent Promotion',
+        'heading' => 'Our Promotions',
         'para'    => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit'
     ],
     'popup-btn'         => 'Don’t show again'

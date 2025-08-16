@@ -32,7 +32,7 @@ class Home extends BaseController
         $services        = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
         // BLOG ITEMS - FEATURED STAFF (3x)
         $category_id     = getenv('WORDPRESS_FEATURE_STAFF_' . strtoupper($locale));
-        $staff           = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=asc");
+        $staff           = retrieveWordPressPosts("posts?per_page={$limit}&categories={$category_id}&order=desc&orderby=date");
         // PAGE ITEMS - PROMOTIONS
         $slugs           = ['promotion-popup-' . $locale, 'promotion-popup-en', 'promotional-hero-' . $locale, 'promotional-hero-en', 'permanent-promotion-1-' . $locale, 'permanent-promotion-1-en', 'permanent-promotion-2-' . $locale, 'permanent-promotion-2-en'];
         $slugs_dedupe    = array_unique($slugs);
