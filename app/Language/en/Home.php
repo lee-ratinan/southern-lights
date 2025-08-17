@@ -29,12 +29,13 @@ return [
         'para'    => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit'
     ],
     'facilities'        => [
-        'heading' => 'Facilities',
-        'shower'  => [
+        'heading'  => 'Facilities',
+        'facility' => 'Spa Facility',
+        'shower'   => [
             'heading' => 'Shower Facility',
             'para'    => 'This paragraph explains about our shower facility at the spa.'
         ],
-        'parking' => [
+        'parking'  => [
             'heading' => 'Parking Space',
             'para'    => 'This paragraph explains about our private parking space with map.',
             'map'     => 'Get Direction'

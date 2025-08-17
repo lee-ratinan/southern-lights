@@ -25,11 +25,11 @@ $this->section('content');
                         </p>
                         <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
                             <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary">
-                                <i class="bi bi-bookmark-check-fill"></i> &nbsp;
+                                <i class="fa-solid fa-bookmark"></i> &nbsp;
                                 <?= lang('Theme.cta.book-now') ?>
                             </a>
                             <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-outline">
-                                <i class="bi bi-arrow-right"></i> &nbsp;
+                                <i class="fa-solid fa-ticket"></i> &nbsp;
                                 <?= lang('Theme.cta.buy-voucher') ?>
                             </a>
                         </div>
@@ -41,10 +41,10 @@ $this->section('content');
                         <div class="main-image">
                             <?php if (!empty($promotion_hero['featured_media_files']['full'])) : ?>
                                 <a href="<?= base_url($locale . '/promotions') ?>">
-                                    <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                                    <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?>" class="img-fluid">
                                 </a>
                             <?php else: ?>
-                                <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="Modern Healthcare Facility" class="img-fluid">
+                                <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="<?= lang('Theme.website-name') ?>" class="img-fluid">
                             <?php endif; ?>
                             <div class="floating-card appointment-card">
                                 <div class="card-icon">
@@ -174,7 +174,10 @@ $this->section('content');
                             <img src="<?= base_url('assets/img/home/shower.jpg') ?>" alt="<?= lang('Home.facilities.shower.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
-                            <h3 class="mb-1"><i class="fa-solid fa-shower"></i> <?= lang('Home.facilities.shower.heading') ?></h3>
+                            <div class="specialty-meta">
+                                <span class="specialty-label"><i class="fa-solid fa-shower"></i> <?= lang("home.facilities.facility") ?></span>
+                            </div>
+                            <h3 class="mb-1"><?= lang('Home.facilities.shower.heading') ?></h3>
                             <p class="mb-1">
                                 <?= lang('Home.facilities.shower.para') ?>
                             </p>
@@ -188,7 +191,10 @@ $this->section('content');
                             <img src="<?= base_url('assets/img/home/parking.png') ?>" alt="<?= lang('Home.facilities.parking.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
-                            <h3 class="mb-1"><i class="fa-solid fa-car-side"></i> <?= lang('Home.facilities.parking.heading') ?></h3>
+                            <div class="specialty-meta">
+                                <span class="specialty-label"><i class="fa-solid fa-car-side"></i> <?= lang("home.facilities.facility") ?></span>
+                            </div>
+                            <h3 class="mb-1"><?= lang('Home.facilities.parking.heading') ?></h3>
                             <p class="mb-1">
                                 <?= lang('Home.facilities.parking.para') ?>
                             </p>
@@ -208,7 +214,7 @@ $this->section('content');
             <div class="modal-content text-center">
                 <div class="modal-body p-0">
                     <a href="<?= base_url($locale . '/promotions') ?>">
-                        <img src="<?= $promotion_popup['featured_media_files']['full'] ?>" alt="Promotion" class="img-fluid w-100" />
+                        <img src="<?= $promotion_popup['featured_media_files']['full'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?>" class="img-fluid w-100" />
                     </a>
                     <button id="dontShowBtn" class="btn btn-sm btn-outline-secondary my-2 me-2 float-end"><?= lang('Home.popup-btn') ?></button>
                 </div>

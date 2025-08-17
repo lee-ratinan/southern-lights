@@ -31,7 +31,7 @@ $this->section('content');
                                 <?php endif; ?>
                                 <div class="specialty-content">
                                     <div class="specialty-meta">
-                                        <span class="specialty-label"><?= lang('Theme.pages.blog') ?></span>
+                                        <span class="specialty-label"><?= lang('Theme.pages.promotions') ?></span>
                                     </div>
                                     <h3><?= $post['title'] ?></h3>
                                     <p><?= $post['excerpt'] ?></p>
