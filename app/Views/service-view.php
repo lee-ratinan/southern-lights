@@ -18,7 +18,7 @@ $this->section('content');
             <div class="row">
                 <div class="col col-md-10 col-lg-8">
                     <p><i class="bi bi-caret-right"></i> <a href="<?= base_url($locale . '/services') ?>"><?= lang('Theme.pages.services') ?></a> <i class="bi bi-caret-right"></i> <?= $post['title'] ?> <i class="bi bi-caret-right"></i></p>
-                    <?php if (!empty($post['media'])) : ?>
+                    <?php if (isset($post['media']['media_details'])) : ?>
                         <img src="<?= $post['media']['media_details']['sizes']['full']['source_url'] ?>" alt="<?= $post['title'] ?>" class="img-fluid mb-5" />
                     <?php endif; ?>
                     <article>
