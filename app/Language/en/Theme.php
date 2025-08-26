@@ -2,6 +2,7 @@
 return [
     'company-name'     => 'Southern Lights',
     'website-name'     => 'Sky Thai Massage & Spa',
+    'slogan'           => 'Sky High Thai Harmony', // MS-WORD
     'pages'            => [
         'home'                 => 'Home',
         'about-us'             => 'About Us',

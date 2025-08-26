@@ -134,9 +134,11 @@ $this->section('content');
                 <?php foreach ($staff['posts'] as $staff_member) : ?>
                     <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                         <div class="specialty-card">
+                            <?php if (isset($staff['media'][$staff_member['featured_image']])) : ?>
                             <div class="specialty-visual">
                                 <img src="<?= $staff['media'][$staff_member['featured_image']] ?>" alt="<?= $staff_member['title'] ?>" class="img-fluid">
                             </div>
+                            <?php endif; ?>
                             <div class="specialty-content">
                                 <?php if (!empty($staff_member['tag_ids'])) : ?>
                                     <?php foreach ($staff_member['tag_ids'] as $tag_id) : ?>

@@ -3,7 +3,7 @@ return [
     'hero'              => [
         'badge1'   => 'Authentic Thai',
         'badge2'   => 'Excellence Service',
-        'message1' => 'Excellence in <span class="highlight">Hospitality</span> With Compassionate Care',
+        'message1' => 'Sky High<br><span class="highlight">Thai</span> Harmony',
         'message2' => 'Experience authentic Thai healing in the heart of Auckland—where every touch soothes, and every visit restores balance.',
     ],
     'opening-hours-app' => [
@@ -32,8 +32,8 @@ return [
         'heading'  => 'Facilities',
         'facility' => 'Spa Facility',
         'shower'   => [
-            'heading' => 'Shower Facility',
-            'para'    => 'This paragraph explains about our shower facility at the spa.'
+            'heading' => 'Complimentary Shower', // MS-WORD
+            'para'    => 'Enjoy a free shower with a booking of 1 hour or more, refresh and relax with us.' // MS-WORD
         ],
         'parking'  => [
             'heading' => 'Parking Space',
