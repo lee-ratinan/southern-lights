@@ -217,7 +217,17 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
         const columns = document.querySelectorAll('.wp-block-column'); columns.forEach(el => el.classList.add('col'));
         const center = document.querySelectorAll('.has-text-align-center'); center.forEach(el => el.classList.add('text-center'));
         const end = document.querySelectorAll('.has-text-align-right'); end.forEach(el => el.classList.add('text-end'));
-        const wp_images = document.querySelectorAll('.wp-block-image img'); wp_images.forEach(img => { img.removeAttribute('height'); img.removeAttribute('width'); img.removeAttribute('sizes'); img.classList.add('w-100'); });
+        const wp_images = document.querySelectorAll('.wp-block-image img');
+        wp_images.forEach(img => {
+            img.removeAttribute('height');
+            img.removeAttribute('width');
+            img.removeAttribute('sizes');
+            img.classList.add('w-100');
+        });
+        const wp_table = document.querySelectorAll('.wp-block-table table');
+        wp_table.forEach(el => {
+            el.classList.add('table', 'table-striped', 'table-hover');
+        });
     }
     fixWpClasses();
 </script>
