@@ -20,13 +20,36 @@ CI_ENVIRONMENT=production
 # APP
 #--------------------------------------------------------------------
 
-app_baseURL='http://127.0.0.1:8888/southern-lights/public/'
-WORDPRESS_URL='http://127.0.0.1:8888/test-blog/wp-json/wp/v2/'
+app_baseURL='https://skythaimassage.co.nz'
+WORDPRESS_URL='https://admin.skythaimassage.co.nz'
 WORDPRESS_PAGE_LIMIT=10
-WORDPRESS_BLOG_EN=3
-WORDPRESS_BLOG_JA=36
-WORDPRESS_BLOG_ES=34
-WORDPRESS_BLOG_ZH=35
+WORDPRESS_BLOG_EN=6
+WORDPRESS_BLOG_ES=9
+WORDPRESS_BLOG_JA=8
+WORDPRESS_BLOG_ZH=7
+WORDPRESS_SERVICE_HOME_LIMIT=3
+WORDPRESS_SERVICE_EN=18
+WORDPRESS_SERVICE_ES=20
+WORDPRESS_SERVICE_JA=19
+WORDPRESS_SERVICE_ZH=21
+WORDPRESS_FEATURE_STAFF_EN=14
+WORDPRESS_FEATURE_STAFF_ES=16
+WORDPRESS_FEATURE_STAFF_JA=15
+WORDPRESS_FEATURE_STAFF_ZH=17
+WORDPRESS_FEATURE_SERVICE_EN=10
+WORDPRESS_FEATURE_SERVICE_ES=11
+WORDPRESS_FEATURE_SERVICE_JA=12
+WORDPRESS_FEATURE_SERVICE_ZH=13
+WORDPRESS_FEATURE_PROMOTION_EN=30
+WORDPRESS_FEATURE_PROMOTION_ES=31
+WORDPRESS_FEATURE_PROMOTION_JA=32
+WORDPRESS_FEATURE_PROMOTION_ZH=33
+WORDPRESS_PROMOTION_EN=24
+WORDPRESS_PROMOTION_ES=25
+WORDPRESS_PROMOTION_JA=26
+WORDPRESS_PROMOTION_ZH=27
+BOOK_NOW_LINK='#BOOK_NOW'
+GIFT_VOUCHER_LINK='#GIFT_VOUCHER'
 # If you have trouble with `.`, you could also use `_`.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
@@ -70,14 +93,19 @@ WORDPRESS_BLOG_ZH=35
 
 #--------------------------------------------------------------------
 # LOGGER
+# Use 8 to log everything
 #--------------------------------------------------------------------
 
 logger.threshold=4
 
-CONTACT_FORM_EMAIL=lee@ratinan.com
-CONTACT_FORM_FROM=no-reply@ratinan.com
+CONTACT_FORM_EMAIL=info@skythaimassage.co.nz
+CONTACT_FORM_FROM=no-reply@skythaimassage.co.nz
 
-WEB_STORE_ADDRESS='123 Test Street, Auckland, NZ, H0H 0H0'
-WEB_EMAIL_ADDRESS=lee@ratinan.com
-WEB_TELEPHONE_NUMBER='+64 4 098 7654'
-WEB_TELEPHONE_LINK='+6440987654'
+WEB_STORE_ADDRESS='51 Remuera Road, Newmarket, Auckland 1050'
+WEB_EMAIL_ADDRESS=info@skythaimassage.co.nz
+WEB_TELEPHONE_NUMBER='020 462 6565'
+WEB_TELEPHONE_LINK='+64204626565'
+
+SOCIAL_INSTAGRAM=https://www.instagram.com/skythaimassageandspa/
+SOCIAL_FACEBOOK=https://www.facebook.com/profile.php?id=61576891041107
+GOOGLE_MAP=https://maps.app.goo.gl/Yjnj2hFcRwgFh2Az9
