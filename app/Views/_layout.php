@@ -126,7 +126,7 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
                         <div class="contact-info mt-5">
                             <div class="contact-item">
                                 <i class="bi bi-geo-alt"></i>
-                                <span><?= getenv('WEB_STORE_ADDRESS') ?></span>
+                                <a href="<?= getenv('GOOGLE_MAP') ?>" target="_blank"><?= getenv('WEB_STORE_ADDRESS') ?></a>
                             </div>
                             <div class="contact-item">
                                 <i class="bi bi-telephone"></i>
@@ -135,6 +135,10 @@ else if ('service-view' == $slug) {$lang_uri = 'services';}
                             <div class="contact-item">
                                 <i class="bi bi-envelope"></i>
                                 <a href="<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a>
+                            </div>
+                            <div class="contact-item">
+                                <a href="<?= getenv('SOCIAL_FACEBOOK') ?>" target="_blank"><i class="bi bi-facebook fs-4"></i></a>
+                                <a href="<?= getenv('SOCIAL_INSTAGRAM') ?>" target="_blank"><i class="bi bi-instagram fs-4"></i></a>
                             </div>
                         </div>
                     </div>

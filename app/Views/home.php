@@ -8,30 +8,14 @@ $this->section('content');
                 <div class="col-lg-6 mt-5">
                     <div class="hero-content">
                         <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
-                            <div class="badge-item">
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span><?= lang('Home.hero.badge.badge1') ?></span>
-                            </div>
-                            <div class="badge-item">
-                                <i class="bi bi-hand-thumbs-up-fill"></i>
-                                <span><?= lang('Home.hero.badge.badge2') ?></span>
-                            </div>
+                            <div class="badge-item"><i class="bi bi-check-circle-fill"></i><span><?= lang('Home.hero.badge.badge1') ?></span></div>
+                            <div class="badge-item"><i class="bi bi-hand-thumbs-up-fill"></i><span><?= lang('Home.hero.badge.badge2') ?></span></div>
                         </div>
-                        <h1 data-aos="fade-right" data-aos-delay="300">
-                            <?= lang('Home.hero.badge.message1') ?>
-                        </h1>
-                        <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
-                            <?= lang('Home.hero.badge.message2') ?>
-                        </p>
+                        <h1 data-aos="fade-right" data-aos-delay="300"><?= lang('Home.hero.badge.message1') ?></h1>
+                        <p class="hero-description" data-aos="fade-right" data-aos-delay="400"><?= lang('Home.hero.badge.message2') ?></p>
                         <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
-                            <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary">
-                                <i class="fa-solid fa-bookmark"></i> &nbsp;
-                                <?= lang('Theme.cta.book-now') ?>
-                            </a>
-                            <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-outline">
-                                <i class="fa-solid fa-ticket"></i> &nbsp;
-                                <?= lang('Theme.cta.buy-voucher') ?>
-                            </a>
+                            <a href="<?= getenv('BOOK_NOW_LINK') ?>" class="btn btn-primary"><i class="fa-solid fa-bookmark"></i> &nbsp;<?= lang('Theme.cta.book-now') ?></a>
+                            <a href="<?= getenv('GIFT_VOUCHER_LINK') ?>" class="btn btn-outline"><i class="fa-solid fa-ticket"></i> &nbsp;<?= lang('Theme.cta.buy-voucher') ?></a>
                         </div>
                     </div>
                 </div>
@@ -40,16 +24,12 @@ $this->section('content');
                     <div class="hero-visual mt-5" data-aos="fade-left" data-aos-delay="400">
                         <div class="main-image">
                             <?php if (!empty($promotion_hero['featured_media_files']['full'])) : ?>
-                                <a href="<?= base_url($locale . '/promotions') ?>">
-                                    <img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?>" class="img-fluid">
-                                </a>
+                                <a href="<?= base_url($locale . '/promotions') ?>"><img src="<?= $promotion_hero['featured_media_files']['full'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?>" class="img-fluid"></a>
                             <?php else: ?>
-                                <img src="<?= base_url('assets/img/home/hero-img.webp') ?>" alt="<?= lang('Theme.website-name') ?>" class="img-fluid">
+                                <img src="<?= base_url('assets/img/hero-img.png') ?>" alt="<?= lang('Theme.website-name') ?>" class="img-fluid">
                             <?php endif; ?>
                             <div class="floating-card appointment-card">
-                                <div class="card-icon">
-                                    <i class="bi bi-calendar-check"></i>
-                                </div>
+                                <div class="card-icon"><i class="bi bi-calendar-check"></i></div>
                                 <div class="card-content" id="home-page-opening-hours-opened" style="display: none;">
                                     <h6><?= lang('Home.opening-hours-app.open-now') ?></h6>
                                     <small><?= lang('Home.opening-hours-app.open-msg') ?></small>
@@ -57,19 +37,6 @@ $this->section('content');
                                 <div class="card-content" id="home-page-opening-hours-closed" style="display: none;">
                                     <h6><?= lang('Home.opening-hours-app.close-now') ?></h6>
                                     <small id="home-page-opening-hours-next-label"><?= lang('Home.opening-hours-app.close-msg') ?> <span id="home-page-opening-hours-next"></span></small>
-                                </div>
-                            </div>
-                            <div class="floating-card rating-card d-none">
-                                <div class="card-content">
-                                    <div class="rating-stars">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <h6>4.9/5</h6>
-                                    <small>1,234 Reviews</small>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +50,8 @@ $this->section('content');
             </div>
         </div>
     </section>
+    <!-- Featured Services -->
+    <?php if (!empty($services['posts'])) : ?>
     <section id="featured-departments" class="featured-departments section">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <h2><?= lang('Home.services.heading') ?></h2>
@@ -100,7 +69,9 @@ $this->section('content');
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <!-- PERMANENT PROMO -->
+    <?php if (!empty($promotions['posts'])) : ?>
     <section id="featured-departments" class="featured-departments section">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <h2><?= lang('Home.permanent-promo.heading') ?></h2>
@@ -108,23 +79,13 @@ $this->section('content');
         </div><!-- End Section Title -->
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row g-4 justify-content-center">
-                <?php foreach ($permanent_promo as $i => $details) : ?>
-                    <div class="col-lg-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="specialty-card">
-                            <div class="specialty-content p-4">
-                                <?= $details['content']['rendered'] ?>
-                            </div>
-                            <div class="specialty-visual">
-                                <img src="<?= $details['featured_media_files']['medium_large'] ?? $details['featured_media_files']['full'] ?? $details['featured_media_files']['thumbnail'] ?>" alt="<?= lang('Home.permanent-promo.heading') ?> <?= $i+1 ?>" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                <?php include '_promo-list.php'; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <!-- STAFF -->
-<?php if (!empty($staff['posts'])) : ?>
+    <?php if (!empty($staff['posts'])) : ?>
     <section id="featured-departments" class="featured-departments section">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <h2><?= lang('Home.staff.heading') ?></h2>
@@ -161,7 +122,7 @@ $this->section('content');
             </div>
         </div>
     </section>
-<?php endif; ?>
+    <?php endif; ?>
     <!-- SHOWER AND PARKING -->
     <section id="featured-departments" class="featured-departments section">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">

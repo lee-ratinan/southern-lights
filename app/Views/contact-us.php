@@ -23,7 +23,7 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
     <section id="contact" class="contact section featured-departments">
         <div class="container-fluid map-container aos-init aos-animate mt-0 mb-5" data-aos="fade-up" data-aos-delay="200">
             <div class="map-overlay"></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73245.21957032372!2d174.65942832813198!3d-36.855731272278206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d471233b27243%3A0x56925ebc833ee8ee!2sAuckland%20Zoo!5e0!3m2!1sen!2ssg!4v1754141828168!5m2!1sen!2ssg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.784394044653!2d174.77683041426!3d-36.87157928067011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4870a4257851%3A0xe5203502c6391997!2s51%20Remuera%20Road%2C%20Newmarket%2C%20Auckland%201050%2C%20New%20Zealand!5e0!3m2!1sen!2ssg!4v1757821786539!5m2!1sen!2ssg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row g-5">
@@ -40,7 +40,7 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
                                             </div>
                                             <div class="info-content">
                                                 <h3><?= lang('Contact.info.address') ?></h3>
-                                                <p><?= getenv('WEB_STORE_ADDRESS') ?></p>
+                                                <p><a href="<?= getenv('GOOGLE_MAP') ?>" target="_blank"><?= getenv('WEB_STORE_ADDRESS') ?></a></p>
                                             </div>
                                         </div>
                                         <hr />

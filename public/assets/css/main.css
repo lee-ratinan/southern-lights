@@ -6255,3 +6255,7 @@ section,
   margin: 1.5em 0;
   padding-left: 1.5em;
 }
+
+table.pricing td {
+  background: transparent !important;
+}

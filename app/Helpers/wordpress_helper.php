@@ -64,7 +64,6 @@ function retrieveWordPressPosts($url_part): array
         // POSTS
         $media   = [];
         $tags    = [];
-        $authors = [];
         foreach ($posts as $post) {
             $array_posts[] = [
                 'id'             => $post['id'],
@@ -84,7 +83,6 @@ function retrieveWordPressPosts($url_part): array
             if (!empty($post['featured_media'])) {
                 $media[] = $post['featured_media'];
             }
-            $authors[] = $post['author'];
         }
         // MEDIA
         $media   = array_unique($media);
@@ -116,15 +114,6 @@ function retrieveWordPressPosts($url_part): array
                         $tag_list[$tag['id']] = $tag['slug'];
                     }
                 }
-            }
-        }
-        // AUTHORS
-        $authors = array_unique($authors);
-        if (!empty($authors)) {
-            $response    = callWordPressCurl($blog_url . 'users?include=' . implode(',', $authors));
-            $raw_authors = $response['body'];
-            foreach ($raw_authors as $author) {
-                $author_list[$author['id']] = $author['name'];
             }
         }
     }
