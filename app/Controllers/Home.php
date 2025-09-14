@@ -133,6 +133,26 @@ class Home extends BaseController
     }
 
     /**
+     * This is the service view page
+     * @return string
+     */
+    public function promotionView(): string
+    {
+        helper('wordpress');
+        $service_slug = $this->request->getVar('q');
+        $locale       = service('request')->getLocale();
+        $post         = generateWordPressPost($service_slug);
+        $data         = [
+            'slug'   => 'promotion-view',
+            'locale' => $locale,
+            'uri'    => 'promotions/view/?q=' . urlencode($service_slug),
+            'post'   => $post,
+            'title'  => $post['title']
+        ];
+        return view('promotion-view', $data);
+    }
+
+    /**
      * This is the contact us page
      * @return string
      */
@@ -275,7 +295,7 @@ class Home extends BaseController
         // SERVICES PAGES
         $services_id        = [
             getenv('WORDPRESS_SERVICE_EN') => '/en/services/view?q=',
-            getenv('WORDPRESS_SERVICE_ES') => '/th/services/view?q=',
+            getenv('WORDPRESS_SERVICE_ES') => '/es/services/view?q=',
             getenv('WORDPRESS_SERVICE_JA') => '/ja/services/view?q=',
             getenv('WORDPRESS_SERVICE_ZH') => '/zh/services/view?q='
         ];
@@ -306,10 +326,44 @@ class Home extends BaseController
                 continue;
             }
         }
+        // PROMOTIONS PAGES
+        $promotion_ids        = [
+            getenv('WORDPRESS_PROMOTION_EN') => '/en/promotions/view?q=',
+            getenv('WORDPRESS_PROMOTION_ES') => '/es/promotions/view?q=',
+            getenv('WORDPRESS_PROMOTION_JA') => '/ja/promotions/view?q=',
+            getenv('WORDPRESS_PROMOTION_ZH') => '/zh/promotions/view?q='
+        ];
+        foreach ($promotion_ids as $id => $path) {
+            $url    = $blog_url . 'posts?context=embed&per_page=10&categories=' . $id;
+            try {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_HEADER, true);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                $response   = curl_exec($ch);
+                $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $body       = substr($response, $headerSize);
+                $posts      = json_decode($body, true);
+                foreach ($posts as $post) {
+                    $published = strtotime(substr(@$post['date'], 0, 10));
+                    $xml[]     = [
+                        'loc'        => base_url($path . $post['slug']),
+                        'lastmod'    => date('Y-m-d', $published),
+                        'changefreq' => 'monthly',
+                        'priority'   => '0.7',
+                    ];
+                }
+                curl_close($ch);
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
         // BLOG PAGES
         $category_ids       = [
             getenv('WORDPRESS_BLOG_EN') => '/en/blog/view/?s=',
-            getenv('WORDPRESS_BLOG_ES') => '/th/blog/view/?s=',
+            getenv('WORDPRESS_BLOG_ES') => '/es/blog/view/?s=',
             getenv('WORDPRESS_BLOG_JA') => '/ja/blog/view/?s=',
             getenv('WORDPRESS_BLOG_ZH') => '/zh/blog/view/?s='
         ];

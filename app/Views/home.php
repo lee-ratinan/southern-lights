@@ -134,7 +134,7 @@ $this->section('content');
                 <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                     <div class="specialty-card">
                         <div class="specialty-visual">
-                            <img src="<?= base_url('assets/img/home/shower.jpg') ?>" alt="<?= lang('Home.facilities.shower.heading') ?>" class="img-fluid">
+                            <img src="<?= base_url('assets/img/shower-facility.png') ?>" alt="<?= lang('Home.facilities.shower.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
                             <div class="specialty-meta">
@@ -151,7 +151,7 @@ $this->section('content');
                 <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                     <div class="specialty-card">
                         <div class="specialty-visual">
-                            <img src="<?= base_url('assets/img/home/parking.png') ?>" alt="<?= lang('Home.facilities.parking.heading') ?>" class="img-fluid">
+                            <img src="<?= base_url('assets/img/parking-space.png') ?>" alt="<?= lang('Home.facilities.parking.heading') ?>" class="img-fluid">
                         </div>
                         <div class="specialty-content">
                             <div class="specialty-meta">
@@ -161,7 +161,7 @@ $this->section('content');
                             <p class="mb-1">
                                 <?= lang('Home.facilities.parking.para') ?>
                             </p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2"><i class="fa-solid fa-route"></i> <?= lang('Home.facilities.parking.map') ?></a>
+                            <a href="<?= getenv('GOOGLE_MAP') ?>" class="btn btn-sm btn-outline-primary mt-2" target="_blank"><i class="fa-solid fa-route"></i> <?= lang('Home.facilities.parking.map') ?></a>
                         </div>
                     </div>
                 </div>

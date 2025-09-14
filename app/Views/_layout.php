@@ -23,12 +23,14 @@
     <link href="<?= $favicon_file ?>" rel="icon">
     <link href="<?= $favicon_file ?>" rel="apple-touch-icon">
     <!-- Link Languages -->
-    <?php if ('blog-view' != $slug) : ?>
+    <?php if (!in_array($slug, ['blog-view', 'promotion-view', 'service-view'])) : ?>
         <link rel="alternate" hreflang="en" href="<?= base_url('en/' . $uri) ?>">
         <link rel="alternate" hreflang="es" href="<?= base_url('es/' . $uri) ?>">
         <link rel="alternate" hreflang="ja" href="<?= base_url('ja/' . $uri) ?>">
         <link rel="alternate" hreflang="zh" href="<?= base_url('zh/' . $uri) ?>">
         <link rel="alternate" hreflang="x-default" href="<?= base_url($uri) ?>">
+    <?php else: ?>
+        <link rel="alternate" hreflang="<?= $locale ?>" href="<?= base_url($locale . '/' . $uri) ?>">
     <?php endif; ?>
     <link rel="canonical" href="<?= current_url() ?>">
     <!-- Fonts -->
