@@ -2,7 +2,7 @@
 <html lang="<?= $locale ?>">
 <head>
     <?php
-    $meta_title   = (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
+    $meta_title   = (in_array($slug, ['blog-view', 'promotion-view', 'service-view']) ? $title : lang('Theme.pages.' . $slug)) . ' | ' . lang('Theme.website-name');
     $company_logo = base_url('sky-thai-logo.png');
     $favicon_file = base_url('favicon.png');
     $meta_image   = ($post['media']['media_details']['sizes']['full']['source_url'] ?? $company_logo);
@@ -10,12 +10,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title><?= $meta_title ?></title>
-    <meta name="description" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
-    <meta name="keywords" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.keywords')) ?>">
+    <meta name="description" content="<?= (in_array($slug, ['blog-view', 'promotion-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
+    <meta name="keywords" content="<?= (in_array($slug, ['blog-view', 'promotion-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.keywords')) ?>">
     <meta name="author" content="<?= lang('Theme.website-name') ?>">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="<?= $meta_title ?>">
-    <meta property="og:description" content="<?= (in_array($slug, ['blog-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
+    <meta property="og:description" content="<?= (in_array($slug, ['blog-view', 'promotion-view', 'service-view']) ? $title : lang('Seo.' . $slug . '.description')) ?>">
     <meta property="og:image" content="<?= $meta_image ?>">
     <meta property="og:url" content="<?= current_url() ?>">
     <meta property="og:type" content="<?= (in_array($slug, ['blog-view', 'blog']) ? 'article' : 'website') ?>">
@@ -69,6 +69,7 @@ $flag     = ['nz', 'es', 'jp', 'cn'];
 $lang_uri = $uri;
 if ('blog-view' == $slug) {$lang_uri = 'blog';}
 else if ('service-view' == $slug) {$lang_uri = 'services';}
+else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
 ?>
 <header id="header" class="header fixed-top">
     <div class="topbar d-flex align-items-center dark-background">

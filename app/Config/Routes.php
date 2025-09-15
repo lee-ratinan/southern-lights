@@ -5,7 +5,8 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+# $routes->get('/', 'Home::index'); // to swap out once it's launched
+$routes->get('/', 'Home::under_construction');
 $routes->get('about-us', 'Home::aboutUs');
 $routes->get('services', 'Home::services');
 $routes->get('services/view', 'Home::serviceView');

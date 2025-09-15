@@ -57,6 +57,15 @@ class Home extends BaseController
     }
 
     /**
+     * Under Construction
+     * @return string
+     */
+    public function under_construction(): string
+    {
+        return view('under_construction');
+    }
+
+    /**
      * This is the about us page
      * @return string
      */
