@@ -92,8 +92,7 @@ function retrieveWordPressPosts($url_part): array
             $raw_media = $response['body'];
             log_message('debug', print_r($raw_media, true));
             foreach ($raw_media as $media_item) {
-                // Todo: Need to ensure the medium size is ok, maybe... 500x500 minimum?
-                $media_list[$media_item['id']] = $media_item['media_details']['sizes']['medium']['source_url'] ?? $media_item['media_details']['sizes']['full']['source_url'];
+                $media_list[$media_item['id']] = $media_item['media_details']['sizes']['large']['source_url'] ?? $media_item['media_details']['sizes']['full']['source_url'];
                 log_message('debug', $media_item['id']);
                 log_message('debug', print_r($media_list[$media_item['id']], true));
             }
