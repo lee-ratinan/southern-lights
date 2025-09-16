@@ -137,11 +137,20 @@ else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
                             </div>
                             <div class="contact-item">
                                 <i class="bi bi-envelope"></i>
-                                <a href="<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a>
+                                <?php
+                                $emails     = getenv('WEB_EMAIL_ADDRESS');
+                                $emails     = explode(',', $emails);
+                                $email_list = [];
+                                foreach ($emails as $email) {
+                                    $email_list[] = '<a href="mailto:' . $email . '">' . $email . '</a>';
+                                }
+                                echo implode(', &nbsp; ', $email_list);
+                                ?>
                             </div>
                             <div class="contact-item">
-                                <a href="<?= getenv('SOCIAL_FACEBOOK') ?>" target="_blank"><i class="bi bi-facebook fs-4"></i></a>
-                                <a href="<?= getenv('SOCIAL_INSTAGRAM') ?>" target="_blank"><i class="bi bi-instagram fs-4"></i></a>
+                                <a href="<?= getenv('SOCIAL_FACEBOOK') ?>" target="_blank"><i class="bi bi-facebook fs-4 me-3"></i></a>
+                                <a href="<?= getenv('SOCIAL_INSTAGRAM') ?>" target="_blank"><i class="bi bi-instagram fs-4 mx-3"></i></a>
+                                <a href="<?= getenv('CONTACT_WHATSAPP') ?>" target="_blank"><i class="bi bi-whatsapp fs-4 mx-3"></i></a>
                             </div>
                         </div>
                     </div>

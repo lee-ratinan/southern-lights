@@ -50,7 +50,17 @@ $js_locale = $format_locales[$locale] ?? 'en-NZ';
                                             </div>
                                             <div class="info-content">
                                                 <h3><?= lang('Contact.info.email') ?></h3>
-                                                <p><a href="mailto:<?= getenv('WEB_EMAIL_ADDRESS') ?>"><?= getenv('WEB_EMAIL_ADDRESS') ?></a></p>
+                                                <p>
+                                                    <?php
+                                                    $emails     = getenv('WEB_EMAIL_ADDRESS');
+                                                    $emails     = explode(',', $emails);
+                                                    $email_list = [];
+                                                    foreach ($emails as $email) {
+                                                        $email_list[] = '<a href="mailto:' . $email . '">' . $email . '</a>';
+                                                    }
+                                                    echo implode('<br>', $email_list);
+                                                    ?>
+                                                </p>
                                             </div>
                                         </div>
                                         <hr />
