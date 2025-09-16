@@ -325,3 +325,34 @@ function format_post_date(string $date, string $locale): string
         return $date->format('d M Y h:i a');
     }
 }
+
+/**
+ * Explode price tags into a structured array
+ * @param array $all_tags
+ * @return array
+ */
+function process_price_tags(array $all_tags): array
+{
+    $prices = [];
+    foreach ($all_tags as $the_tag) {
+        if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
+            $split = explode('-', $the_tag);
+            $minutes = intval($split[0]);
+            $price = '$' . number_format($split[1]);
+            $full_price = '';
+            $per = '';
+            if (isset($split[2])) {
+                $full_price = '<s>$' . number_format($split[2]) . '</s>';
+            }
+            if (isset($split[3])) {
+                $per = 'per ' . $split[3];
+            }
+            $prices[$minutes . $per] = [
+                'price'      => $price,
+                'full_price' => $full_price,
+                'per'        => $per,
+            ];
+        }
+    }
+    return $prices;
+}

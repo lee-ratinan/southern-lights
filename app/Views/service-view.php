@@ -25,26 +25,14 @@ $this->section('content');
                         <?= $post['post_data']['content']['rendered'] ?>
                     </article>
                     <?php if (!empty($post['tags'])) : ?>
-                        <?php $prices = []; ?>
-                        <?php foreach ($post['tags'] as $tag) : ?>
-                            <?php $the_tag = $tag['slug']; ?>
-                            <?php if (preg_match("/\d{1,3}-\d{1,3}-\d{1,3}/", $the_tag)) : ?>
-                                <?php
-                                $split      = explode('-', $the_tag);
-                                $minutes    = intval($split[0]);
-                                $price      = '$' . number_format($split[1]);
-                                $full_price = '';
-                                if (isset($split[2])) {
-                                    $full_price = '<s>$' . number_format($split[2]) . '</s>';
-                                }
-                                $prices[$minutes] = [
-                                    'price'      => $price,
-                                    'full_price' => $full_price,
-                                ];
-                                ?>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <?php ksort($prices); ?>
+                        <?php
+                        $all_tags = [];
+                        foreach ($post['tags'] as $tag) {
+                            $all_tags[] = $tag['slug'];
+                        }
+                        $prices = process_price_tags($all_tags);
+                        ksort($prices);
+                        ?>
                         <table class="table table-sm table-borderless pricing">
                             <?php foreach ($prices as $minutes => $price) : ?>
                                 <tr>

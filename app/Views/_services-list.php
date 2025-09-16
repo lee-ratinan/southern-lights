@@ -10,33 +10,14 @@
                 <h3 class="mb-1"><a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>"><?= $service['title'] ?></a></h3>
                 <p class="mb-1"><?= $service['excerpt'] ?></p>
                 <?php if (!empty($service['tag_ids'])) : ?>
-                    <?php $prices = []; ?>
-                    <?php foreach ($service['tag_ids'] as $tag_id) : ?>
-                        <?php if (isset($services['tags'][$tag_id])) : ?>
-                            <?php $the_tag = $services['tags'][$tag_id]; ?>
-                            <?php if (preg_match("/\d{1,3}-\d{1,3}-\d{1,3}/", $the_tag)) : ?>
-                                <?php
-                                $split      = explode('-', $the_tag);
-                                $minutes    = intval($split[0]);
-                                $price      = '$' . number_format($split[1]);
-                                $full_price = '';
-                                $per        = '';
-                                if (isset($split[2]) && 0 < intval($split[2])) {
-                                    $full_price = '<s>$' . number_format($split[2]) . '</s>';
-                                }
-                                if (isset($split[3])) {
-                                    $per = 'per ' . $split[3];
-                                }
-                                $prices[$minutes . $per] = [
-                                    'price'      => $price,
-                                    'full_price' => $full_price,
-                                    'per'        => $per,
-                                ];
-                                ?>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                    <?php ksort($prices); ?>
+                    <?php
+                    $all_tags = [];
+                    foreach ($service['tag_ids'] as $tag_id) {
+                        $all_tags[] = $services['tags'][$tag_id];
+                    }
+                    $prices = process_price_tags($all_tags);
+                    ksort($prices);
+                    ?>
                     <table class="table table-sm table-borderless pricing">
                         <?php foreach ($prices as $minutes => $price) : ?>
                             <tr>
