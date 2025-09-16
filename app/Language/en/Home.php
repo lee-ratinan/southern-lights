@@ -14,7 +14,7 @@ return [
     ],
     'services'          => [
         'heading'       => 'Featured Services',
-        'para'          => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        'para'          => 'Authentic Thai Massage – Relax, Restore, Rebalance Today.',
         'our-service'   => 'Our Service',
         'read-more'     => 'Read More',
         'more-services' => 'More Services',
@@ -26,7 +26,7 @@ return [
     ],
     'permanent-promo'   => [
         'heading' => 'Our Promotions',
-        'para'    => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit'
+        'para'    => 'Enjoy our special offers today!'
     ],
     'facilities'        => [
         'heading'  => 'Facilities',
@@ -37,7 +37,7 @@ return [
         ],
         'parking'  => [
             'heading' => 'Parking Space',
-            'para'    => 'This paragraph explains about our private parking space with map.',
+            'para'    => 'Relax — parking is close and hassle-free.',
             'map'     => 'Get Direction'
         ],
     ],

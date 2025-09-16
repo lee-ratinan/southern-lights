@@ -1,8 +1,8 @@
 <?php
 return [
     'header'   => 'Compassionate Care for All',
-    'para1'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-    'para2'    => 'Nam odio sem, volutpat non pharetra eu, ornare eu arcu. Pellentesque sollicitudin, ex id rutrum mollis, felis felis pellentesque metus, et cursus felis sem id mauris. Vivamus vel nunc ullamcorper, iaculis augue vitae, malesuada arcu.',
+    'para1'    => 'Nestled on Remuera Road in the heart of Auckland, our newly built Thai massage spa is a peaceful sanctuary designed to help you unwind and rejuvenate. From the moment you step inside, you’ll find a safe, calming space where modern comfort meets the timeless art of traditional Thai healing.',
+    'para2'    => 'Our team of skilled Thai masseurs bring years of authentic expertise and care to every treatment. With gentle hands, deep knowledge, and a passion for wellness, we’re here to ease away stress, restore balance, and leave you feeling renewed. Whether you’re seeking relaxation or therapeutic relief, you’ll find true Thai hospitality right here in Auckland.',
     'counter1' => 'Established',
     'counter2' => 'Friendly Therapists',
     'counter3' => '???',

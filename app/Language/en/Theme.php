@@ -2,7 +2,7 @@
 return [
     'company-name'     => 'Southern Lights',
     'website-name'     => 'Sky Thai Massage & Spa',
-    'slogan'           => 'Sky High Thai Harmony', // MS-WORD
+    'slogan'           => 'Sky High Thai Harmony',
     'pages'            => [
         'home'                 => 'Home',
         'about-us'             => 'About Us',
@@ -24,7 +24,7 @@ return [
         'book-now'    => 'Book Now',
         'buy-voucher' => 'Buy Gift Voucher',
     ],
-    'footer-paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique malesuada pretium.',
+    'footer-paragraph' => 'Sky High <b>Thai</b> Harmony—Experience authentic Thai healing in the heart of Auckland.',
     'footer-links'     => 'Useful Links',
     'copyrights'       => 'All rights reserved.'
 ];
