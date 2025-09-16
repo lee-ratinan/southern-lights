@@ -138,7 +138,7 @@ $this->section('content');
                         </div>
                         <div class="specialty-content">
                             <div class="specialty-meta">
-                                <span class="specialty-label"><i class="fa-solid fa-shower"></i> <?= lang("home.facilities.facility") ?></span>
+                                <span class="specialty-label"><i class="fa-solid fa-shower"></i> <?= lang("home.facilities.heading") ?></span>
                             </div>
                             <h3 class="mb-1"><?= lang('Home.facilities.shower.heading') ?></h3>
                             <p class="mb-1">
@@ -155,7 +155,7 @@ $this->section('content');
                         </div>
                         <div class="specialty-content">
                             <div class="specialty-meta">
-                                <span class="specialty-label"><i class="fa-solid fa-car-side"></i> <?= lang("home.facilities.facility") ?></span>
+                                <span class="specialty-label"><i class="fa-solid fa-car-side"></i> <?= lang("home.facilities.heading") ?></span>
                             </div>
                             <h3 class="mb-1"><?= lang('Home.facilities.parking.heading') ?></h3>
                             <p class="mb-1">
