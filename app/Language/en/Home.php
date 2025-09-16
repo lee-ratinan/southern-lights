@@ -32,8 +32,8 @@ return [
         'heading'  => 'Facilities',
         'facility' => 'Spa Facility',
         'shower'   => [
-            'heading' => 'Complimentary Shower', // MS-WORD
-            'para'    => 'Enjoy a free shower with a booking of 1 hour or more, refresh and relax with us.' // MS-WORD
+            'heading' => 'Complimentary Shower',
+            'para'    => 'Enjoy a free shower with a booking of 1 hour or more, refresh and relax with us.'
         ],
         'parking'  => [
             'heading' => 'Parking Space',
