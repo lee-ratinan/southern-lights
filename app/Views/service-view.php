@@ -36,7 +36,7 @@ $this->section('content');
                         <table class="table table-sm table-borderless pricing">
                             <?php foreach ($prices as $minutes => $price) : ?>
                                 <tr>
-                                    <td><?= $minutes ?> min</td>
+                                    <td><?= $price['minutes'] ?> min</td>
                                     <td><b class="text-danger"><?= $price['price'] ?></b></td>
                                     <td><?= $price['full_price'] ?></td>
                                 </tr>

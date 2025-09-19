@@ -346,7 +346,9 @@ function process_price_tags(array $all_tags): array
             if (isset($split[3])) {
                 $per = 'per ' . $split[3];
             }
-            $prices[$minutes . $per] = [
+            $str_min = sprintf('%03d', $minutes);
+            $prices[$per . $str_min] = [
+                'minutes'    => $minutes,
                 'price'      => $price,
                 'full_price' => $full_price,
                 'per'        => $per,
