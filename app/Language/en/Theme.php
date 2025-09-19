@@ -17,6 +17,12 @@ return [
         'usual'   => 'Usual Price',
         'special' => 'Today’s Special!',
     ],
+    'pricing_table'    => [
+        'minutes'    => '{0} min.',
+        'per_person' => 'per person',
+        'per_couple' => 'per couple',
+        'from'       => 'From {0}/{1}'
+    ],
     'massage_types'    => [
         'relaxation' => 'Relaxation Massage',
         'deep'       => 'Deep Tissue Massage',
