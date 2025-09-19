@@ -330,7 +330,7 @@ function format_post_date(string $date, string $locale): string
  * @param array $all_tags
  * @return void
  */
-function process_price_tags_cheapest (array $all_tags): void
+function process_price_tags_cheapest(array $all_tags): void
 {
     $prices = [];
     foreach ($all_tags as $the_tag) {
@@ -415,4 +415,23 @@ function process_price_tags(array $all_tags): void
         echo '</tr>';
     }
     echo '</table>';
+}
+
+/**
+ * Crop excerpt - max length is 100-character long or what specified in the parameter
+ * @param string $excerpt
+ * @param int $max_length (optional)
+ * @return string
+ */
+function crop_excerpt(string $excerpt, int $max_length = 100): string
+{
+    if (mb_strlen($excerpt, 'UTF-8') <= $max_length) {
+        return $excerpt;
+    }
+    $excerpt    = mb_substr($excerpt, 0, $max_length);
+    $last_space = strrpos($excerpt, ' ');
+    if ($last_space !== false) {
+        $excerpt = substr($excerpt, 0, $last_space);
+    }
+    return $excerpt . '...';
 }

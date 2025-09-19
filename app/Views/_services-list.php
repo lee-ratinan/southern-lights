@@ -8,14 +8,14 @@
             <?php endif; ?>
             <div class="specialty-content bg-white">
                 <h3 class="mb-1"><a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>"><?= $service['title'] ?></a></h3>
-                <p class="mb-1"><?= $service['excerpt'] ?></p>
+                <p class="mb-1"><?= crop_excerpt($service['excerpt']) ?></p>
                 <?php if (!empty($service['tag_ids'])) : ?>
                     <?php
                     $all_tags = [];
                     foreach ($service['tag_ids'] as $tag_id) {
                         $all_tags[] = $services['tags'][$tag_id];
                     }
-                    process_price_tags($all_tags);
+                    process_price_tags_cheapest($all_tags);
                     ?>
                 <?php endif; ?>
                 <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>" class="specialty-link"><?= lang('Home.services.read-more') ?> <i class="bi bi-arrow-right"></i></a>
