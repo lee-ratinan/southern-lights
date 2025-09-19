@@ -275,12 +275,12 @@ class Home extends BaseController
         log_message('debug', 'sitemap');
         // MAIN PAGES
         $main_pages = [
-            ['/', '2025-01-01', 'monthly', '1.0'],
-            ['/about-us', '2025-01-01', 'monthly', '0.8'],
-            ['/contact-us', '2025-01-01', 'monthly', '0.8'],
-            ['/services', '2025-01-01', 'weekly', '0.8'], // need WP
-            ['/promotions', '2025-01-01', 'weekly', '0.8'],
-            ['/blog', '2025-01-01', 'weekly', '0.6'], // need WP
+            ['/', '2025-09-15', 'monthly', '1.0'],
+            ['/about-us', '2025-09-15', 'monthly', '0.8'],
+            ['/contact-us', '2025-09-15', 'monthly', '0.8'],
+            ['/services', '2025-09-15', 'weekly', '0.8'], // need WP
+            ['/promotions', '2025-09-15', 'weekly', '0.8'],
+            ['/blog', '2025-09-15', 'weekly', '0.6'], // need WP
         ];
         $languages  = [
             '',
@@ -447,7 +447,7 @@ class Home extends BaseController
         return lang('Contact.form.responses.error');
     }
 
-    public function verifyWP(): string
+    private function verifyWP(): string
     {
         // call WordPress
         helper('wordpress');
