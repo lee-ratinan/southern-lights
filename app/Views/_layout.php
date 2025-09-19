@@ -186,7 +186,7 @@ else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="copyright">
-                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.company-name') ?></span>. <?= lang('Theme.copyrights') ?></p>
+                            <p>&copy; <?= date('Y') ?> <span class="sitename"><?= lang('Theme.website-name') ?></span>. <?= lang('Theme.copyrights') ?></p>
                         </div>
                     </div>
                     <div class="col-lg-6">

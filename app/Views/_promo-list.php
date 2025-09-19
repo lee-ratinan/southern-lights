@@ -15,19 +15,8 @@
                     foreach ($promotion['tag_ids'] as $tag_id) {
                         $all_tags[] = $promotions['tags'][$tag_id];
                     }
-                    $prices = process_price_tags($all_tags);
-                    ksort($prices);
+                    process_price_tags($all_tags);
                     ?>
-                    <table class="table table-sm table-borderless pricing">
-                        <?php foreach ($prices as $minutes => $price) : ?>
-                            <tr>
-                                <td><?= $price['minutes'] ?> min</td>
-                                <td><b class="text-danger"><?= $price['price'] ?></b></td>
-                                <td><?= $price['full_price'] ?></td>
-                                <td><?= $price['per'] ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </table>
                 <?php endif; ?>
                 <a href="<?= base_url($locale . '/promotions/view?q=' . $promotion['slug']) ?>" class="specialty-link"><?= lang('Home.services.read-more') ?> <i class="bi bi-arrow-right"></i></a>
             </div>

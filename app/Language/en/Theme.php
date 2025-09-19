@@ -13,6 +13,14 @@ return [
         'terms-and-conditions' => 'Terms & Conditions',
         'privacy-policy'       => 'Privacy Policy',
     ],
+    'prices'           => [
+        'usual'   => 'Usual Price',
+        'special' => 'Today’s Special!',
+    ],
+    'massage_types'    => [
+        'relaxation' => 'Relaxation Massage',
+        'deep'       => 'Deep Tissue Massage',
+    ],
     'locales'          => [
         'label' => 'Language',
         'en'    => 'English',

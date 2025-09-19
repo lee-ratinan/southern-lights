@@ -326,13 +326,14 @@ function format_post_date(string $date, string $locale): string
 }
 
 /**
- * Explode price tags into a structured array
+ * Take the price tags and print them in table
  * @param array $all_tags
- * @return array
+ * @return void
  */
-function process_price_tags(array $all_tags): array
+function process_price_tags(array $all_tags): void
 {
-    $prices = [];
+    $prices       = [];
+    $massage_type = '';
     foreach ($all_tags as $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
@@ -353,7 +354,25 @@ function process_price_tags(array $all_tags): array
                 'full_price' => $full_price,
                 'per'        => $per,
             ];
+        } else if (in_array($the_tag, ['relaxation', 'deep'])) {
+            $massage_type = $the_tag;
         }
     }
-    return $prices;
+    ksort($prices);
+    // TYPE
+    if (!empty($massage_type)) {
+        echo '<span class="specialty-meta small"><span class="specialty-label">' . lang('Theme.massage_types.' . $massage_type) . '</span></span>';
+    }
+    // PRICE
+    echo '<table class="table table-sm table-borderless pricing small">';
+    echo '<tr><td></td><td><b class="text-danger">' . lang('Theme.prices.special') . '</b></td><td>' . lang('Theme.prices.usual') . '</td><td></td></tr>';
+    foreach ($prices as $price) {
+        echo '<tr>';
+        echo '<td>' . $price['minutes'] . ' min.</td>';
+        echo '<td><b class="text-danger">' . $price['price'] . '</b></td>';
+        echo '<td>' . $price['full_price'] . '</td>';
+        echo '<td>' . $price['per'] . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
 }
