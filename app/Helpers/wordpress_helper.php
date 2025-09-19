@@ -334,6 +334,8 @@ function process_price_tags(array $all_tags): void
 {
     $prices       = [];
     $massage_type = '';
+    $has_up       = false;
+    $has_per      = false;
     foreach ($all_tags as $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
@@ -341,11 +343,13 @@ function process_price_tags(array $all_tags): void
             $price = '$' . number_format($split[1]);
             $full_price = '';
             $per = '';
-            if (isset($split[2])) {
+            if (isset($split[2]) && is_numeric($split[2])) {
                 $full_price = '<s>$' . number_format($split[2]) . '</s>';
+                $has_up     = true;
             }
-            if (isset($split[3])) {
-                $per = 'per ' . $split[3];
+            if (isset($split[3]) && in_array($split[3], ['person', 'couple'])) {
+                $per     = $split[3];
+                $has_per = true;
             }
             $str_min = sprintf('%03d', $minutes);
             $prices[$per . $str_min] = [
@@ -365,13 +369,24 @@ function process_price_tags(array $all_tags): void
     }
     // PRICE
     echo '<table class="table table-sm table-borderless pricing small">';
-    echo '<tr><td></td><td><b class="text-danger">' . lang('Theme.prices.special') . '</b></td><td>' . lang('Theme.prices.usual') . '</td><td></td></tr>';
+    echo '<tr><td></td><td><b class="text-danger">' . lang('Theme.prices.special') . '</b></td>';
+    if ($has_up) {
+        echo '<td>' . lang('Theme.prices.usual') . '</td>';
+    }
+    if ($has_per) {
+        echo '<td></td>';
+    }
+    echo '</tr>';
     foreach ($prices as $price) {
         echo '<tr>';
-        echo '<td>' . $price['minutes'] . ' min.</td>';
+        echo '<td>' . lang('Theme.pricing_table.minutes', [$price['minutes']]) . '</td>';
         echo '<td><b class="text-danger">' . $price['price'] . '</b></td>';
-        echo '<td>' . $price['full_price'] . '</td>';
-        echo '<td>' . $price['per'] . '</td>';
+        if ($has_up) {
+            echo '<td>' . $price['full_price'] . '</td>';
+        }
+        if ($has_per) {
+            echo '<td>' . lang('Theme.pricing_table.per_' . $price['per']) . '</td>';
+        }
         echo '</tr>';
     }
     echo '</table>';
