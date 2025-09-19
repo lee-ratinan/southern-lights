@@ -135,18 +135,13 @@ else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
                                 <i class="bi bi-telephone"></i>
                                 <a href="tel:<?= getenv('WEB_TELEPHONE_LINK') ?>"><?= getenv('WEB_TELEPHONE_NUMBER') ?></a>
                             </div>
-                            <div class="contact-item">
-                                <i class="bi bi-envelope"></i>
-                                <?php
-                                $emails     = getenv('WEB_EMAIL_ADDRESS');
-                                $emails     = explode(',', $emails);
-                                $email_list = [];
-                                foreach ($emails as $email) {
-                                    $email_list[] = '<a href="mailto:' . $email . '">' . $email . '</a>';
-                                }
-                                echo implode(', &nbsp; ', $email_list);
-                                ?>
-                            </div>
+                            <?php
+                            $emails     = getenv('WEB_EMAIL_ADDRESS');
+                            $emails     = explode(',', $emails);
+                            foreach ($emails as $email) {
+                                echo '<div class="contact-item"><i class="bi bi-envelope"></i><a href="mailto:' . $email . '">' . $email . '</a></div>';
+                            }
+                            ?>
                             <div class="contact-item">
                                 <a href="<?= getenv('SOCIAL_FACEBOOK') ?>" target="_blank"><i class="bi bi-facebook fs-4 me-3"></i></a>
                                 <a href="<?= getenv('SOCIAL_INSTAGRAM') ?>" target="_blank"><i class="bi bi-instagram fs-4 mx-3"></i></a>
