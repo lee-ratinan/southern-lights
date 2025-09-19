@@ -368,7 +368,7 @@ function process_price_tags(array $all_tags): void
         echo '<span class="specialty-meta small"><span class="specialty-label">' . lang('Theme.massage_types.' . $massage_type) . '</span></span>';
     }
     // PRICE
-    echo '<table class="table table-sm table-borderless pricing small">';
+    echo '<table class="table table-sm table-borderless pricing small text-center">';
     echo '<tr><td></td><td><b class="text-danger">' . lang('Theme.prices.special') . '</b></td>';
     if ($has_up) {
         echo '<td>' . lang('Theme.prices.usual') . '</td>';
