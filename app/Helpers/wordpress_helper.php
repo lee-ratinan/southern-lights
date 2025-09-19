@@ -326,6 +326,31 @@ function format_post_date(string $date, string $locale): string
 }
 
 /**
+ * Find the cheapest price and print the 'From $#/# min.' message
+ * @param array $all_tags
+ * @return void
+ */
+function process_price_tags_cheapest (array $all_tags): void
+{
+    $prices = [];
+    foreach ($all_tags as $the_tag) {
+        if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
+            $split = explode('-', $the_tag);
+            $minutes = intval($split[0]);
+            $price = intval($split[1]);
+            $prices[$price] = $minutes;
+        }
+    }
+    ksort($prices);
+    foreach ($prices as $price => $minutes) {
+        $price = '$' . number_format($price);
+        $minutes .= ' min.';
+        echo lang('Theme.pricing_table.from', [$price, $minutes]);
+        break;
+    }
+}
+
+/**
  * Take the price tags and print them in table
  * @param array $all_tags
  * @return void
