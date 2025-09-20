@@ -28,9 +28,9 @@ $this->section('content');
                         <?php
                         $all_tags = [];
                         foreach ($post['tags'] as $tag) {
-                            $all_tags[] = $tag['slug'];
+                            $all_tags[$tag['id']] = $tag['slug'];
                         }
-                        process_price_tags($all_tags);
+                        process_price_tags($all_tags, $locale, 'promotions');
                         ?>
                     <?php endif; ?>
                 </div>

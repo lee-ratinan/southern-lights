@@ -13,9 +13,9 @@
                     <?php
                     $all_tags = [];
                     foreach ($promotion['tag_ids'] as $tag_id) {
-                        $all_tags[] = $promotions['tags'][$tag_id];
+                        $all_tags[$tag_id] = $promotions['tags'][$tag_id];
                     }
-                    process_price_tags_cheapest($all_tags);
+                    process_price_tags_cheapest($all_tags, $locale, 'promotions');
                     ?>
                 <?php endif; ?>
                 <a href="<?= base_url($locale . '/promotions/view?q=' . $promotion['slug']) ?>" class="specialty-link"><?= lang('Home.services.read-more') ?> <i class="bi bi-arrow-right"></i></a>

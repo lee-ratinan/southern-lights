@@ -328,20 +328,34 @@ function format_post_date(string $date, string $locale): string
 /**
  * Find the cheapest price and print the 'From $#/# min.' message
  * @param array $all_tags
+ * @param string $locale (optional)
+ * @param string $page (optional)
  * @return void
  */
-function process_price_tags_cheapest(array $all_tags): void
+function process_price_tags_cheapest(array $all_tags, string $locale = '', string $page = 'services'): void
 {
-    $prices = [];
-    foreach ($all_tags as $the_tag) {
+    $prices       = [];
+    $massage_type = [];
+    foreach ($all_tags as $tag_id => $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
             $minutes = intval($split[0]);
             $price = intval($split[1]);
             $prices[$price] = $minutes;
+        } else if (in_array($the_tag, ['relaxation', 'deep', 'upper-body', 'foot', 'new'])) {
+            $massage_type = [$the_tag, $tag_id];
         }
     }
     ksort($prices);
+    // TYPE
+    if (!empty($massage_type)) {
+        $new_class = 'bg-warning';
+        if ('new' == $massage_type[0]) {
+            $new_class = 'bg-danger text-white';
+        }
+        echo '<span class="badge ' . $new_class . '"><a href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></span>';
+    }
+    // PRICE
     foreach ($prices as $price => $minutes) {
         $price = '$' . number_format($price);
         $minutes .= ' min.';
@@ -353,15 +367,17 @@ function process_price_tags_cheapest(array $all_tags): void
 /**
  * Take the price tags and print them in table
  * @param array $all_tags
+ * @param string $locale (optional)
+ * @param string $page (optional))
  * @return void
  */
-function process_price_tags(array $all_tags): void
+function process_price_tags(array $all_tags, string $locale = '', string $page = 'services'): void
 {
     $prices       = [];
-    $massage_type = '';
+    $massage_type = [];
     $has_up       = false;
     $has_per      = false;
-    foreach ($all_tags as $the_tag) {
+    foreach ($all_tags as $tag_id => $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
             $minutes = intval($split[0]);
@@ -383,14 +399,18 @@ function process_price_tags(array $all_tags): void
                 'full_price' => $full_price,
                 'per'        => $per,
             ];
-        } else if (in_array($the_tag, ['relaxation', 'deep'])) {
-            $massage_type = $the_tag;
+        } else if (in_array($the_tag, ['relaxation', 'deep', 'upper-body', 'foot', 'new'])) {
+            $massage_type = [$the_tag, $tag_id];
         }
     }
     ksort($prices);
     // TYPE
     if (!empty($massage_type)) {
-        echo '<span class="specialty-meta small"><span class="specialty-label">' . lang('Theme.massage_types.' . $massage_type) . '</span></span>';
+        $new_class = 'bg-warning';
+        if ('new' == $massage_type[0]) {
+            $new_class = 'bg-danger text-white';
+        }
+        echo '<span class="badge ' . $new_class . '"><a href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></span>';
     }
     // PRICE
     echo '<table class="table table-sm table-borderless pricing small text-center">';

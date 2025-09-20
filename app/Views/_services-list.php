@@ -13,9 +13,9 @@
                     <?php
                     $all_tags = [];
                     foreach ($service['tag_ids'] as $tag_id) {
-                        $all_tags[] = $services['tags'][$tag_id];
+                        $all_tags[$tag_id] = $services['tags'][$tag_id];
                     }
-                    process_price_tags_cheapest($all_tags);
+                    process_price_tags_cheapest($all_tags, $locale);
                     ?>
                 <?php endif; ?>
                 <a href="<?= base_url($locale . '/services/view?q=' . $service['slug']) ?>" class="specialty-link"><?= lang('Home.services.read-more') ?> <i class="bi bi-arrow-right"></i></a>

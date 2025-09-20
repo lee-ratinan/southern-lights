@@ -26,6 +26,9 @@ return [
     'massage_types'    => [
         'relaxation' => 'Relaxation Massage',
         'deep'       => 'Deep Tissue Massage',
+        'upper-body' => 'Upper Body Focus',
+        'foot'       => 'Foot Massage',
+        'new'        => 'NEW'
     ],
     'locales'          => [
         'label' => 'Language',

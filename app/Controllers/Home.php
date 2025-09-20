@@ -82,14 +82,19 @@ class Home extends BaseController
 
     /**
      * This is the service page
+     * @param string $tag (optional)
      * @return string
      */
-    public function services(): string
+    public function services(string $tag = ''): string
     {
         helper('wordpress');
-        $locale      = service('request')->getLocale();
-        $category_id = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
-        $services    = retrieveWordPressPosts("posts?per_page=20&categories={$category_id}&orderby=title&order=asc");
+        $locale       = service('request')->getLocale();
+        $category_id  = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
+        $query_string = '';
+        if ($tag) {
+            $query_string = '&tags=' . $tag;
+        }
+        $services    = retrieveWordPressPosts("posts?per_page=30&categories={$category_id}&orderby=title&order=asc{$query_string}");
         $data        = [
             'slug'     => 'services',
             'locale'   => $locale,
@@ -121,16 +126,21 @@ class Home extends BaseController
 
     /**
      * This is the promotion page
+     * @param string $tag (optional)
      * @return string
      */
-    public function promotions(): string
+    public function promotions(string $tag = ''): string
     {
         helper('wordpress');
-        $locale      = service('request')->getLocale();
+        $locale       = service('request')->getLocale();
+        $query_string = '';
+        if ($tag) {
+            $query_string = '&tags=' . $tag;
+        }
         $page        = 1;
         $limit       = getenv('WORDPRESS_PAGE_LIMIT');
         $category_id = getenv('WORDPRESS_PROMOTION_' . strtoupper($locale));
-        $promotions  = retrieveWordPressPosts("posts?page={$page}&per_page={$limit}&categories={$category_id}");
+        $promotions  = retrieveWordPressPosts("posts?page={$page}&per_page={$limit}&categories={$category_id}{$query_string}");
         $data        = [
             'slug'       => 'promotions',
             'locale'     => $locale,
