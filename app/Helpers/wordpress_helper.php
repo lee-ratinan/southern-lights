@@ -353,7 +353,7 @@ function process_price_tags_cheapest(array $all_tags, string $locale = '', strin
         if ('new' == $massage_type[0]) {
             $new_class = 'bg-danger text-white';
         }
-        echo '<span class="badge ' . $new_class . '"><a href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></span>';
+        echo '<div class="d-block"><a class="' . $new_class . ' rounded-pill small p-1 px-3" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></div>';
     }
     // PRICE
     foreach ($prices as $price => $minutes) {
@@ -410,7 +410,7 @@ function process_price_tags(array $all_tags, string $locale = '', string $page =
         if ('new' == $massage_type[0]) {
             $new_class = 'bg-danger text-white';
         }
-        echo '<span class="badge ' . $new_class . '"><a href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></span>';
+        echo '<div class="d-block"><a class="' . $new_class . ' rounded-pill small p-1 px-3" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></div>';
     }
     // PRICE
     echo '<table class="table table-sm table-borderless pricing small text-center">';
