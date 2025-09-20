@@ -326,6 +326,28 @@ function format_post_date(string $date, string $locale): string
 }
 
 /**
+ * Process massage tags
+ * @param array $massage_types
+ * @param string $locale
+ * @param string $page
+ * @return void
+ */
+function process_massage_tags(array $massage_types, string $locale, string $page): void
+{
+    if (!empty($massage_types)) {
+        echo '<div class="d-block my-2">';
+        foreach ($massage_types as $massage_type) {
+            $new_class = 'bg-warning';
+            if ('new' == $massage_type[0]) {
+                $new_class = 'bg-danger text-white';
+            }
+            echo '<a class="' . $new_class . ' rounded-pill small p-1 px-3 me-1 mb-1" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a>';
+        }
+        echo '</div>';
+    }
+}
+
+/**
  * Find the cheapest price and print the 'From $#/# min.' message
  * @param array $all_tags
  * @param string $locale (optional)
@@ -334,8 +356,8 @@ function format_post_date(string $date, string $locale): string
  */
 function process_price_tags_cheapest(array $all_tags, string $locale = '', string $page = 'services'): void
 {
-    $prices       = [];
-    $massage_type = [];
+    $prices        = [];
+    $massage_types = [];
     foreach ($all_tags as $tag_id => $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
@@ -343,19 +365,11 @@ function process_price_tags_cheapest(array $all_tags, string $locale = '', strin
             $price = intval($split[1]);
             $prices[$price] = $minutes;
         } else if (in_array($the_tag, ['relaxation', 'deep', 'upper-body', 'foot', 'new'])) {
-            $massage_type = [$the_tag, $tag_id];
+            $massage_types[] = [$the_tag, $tag_id];
         }
     }
     ksort($prices);
-    // TYPE
-    if (!empty($massage_type)) {
-        $new_class = 'bg-warning';
-        if ('new' == $massage_type[0]) {
-            $new_class = 'bg-danger text-white';
-        }
-        echo '<div class="d-block"><a class="' . $new_class . ' rounded-pill small p-1 px-3" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></div>';
-    }
-    // PRICE
+    process_massage_tags($massage_types, $locale, $page);
     foreach ($prices as $price => $minutes) {
         $price = '$' . number_format($price);
         $minutes .= ' min.';
@@ -373,10 +387,10 @@ function process_price_tags_cheapest(array $all_tags, string $locale = '', strin
  */
 function process_price_tags(array $all_tags, string $locale = '', string $page = 'services'): void
 {
-    $prices       = [];
-    $massage_type = [];
-    $has_up       = false;
-    $has_per      = false;
+    $prices        = [];
+    $massage_types = [];
+    $has_up        = false;
+    $has_per       = false;
     foreach ($all_tags as $tag_id => $the_tag) {
         if (preg_match("/\d{1,3}-\d{1,3}/", $the_tag)) {
             $split = explode('-', $the_tag);
@@ -400,19 +414,11 @@ function process_price_tags(array $all_tags, string $locale = '', string $page =
                 'per'        => $per,
             ];
         } else if (in_array($the_tag, ['relaxation', 'deep', 'upper-body', 'foot', 'new'])) {
-            $massage_type = [$the_tag, $tag_id];
+            $massage_types[] = [$the_tag, $tag_id];
         }
     }
     ksort($prices);
-    // TYPE
-    if (!empty($massage_type)) {
-        $new_class = 'bg-warning';
-        if ('new' == $massage_type[0]) {
-            $new_class = 'bg-danger text-white';
-        }
-        echo '<div class="d-block"><a class="' . $new_class . ' rounded-pill small p-1 px-3" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a></div>';
-    }
-    // PRICE
+    process_massage_tags($massage_types, $locale, $page);
     echo '<table class="table table-sm table-borderless pricing small text-center">';
     echo '<tr><td></td><td><b class="text-danger">' . lang('Theme.prices.special') . '</b></td>';
     if ($has_up) {
