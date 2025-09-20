@@ -82,24 +82,28 @@ class Home extends BaseController
 
     /**
      * This is the service page
-     * @param string $tag (optional)
+     * @param string $tag_id (optional)
      * @return string
      */
-    public function services(string $tag = ''): string
+    public function services(string $tag_id = ''): string
     {
         helper('wordpress');
         $locale       = service('request')->getLocale();
         $category_id  = getenv('WORDPRESS_SERVICE_' . strtoupper($locale));
         $query_string = '';
-        if ($tag) {
-            $query_string = '&tags=' . $tag;
+        $tag_slug     = '';
+        if ($tag_id) {
+            $query_string = '&tags=' . $tag_id;
+            $tag_info     = callWordPressCurl(getenv('WORDPRESS_URL') . 'tags/' . $tag_id);
+            $tag_slug     = $tag_info['body']['slug'];
         }
         $services    = retrieveWordPressPosts("posts?per_page=30&categories={$category_id}&orderby=title&order=asc{$query_string}");
         $data        = [
             'slug'     => 'services',
             'locale'   => $locale,
             'uri'      => 'services',
-            'services' => $services
+            'services' => $services,
+            'tag_slug' => $tag_slug,
         ];
         return view('services', $data);
     }
@@ -126,16 +130,19 @@ class Home extends BaseController
 
     /**
      * This is the promotion page
-     * @param string $tag (optional)
+     * @param string $tag_id (optional)
      * @return string
      */
-    public function promotions(string $tag = ''): string
+    public function promotions(string $tag_id = ''): string
     {
         helper('wordpress');
         $locale       = service('request')->getLocale();
         $query_string = '';
-        if ($tag) {
-            $query_string = '&tags=' . $tag;
+        $tag_slug     = '';
+        if ($tag_id) {
+            $query_string = '&tags=' . $tag_id;
+            $tag_info     = callWordPressCurl(getenv('WORDPRESS_URL') . 'tags/' . $tag_id);
+            $tag_slug     = $tag_info['body']['slug'];
         }
         $page        = 1;
         $limit       = getenv('WORDPRESS_PAGE_LIMIT');
@@ -146,7 +153,8 @@ class Home extends BaseController
             'locale'     => $locale,
             'uri'        => 'promotions',
             'promotions' => $promotions,
-            'page'       => $page
+            'page'       => $page,
+            'tag_slug' => $tag_slug,
         ];
         return view('promotions', $data);
     }

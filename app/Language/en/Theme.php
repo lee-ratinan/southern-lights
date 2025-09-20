@@ -30,6 +30,13 @@ return [
         'foot'       => 'Foot Massage',
         'new'        => 'NEW'
     ],
+    'massage_tag_msg'  => [
+        'relaxation' => 'Let your mind drift and your body melt into pure bliss—our relaxation massage is your escape to serenity.',
+        'deep'       => 'Relieve tension and knots with firm, targeted pressure for deep relaxation',
+        'upper-body' => 'Unwind the weight of the day—soothe tired muscles and refresh your senses with focused upper-body care.',
+        'foot'       => 'Step into harmony—revive your feet, restore your balance, and walk away renewed.',
+        'new'        => ''
+    ],
     'locales'          => [
         'label' => 'Language',
         'en'    => 'English',
@@ -41,6 +48,7 @@ return [
         'book-now'    => 'Book Now',
         'buy-voucher' => 'Buy Gift Voucher',
     ],
+    'show-all'         => 'Show All',
     'footer-paragraph' => 'Sky High <b>Thai</b> Harmony—Experience authentic Thai healing in the heart of Auckland.',
     'footer-links'     => 'Useful Links',
     'copyrights'       => 'All rights reserved.'
