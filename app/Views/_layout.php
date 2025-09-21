@@ -45,7 +45,7 @@
     <link href="<?= base_url('/vendor/glightbox/css/glightbox.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('/vendor/flag-icon/flags.min.css') ?>" rel="stylesheet" />
     <!-- Main CSS File -->
-    <link href="<?= base_url('/assets/css/main.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('/assets/css/main.min.css') ?>" rel="stylesheet">
     <!-- =======================================================
     * Template Name: Clinic
     * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
@@ -218,10 +218,10 @@ else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
         const openingHours = <?= json_encode($opening_hours) ?>;
     </script>
     <script src="<?= base_url('/vendor/luxon/luxon.min.js') ?>"></script>
-    <script src="<?= base_url('/assets/js/homepage.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/homepage.min.js') ?>"></script>
 <?php endif; ?>
 <!-- Main JS File -->
-<script src="<?= base_url('/assets/js/main.js') ?>"></script>
+<script src="<?= base_url('/assets/js/main.min.js') ?>"></script>
 <script>
     function fixWpClasses() {
         const rows = document.querySelectorAll('.wp-block-columns'); rows.forEach(el => el.classList.add('row'));

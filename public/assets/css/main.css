@@ -1781,7 +1781,7 @@ section,
 }
 
 .featured-departments .specialty-visual {
-  height: 250px;
+  height: 350px;
   position: relative;
   overflow: hidden;
 }
@@ -1947,7 +1947,7 @@ section,
   }
 
   .featured-departments .specialty-visual {
-    height: 200px;
+    height: 300px;
     order: -1;
   }
 }
