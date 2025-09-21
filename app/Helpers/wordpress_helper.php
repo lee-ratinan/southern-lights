@@ -380,7 +380,7 @@ function process_price_tags_cheapest(array $all_tags, string $locale = '', strin
     process_massage_tags($massage_types, $locale, $page);
     foreach ($prices as $price => $minutes) {
         $price = '$' . number_format($price);
-        $minutes .= ' min.';
+        $minutes = lang('Theme.pricing_table.minutes', [$minutes]);
         echo lang('Theme.pricing_table.from', [$price, $minutes]);
         break;
     }
