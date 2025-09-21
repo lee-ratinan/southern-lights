@@ -459,37 +459,9 @@ class Home extends BaseController
         $email->setFrom($fr);
         $email->setSubject('[WEBSITE] Contact Form Submission' . ($subject ? ' - ' . $subject : ''));
         $email->setMessage("Contact Form Submission\n\nSubject: $subject\nName: $name\nEmail: $from\nPhone: $phone\nMessage: $message");
-        if (!$email->send()) {
+        if ($email->send()) {
             return 'OK';
         }
         return lang('Contact.form.responses.error');
-    }
-
-    private function verifyWP(): string
-    {
-        // call WordPress
-        helper('wordpress');
-        $url  = getenv('WORDPRESS_URL');
-        $data = [];
-        $data['locale'] = service('request')->getLocale();
-        $data['slug']   = 'verify-wp';
-        $data['uri']    = 'verify-wp';
-        // PAGES
-        $data['pages'] = generateWordPressPages([
-            'promotion-popup-en',
-            'promotion-popup-es',
-            'promotion-popup-ja',
-            'promotion-popup-zh',
-            'promotional-hero-en',
-            'promotional-hero-es',
-            'promotional-hero-ja',
-            'promotional-hero-zh',
-        ]);
-        $categories = callWordPressCurl($url . 'categories?orderby=name&order=asc&per_page=100');
-        $category_structure = $categories['body'];
-        foreach ($category_structure as $category) {
-            $data['categories'][$category['id']] = $category;
-        }
-        return view('verify-wp', $data);
     }
 }
