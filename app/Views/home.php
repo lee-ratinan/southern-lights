@@ -114,7 +114,7 @@ $this->section('content');
                                 <p class="mb-1">
                                     <?= $staff_member['excerpt'] ?>
                                 </p>
-                                <?= lang('Home.staff.book-with', [$staff_member['title']]) ?>
+                                <a class="btn btn-outline-primary btn-sm mt-2 rounded-pill" href="<?= getenv('BOOK_NOW_LINK') ?>" target="_blank"><?= lang('Home.staff.book-with', [$staff_member['title']]) ?></a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ $this->section('content');
                             <p class="mb-1">
                                 <?= lang('Home.facilities.parking.para') ?>
                             </p>
-                            <a href="<?= getenv('GOOGLE_MAP') ?>" class="btn btn-sm btn-outline-primary mt-2" target="_blank"><i class="fa-solid fa-route"></i> <?= lang('Home.facilities.parking.map') ?></a>
+                            <a href="<?= getenv('GOOGLE_MAP') ?>" class="btn btn-sm btn-outline-primary mt-2 rounded-pill" target="_blank"><i class="fa-solid fa-route"></i> <?= lang('Home.facilities.parking.map') ?></a>
                         </div>
                     </div>
                 </div>
