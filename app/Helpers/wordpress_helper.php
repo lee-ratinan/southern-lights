@@ -335,13 +335,21 @@ function format_post_date(string $date, string $locale): string
 function process_massage_tags(array $massage_types, string $locale, string $page): void
 {
     if (!empty($massage_types)) {
-        echo '<div class="d-block my-2">';
+        $tags = [];
+        $new  = [];
         foreach ($massage_types as $massage_type) {
-            $new_class = 'bg-warning';
             if ('new' == $massage_type[0]) {
-                $new_class = 'bg-danger text-white';
+                $new[]  = '<a class="bg-danger text-white rounded-pill small p-1 px-3 my-1 d-inline-block" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a>';
+            } else {
+                $tags[] = '<a class="bg-warning rounded-pill small p-1 px-3" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a>';
             }
-            echo '<a class="' . $new_class . ' rounded-pill small p-1 px-3 me-1 mb-1" href="' . base_url($locale . '/' . $page . '/tag/' . $massage_type[1]) . '">' . lang('Theme.massage_types.' . $massage_type[0]) . '</a>';
+        }
+        echo '<div class="d-block my-2">';
+        if (!empty($new)) {
+            echo implode(' ', $new) . '<br>';
+        }
+        if (!empty($tags)) {
+            echo implode(' ', $tags);
         }
         echo '</div>';
     }

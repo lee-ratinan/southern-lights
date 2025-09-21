@@ -28,7 +28,7 @@ return [
         'deep'       => 'Deep Tissue Massage',
         'upper-body' => 'Upper Body Focus',
         'foot'       => 'Foot Massage',
-        'new'        => 'NEW'
+        'new'        => 'New'
     ],
     'massage_tag_msg'  => [
         'relaxation' => 'Let your mind drift and your body melt into pure bliss—our relaxation massage is your escape to serenity.',
