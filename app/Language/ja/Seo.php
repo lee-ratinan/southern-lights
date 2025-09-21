@@ -1,35 +1,35 @@
 <?php
 return [
     'home'                 => [
-        'keywords'    => 'Keywords for home',
-        'description' => 'Description for home',
+        'keywords'    => 'タイマッサージ オークランド, アロママッサージ, スパ Auckland, リラクゼーション, Remuera, Newmarket',
+        'description' => '本格タイマッサージをオークランドで。伝統マッサージやアロマで心身をリフレッシュ。',
     ],
     'about-us'             => [
-        'keywords'    => 'Keywords for about-us',
-        'description' => 'Description for about-us',
+        'keywords'    => 'スパについて オークランド, タイ式セラピスト, 本格タイマッサージ, リラクゼーション',
+        'description' => 'オークランドのタイマッサージスパについて。熟練セラピストが本格技術で癒しをご提供。',
     ],
     'contact-us'           => [
-        'keywords'    => 'Keywords for contact-us',
-        'description' => 'Description for contact-us',
+        'keywords'    => 'スパ 連絡 オークランド, タイマッサージ 予約, スパ 問い合わせ, グループ予約, Remuera, Newmarket',
+        'description' => 'オークランドのタイマッサージスパにお問い合わせ。ご予約やご質問はこちらから。',
     ],
     'services'             => [
-        'keywords'    => 'Keywords for services',
-        'description' => 'Description for services',
+        'keywords'    => 'タイマッサージ オークランド, アロママッサージ, ホットストーン, 妊婦マッサージ, スパ サービス',
+        'description' => 'オークランドで癒しのサービス。アロマ、タイ古式、ホットストーン、マタニティマッサージをご提供。',
     ],
     'promotions'           => [
-        'keywords'    => 'Keywords for promotions',
-        'description' => 'Description for promotions',
+        'keywords'    => 'マッサージ お得 Auckland, スパ プロモーション, カップル マッサージ, 個人 マッサージ 割引, スパ 特典',
+        'description' => 'オークランドの特別プロモーション。個人やカップル向けのお得なマッサージプランで癒しと節約を。',
     ],
     'blog'                 => [
-        'keywords'    => 'Keywords for blog',
-        'description' => 'Description for blog',
+        'keywords'    => 'タイマッサージ オークランド, マッサージ お得情報, マッサージ 効果, 健康効果, スパ 特典',
+        'description' => 'オークランドに新しいタイマッサージスパが登場。グランドオープン特典や予約情報をお楽しみに。',
     ],
     'terms-and-conditions' => [
-        'keywords'    => 'Keywords for terms-and-conditions',
-        'description' => 'Description for terms-and-conditions',
+        'keywords'    => '',
+        'description' => '',
     ],
     'privacy-policy'       => [
-        'keywords'    => 'Keywords for privacy-policy',
-        'description' => 'Description for privacy-policy',
+        'keywords'    => '',
+        'description' => '',
     ],
 ];
