@@ -19,4 +19,7 @@ return [
     'by'        => 'Por {0}',
     'tags'      => 'Etiquetas: ',
     'read-more' => 'Leer más',
+    'others'    => [
+        'no-promo' => 'Lo sentimos, no hay promociones en este momento.'
+    ]
 ];
