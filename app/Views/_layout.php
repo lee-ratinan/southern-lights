@@ -200,7 +200,8 @@ else if ('promotion-view' == $slug) {$lang_uri = 'promotions';}
         </div>
     </div>
 </footer>
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i>FB</i></a>
+<a href="<?= getenv('CONTACT_WHATSAPP') ?>" target="_blank" class="btn btn-success rounded-circle" style="position: fixed;bottom: 20px;right: 20px;z-index: 1000;"><i class="bi bi-whatsapp"></i></a>
+<a href="#" id="scroll-top" class="d-none scroll-top d-flex align-items-center justify-content-center"><i>TOP</i></a>
 <div id="preloader"></div>
 <script>let this_page_slug = '<?= $slug ?>'; </script>
 <!-- Vendor JS Files -->
